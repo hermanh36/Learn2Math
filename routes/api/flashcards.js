@@ -24,19 +24,16 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 
 router.get('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
     Flashcard.findById(req.params.id)
-        .then(flashcard => {
-            res.json(flashcard)
-            .catch(err => res.status(404).json({ noflashcardfound: 'No flashcard found with that ID' }))
-        })
+        .then(flashcard => res.json(flashcard))
+        .catch(err => res.status(404).json({ noflashcardfound: 'No flashcard found with that ID' }))
+        
 })
 
 router.patch('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-    const flashcard = Flashcard.findById(req.params.id)
-        .then({
-            title: req.body.title,
-            body: req.body.body
-        })
-    flashcard.save().then(flashcard => res.json(flashcard));
+    Flashcard.findById(req.params.id).then(() => ({
+        title: req.body.title,
+        body: req.body.body
+    })).then(flashcard => res.json(flashcard))
 })
 
 router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
