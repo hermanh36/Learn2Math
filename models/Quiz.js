@@ -3,11 +3,12 @@ const Schema = mongoose.Schema;
 
 const QuizSchema = new Schema({
   lessonId: {
-    type: Number,
-    required: true
+    type: Schema.Types.ObjectId,
+    ref: 'lessons'
   },
   studentId: {
-    type: Number,
+    type: Schema.Types.ObjectId,
+    ref: 'users'
   }
 }, {
   timestamps: true
