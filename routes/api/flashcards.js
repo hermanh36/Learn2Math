@@ -5,6 +5,13 @@ const keys = require('../../config/keys');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 
+
+router.get('/', (req, res) => {
+    Flashcard.find()
+        .then(flashcards => res.json(flashcards))
+        .catch(err => res.status(404).json({ noflashcardsfound: 'No Flashcards found' }));
+});
+
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
     const newFlashcard = new Flashcard({
         title: req.body.title,

@@ -1,0 +1,48 @@
+
+const express = require('express');
+const router = express.Router();
+const mongoose = require('mongoose');
+const passport = require('passport');
+
+const Quiz = require('../../models/Quiz');
+
+router.get('/', (req, res) => {
+  Quiz.find()
+    .then(quiz => res.json(quiz))
+    .catch(err => res.status(404).json({ noquizfound: 'No quizzes found' }));
+});
+
+router.get('/:id', (req, res) => {
+  Quiz.findById(req.params.id)
+    .then(quiz => res.json(quiz))
+    .catch(err =>
+      res.status(404).json({ noquizfound: 'No quizzes found with that id' })
+    );
+});
+
+router.post('/',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const newQuiz = new Quiz({
+      lessonId: req.body.lessonId,
+      studentId: req.user.id
+    });
+
+    newQuiz.save().then(quiz => res.json(quiz));
+  }
+);
+
+router.delete('/:id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Quiz.findByIdAndDelete(req.params.id, (err, () => {
+      if (err) {
+        res.status(404).json({ noquizfound: 'No quizzes with that ID found!' })
+      } else {
+        console.log("quiz deleted");
+      }
+    }))
+  }
+);
+
+module.exports = router;

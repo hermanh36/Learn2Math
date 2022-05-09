@@ -10,6 +10,7 @@ const path = require('path');
 const lessons = require("./routes/api/lessons")
 const flashcards = require("./routes/api/flashcards");
 const questions = require("./routes/api/flashcards");
+const quizzes = require("./routes/api/quizzes")
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
@@ -36,6 +37,7 @@ app.use("/api/tweets", tweets);
 app.use("/api/lessons", lessons);
 app.use("/api/questions", questions);
 app.use("/api/flashcards", flashcards);
+app.use("/api/quizzes", quizzes)
 
 
 

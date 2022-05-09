@@ -8,7 +8,6 @@ const Lesson = require('../../models/Lesson');
 const validateLessonInput = require('../../validation/lessons');
 
 router.get('/', (req, res) => {
-  debugger;
   Lesson.find()
     .then(lessons => res.json(lessons))
     .catch(err => res.status(404).json({ nolessonsfound: 'No Lessons found' }));
@@ -63,7 +62,7 @@ router.patch('/:id',
 router.delete('/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    Lesson.findByIdAndDelete(req.params.id,(err, lesson => {
+    Lesson.findByIdAndDelete(req.params.id,(err, () => {
       if(err){
         res.status(404).json({nolessonfound: 'No lessons with that ID found!'})
       } else {
