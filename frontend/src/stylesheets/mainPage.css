@@ -56,9 +56,7 @@
 }
 
 @media only screen and (max-width: 800px) {
-  body {
-    background-color: lightblue;
-  }
+ 
   .splash-image-wrap > div{
     font-size: 5rem;
   }
