@@ -7,6 +7,7 @@ const users = require("./routes/api/users");
 const tweets = require("./routes/api/tweets");
 const bodyParser = require('body-parser');
 const path = require('path');
+const lessons = require("./routes/api/lessons")
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
@@ -30,6 +31,7 @@ app.get("/", (req, res) => res.send("Using Nodemon"));
 
 app.use("/api/users", users);
 app.use("/api/tweets", tweets);
+app.use("/api/lessons", lessons)
 
 
 

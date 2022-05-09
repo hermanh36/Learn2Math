@@ -11,7 +11,7 @@ const LessonSchema = new Schema({
     required: true
   },
   content: {
-    type: Text,
+    type: String,
     required: true
   }
 }, {
