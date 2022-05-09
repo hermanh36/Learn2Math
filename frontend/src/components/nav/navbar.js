@@ -30,8 +30,8 @@ class NavBar extends React.Component {
       } else {
         return (
             <div>
-                <Link to={'/signup'}>Signup</Link>
-                <Link to={'/login'}>Login</Link>
+                <Link to={'/signup'} className="signup-btn">Signup</Link>
+                <Link to={'/login'} className="login-btn">Login</Link>
             </div>
         );
       }
@@ -39,8 +39,12 @@ class NavBar extends React.Component {
 
   render() {
       return (
-        <div>
-            <h1>Chirper</h1>
+        <div className="main-nav-wrap">
+            <h1>
+              <Link to="/">
+                Learn2Math
+              </Link>
+            </h1>
             { this.getLinks() }
         </div>
       );

@@ -8,16 +8,21 @@ class MainPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>A Twitter Clone</h1>
         <div className="splash-image-wrap">
           <div>
-              stuff
+
+          </div>
+          <div>
+              <h1>Ready 2 Math?</h1>
+              <div className="big-signup-btn">
+                <button>Sign up!</button>
+              </div>
           </div>
           {/* <img src={mathSplash} alt="math splash" /> */}
         </div>
-        <footer className="footer">
+        {/* <footer className="footer">
           Copyright &copy; 2021 Learn2Math
-        </footer>
+        </footer> */}
       </div>
     );
   }

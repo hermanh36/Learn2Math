@@ -103,6 +103,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  font-family: 'Work Sans', sans-serif;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -151,7 +152,6 @@ table {
   --yellow-1: #FFC44F; 
   --yellow-2: #F5B433; 
   --yellow-3: #A87613; 
-
   --blue-1: #3381F5; 
   --blue-2: #2B5EAB; 
   --white-1: rgba(242, 242, 242, 1);
@@ -166,4 +166,6 @@ table {
 
 @import "./stylesheets/sessionModal.css";
 @import "./stylesheets/mainPage.css";
+@import "./stylesheets/mainNav.css";
 @import "./stylesheets/footer.css";
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700&display=swap');
