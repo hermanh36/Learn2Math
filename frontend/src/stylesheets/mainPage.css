@@ -1,0 +1,17 @@
+.splash-image-wrap{
+  width: 100%;
+
+}
+
+.splash-image-wrap > div{
+  background-image: url("./../images/math_splash.jpg");
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  
+}
+
+.splash-image-wrap { 
+  
+}
