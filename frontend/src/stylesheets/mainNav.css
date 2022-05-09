@@ -33,3 +33,9 @@
 .signup-btn{
   margin-right: 0.5em;
 }
+
+@media only screen and (max-width: 800px) {
+  .main-nav-wrap {
+    padding: 0 1em;
+  }
+}

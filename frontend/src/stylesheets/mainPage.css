@@ -6,21 +6,75 @@
   background-repeat: no-repeat;
   width: 100%;
 }
+
 .splash-image-wrap > div:first-child{
   flex: 0.7;
 }
+
 .splash-image-wrap > div{
   flex: 1; 
   display: flex; 
-  align-items: center;
+  align-items: flex-start;
   color: var(--yellow-1);
   font-size: 7em; 
   font-weight: 600;
+  justify-content: center;
 }
+
+.splash-image-wrap > div:last-child{
+  flex-direction: column;
+  background: var(--blue-3);
+  
+}
+
 .splash-image-wrap > div > h1{
-  transform: translateY(-50%);
+  transform: translateY(-50%); 
+}
+
+.big-signup-btn{
+  box-sizing: border-box;
 }
 .big-signup-btn > button{
   padding: 2rem; 
-  font-size: 2rem; 
+  font-size: 3rem; 
+  background: none;
+  border: none;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+  box-sizing: border-box;
+  
+}
+.big-signup-btn > button:hover{
+  font-size: 3.5rem; 
+  transform: translateX(2rem);
+  
+}
+.big-signup-btn > button > span{
+  color: red;
+}
+
+@media only screen and (max-width: 800px) {
+  body {
+    background-color: lightblue;
+  }
+  .splash-image-wrap > div{
+    font-size: 5rem;
+  }
+  .splash-image-wrap>div:first-child {
+    flex: 0;
+  }
+  .splash-image-wrap>div>h1 {
+    transform: translateY(-20%);
+    text-align: center;
+  }
+  .splash-image-wrap>div:last-child {
+    background: var(--black-3);
+    padding: 0 0.5em;
+  }
+
+  .big-signup-btn>button {
+    font-size: 2rem;
+  }
 }

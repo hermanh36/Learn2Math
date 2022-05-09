@@ -15,7 +15,7 @@ class MainPage extends React.Component {
           <div>
               <h1>Ready 2 Math?</h1>
               <div className="big-signup-btn">
-                <button>Sign up!</button>
+              <button><span>--></span> Sign up!</button>
               </div>
           </div>
           {/* <img src={mathSplash} alt="math splash" /> */}
