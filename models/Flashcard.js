@@ -7,7 +7,7 @@ const FlashcardScehma = new Schema({
         required: true
     },
     body: {
-        type: Text,
+        type: String,
         required: true
     },
     authorId: {
