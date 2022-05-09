@@ -8,8 +8,8 @@ const Lesson = require('../../models/Lesson');
 const validateLessonInput = require('../../validation/lessons');
 
 router.get('/', (req, res) => {
-  Lession.find()
-    .sort({ date: -1 })
+  debugger;
+  Lesson.find()
     .then(lessons => res.json(lessons))
     .catch(err => res.status(404).json({ nolessonsfound: 'No Lessons found' }));
 });
@@ -30,7 +30,7 @@ router.post('/',
     if (!isValid) {
       return res.status(400).json(errors);
     }
-
+    console.log(req)
     const newLesson = new Lesson({
       authorId: req.user.id,
       title: req.body.title,
