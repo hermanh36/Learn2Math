@@ -18,4 +18,4 @@ const LessonSchema = new Schema({
   timestamps: true
 })
 
-module.exports = User = mongoose.model('Lesson', LessonSchema);
+module.exports = Lesson = mongoose.model('Lesson', LessonSchema);

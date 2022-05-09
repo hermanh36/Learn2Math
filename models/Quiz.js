@@ -14,4 +14,4 @@ const QuizSchema = new Schema({
   timestamps: true
 })
 
-module.exports = User = mongoose.model('Quiz', QuizSchema);
+module.exports = Quiz = mongoose.model('Quiz', QuizSchema);
