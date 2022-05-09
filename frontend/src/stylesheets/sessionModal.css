@@ -1,3 +1,46 @@
 .login-wrap{
-  border: 2px solid red; 
+  display: flex;
+  position: relative;
+  z-index: 20;
+  margin: auto;
+  background: white;
+  padding: 2em;
+  border-radius: 20px;
+  
+}
+
+.session-modal-email-input, .session-modal-password-input{
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 0.5em; 
+  border-radius: 5px;
+  font-size: 1.2em; 
+  box-sizing: border-box;
+}
+
+
+
+.session-modal-overlay{
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgb(0, 0, 0, 0.6);
+}
+
+.session-modal-close-button{
+  position: absolute;
+  bottom: 110%;
+  cursor: pointer; 
+  right: 1em;
+}
+.session-modal-close-button-text{
+  color: red;
+  font-size: 2em;
+}
+
+.session-modal-close-button-text:hover{
+  color: black;
 }
