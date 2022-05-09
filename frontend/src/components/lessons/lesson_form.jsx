@@ -5,6 +5,10 @@ import 'react-quill/dist/quill.snow.css';
 
 class QuillTest extends React.Component {
 
+  constructor(props){
+    super(props)
+    this.state = { content: this.props.content }
+  }
   modules = {
     toolbar: [
       [{ 'header': [1, 2, false] }],
@@ -22,14 +26,23 @@ class QuillTest extends React.Component {
     'link', 'image'
   ]
 
+  submitHandler(e) {
+    e.preventDefault();
+    this.props.createLesson(this.state);
+  }
+
+  update(e) {
+    this.setState({ content: e.target.value })
+  }
 
 
   render() {
     return (
-    <form action="">
-      <h1>Test</h1>
-      <ReactQuill modules={this.modules} formats={this.formats}>
+    <form onSubmit={this.submitHanlder}>
+      <h1>Create Your Lesson!</h1>
+      <ReactQuill modules={this.modules} formats={this.formats} onChange={this.update}>
       </ReactQuill>
+      <input type="submit" value="Make Your Lesson" />
     </form>
     )
   }
