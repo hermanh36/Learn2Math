@@ -154,6 +154,7 @@ table {
   --yellow-3: #A87613; 
   --blue-1: #3381F5; 
   --blue-2: #2B5EAB; 
+  --black-3: rgba(0, 0, 0, 0.4);
   --white-1: rgba(242, 242, 242, 1);
   --gray-1: rgb(226, 222, 222);
   --gray-2: rgba(238, 238, 238, 1);

@@ -63,34 +63,31 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className='session-modal-overlay'>
-        <div className="login-wrap">
-          <form onSubmit={this.handleSubmit}>
-            <div>
-                <input type="text"
-                  className='session-modal-email-input'
-                  value={this.state.email}
-                  onChange={this.update('email')}
-                  placeholder="Email"
-                />
-                <div className='session-modal-close-button'>
-                  <span className="session-modal-close-button-text" onClick={()=>console.log("I've been clicked!")}>x</span>
-                </div>
-                <input type="password"
-                  className="session-modal-password-input"
-                  value={this.state.password}
-                  onChange={this.update('password')}
-                  placeholder="Password"
-                />
-              <div className='session-modal-button-container'>
-              <input type="submit" value="Login" />
-              <button onClick={() => this.props.history.push("/signup")} className="session-modal-signup-button"> Signup </button>
+      <div className="login-wrap">
+        <form onSubmit={this.handleSubmit}>
+          <div>
+              <input type="text"
+                className='session-modal-email-input'
+                value={this.state.email}
+                onChange={this.update('email')}
+                placeholder="Email"
+              />
+              <div className='session-modal-close-button'>
+                <span className="session-modal-close-button-text" onClick={()=>console.log("I've been clicked!")}>x</span>
               </div>
-              {this.renderErrors()}
+              <input type="password"
+                className="session-modal-password-input"
+                value={this.state.password}
+                onChange={this.update('password')}
+                placeholder="Password"
+              />
+            <div className='session-modal-button-container'>
+            <input type="submit" value="Login" />
+            <button onClick={() => this.props.history.push("/signup")} className="session-modal-signup-button"> Signup </button>
             </div>
-          </form>
-          
-        </div>
+            {this.renderErrors()}
+          </div>
+        </form>
       </div>
     );
   }
