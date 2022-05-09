@@ -1,17 +1,26 @@
 .splash-image-wrap{
-  width: 100%;
-
-}
-
-.splash-image-wrap > div{
+  display: flex;
   background-image: url("./../images/math_splash.jpg");
-  height: 100vh;
+  height: calc(100vh - 70px);
   background-size: cover;
   background-repeat: no-repeat;
-  
-  
+  width: 100%;
 }
-
-.splash-image-wrap { 
-  
+.splash-image-wrap > div:first-child{
+  flex: 0.7;
+}
+.splash-image-wrap > div{
+  flex: 1; 
+  display: flex; 
+  align-items: center;
+  color: var(--yellow-1);
+  font-size: 7em; 
+  font-weight: 600;
+}
+.splash-image-wrap > div > h1{
+  transform: translateY(-50%);
+}
+.big-signup-btn > button{
+  padding: 2rem; 
+  font-size: 2rem; 
 }

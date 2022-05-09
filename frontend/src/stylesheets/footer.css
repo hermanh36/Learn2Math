@@ -1,9 +1,12 @@
 .footer { 
   box-sizing: border-box;
   padding: 2em;
-  background-color: var(--yellow-2);
-  
+  background-color: black;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 700; 
+  color: var(--yellow-1);
+  
 }
