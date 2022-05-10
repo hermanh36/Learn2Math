@@ -8,23 +8,26 @@ class QuizIndex extends React.Component {
   //assume props have lessonId
 
   componentDidMount() {
-    this.props.fetchQuestions(this._id)
+    this.props.fetchQuestions(this.props.quizId)
   }
 
   render() {
-    return (
-      <div>
-        <div id='left-side-of-quiz'> 
-          <h1>Quiz</h1>
-          <ul>
-            {this.props}
-          </ul>
+    if (!questions){
+      return null;
+    } else {
+      return (
+        <div>
+          <div id='left-side-of-quiz'> 
+            <h1>Quiz</h1>
+            <ul>
+              {this.props.questions.map(question => <QuestionItem question={question}/>)}
+            </ul>
+          </div>
+          <div id='right-side-of-quiz'>
+            <QuestionFormComponent/>
+          </div>
         </div>
-        <div id='right-side-of-quiz'>
-
-        </div>
-      </div>
-    )
+      )
+    }
   }
-
 }
