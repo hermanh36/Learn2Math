@@ -19,13 +19,10 @@ class LeftSidebar extends React.Component {
                     <div className="slide">
                         <h1>L2M</h1>
                         <ul>
-                           <li><a href="#">Item 1</a></li>
-                           <li><a href="#">Item 2</a></li>
-                           <li><a href="#">Item 3</a></li>
-                           <li><a href="#">Item4</a></li>
-                           <li><a href="#">Item5</a></li>
-                           <li><a href="#">Item 6</a></li>
-                           <li><a href="#">Item 7</a></li>
+                           <li><Link to="/categories">Lessons</Link></li>
+                           <li><Link to="/create_test">Create a test</Link></li>
+                           <li><Link to="/profile">Profile</Link></li>
+                           
                         </ul>
                     </div>
                 </label>
