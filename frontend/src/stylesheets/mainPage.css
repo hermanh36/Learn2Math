@@ -34,7 +34,7 @@
 .big-signup-btn{
   box-sizing: border-box;
 }
-.big-signup-btn > button{
+.big-signup-btn > a > button{
   padding: 2rem; 
   font-size: 3rem; 
   background: none;
@@ -46,12 +46,12 @@
   box-sizing: border-box;
   
 }
-.big-signup-btn > button:hover{
+.big-signup-btn > a > button:hover{
   font-size: 3.5rem; 
   transform: translateX(2rem);
   
 }
-.big-signup-btn > button > span{
+.big-signup-btn > a > button > span{
   color: red;
 }
 
@@ -72,7 +72,7 @@
     padding: 0 0.5em;
   }
 
-  .big-signup-btn>button {
+  .big-signup-btn> a > button {
     font-size: 2rem;
   }
 }

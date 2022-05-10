@@ -1,5 +1,6 @@
 // src/components/main/main_page.js
 import mathSplash from "./../../images/math_splash.jpg"
+import { Link } from "react-router-dom";
 
 import React from 'react';
 
@@ -15,7 +16,9 @@ class MainPage extends React.Component {
           <div>
               <h1>Ready 2 Math?</h1>
               <div className="big-signup-btn">
-              <button><span>--></span> Sign up!</button>
+                <Link to="/signup">
+                  <button><span>--></span> Sign up!</button>
+                </Link>
               </div>
           </div>
           {/* <img src={mathSplash} alt="math splash" /> */}
