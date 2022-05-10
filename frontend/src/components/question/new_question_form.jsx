@@ -8,21 +8,23 @@ export default class NewQuestionForm extends React.Component {
         this.state = {
             quizId: this.props.match.params.quizId,
             content: '',
-            answerChoices: '',
-            correctAnswer: ''
+            answerChoices: [],
+            correctAnswer: '',
+            choice1:'',
+            choice2:'',
+            choice3:'',
+            choice4:'',
         }
-        this.choices = [];
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
+        const {choice1, choice2, choice3, choice4} = this.state;
         console.log(this.state);
-        console.log(this.choices);
-        this.setState({ answerChoices: this.choices });
-        console.log(this.state);
-        // this.props.createQuestion(this.state);
-        // this.setState({})
+        const arr = [choice1, choice2, choice3, choice4];
+        console.log(arr);
+        this.setState({answerChoices:arr}, () => this.props.createQuestion(this.state));
     }
 
     update(field) {
@@ -34,7 +36,8 @@ export default class NewQuestionForm extends React.Component {
 
     updateChoice(num) {
         return e => {
-            this.choices[num] = e.target.value;
+            const temp = `choice${num}`;
+            this.setState({[temp]:e.target.value})
         }
     }
 
@@ -47,16 +50,16 @@ export default class NewQuestionForm extends React.Component {
                         <input type="text" placeholder="Question" value={content} onChange={this.update('content')} />
                     </label>
                     <label>
-                        <input type="text" placeholder="Choice 1" value={answerChoices[0]} onChange={this.updateChoice(0)} />
+                        <input type="text" placeholder="Choice 1" value={this.state.choice1} onChange={this.updateChoice(1)} />
                     </label>
                     <label>
-                        <input type="text" placeholder="Choice 2" value={answerChoices[1]} onChange={this.updateChoice(1)} />
+                        <input type="text" placeholder="Choice 2" value={this.state.choice2} onChange={this.updateChoice(2)} />
                     </label>
                     <label>
-                        <input type="text" placeholder="Choice 3" value={answerChoices[2]} onChange={this.updateChoice(2)} />
+                        <input type="text" placeholder="Choice 3" value={this.state.choice3} onChange={this.updateChoice(3)} />
                     </label>
                     <label>
-                        <input type="text" placeholder="Choice 4" value={answerChoices[3]} onChange={this.updateChoice(3)} />
+                        <input type="text" placeholder="Choice 4" value={this.state.choice4} onChange={this.updateChoice(4)} />
                     </label>
                     <label>
                         <input type="text" placeholder="Correct Answer" value={correctAnswer} onChange={this.update('correctAnswer')} />
