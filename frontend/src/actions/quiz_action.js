@@ -12,7 +12,7 @@ export const receiveQuizzes = quizzes => {
   }
 }
 
-export const receiveQuiz = quizId => {
+export const receiveQuiz = quiz => {
   return {
     type: RECEIVE_QUIZ,
     quiz: quiz.data
@@ -43,7 +43,7 @@ export const fetchQuizzes = () => dispatch => {
 
 export const fetchQuiz = (quiz) => dispatch => {
   return (
-    quizUtil.fetchQuizzes()
+    quizUtil.fetchQuiz(quiz)
       .then(quiz => dispatch(receiveQuizzes(quiz)))
       .catch(err => dispatch(receiveQuizError(err)))
   )
