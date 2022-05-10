@@ -15,6 +15,7 @@ import CreateLessonContainer from './lessons/create_lesson_container';
 import CategoryIndexContainer from './category/category_index_container';
 import LeftSidebar from './left_sidebar/left_sidebar';
 import NewQuestionFormContainer from './question/new_question_form_container';
+import QuizIndexContainer from './quiz/quiz_index_container';
 
 const App = () => (
   <div className="app-wrap">
@@ -26,7 +27,7 @@ const App = () => (
       <AuthRoute exact path="/" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <Route exact path='/'
+      <Route exact path='/quiz/' component={QuizIndexContainer} />
 
       <ProtectedRoute exact path="/categories" component={CategoryIndexContainer} />
       <ProtectedRoute exact path="/tweets" component={TweetsContainer} />

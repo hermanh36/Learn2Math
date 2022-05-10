@@ -9,11 +9,11 @@ class QuizIndex extends React.Component {
   //assume props have lessonId
 
   componentDidMount() {
-    this.props.fetchQuestions(this.props.quizId)
+    this.props.fetchQuestions()
   }
 
   render() {
-    if (!questions){
+    if (!this.props.questions){
       return null;
     } else {
       return (

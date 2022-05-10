@@ -1,5 +1,6 @@
 import { connect } from "react-redux"
 import QuestionItem from "./question_item"
+import { fetchQuestion } from "../../actions/question_actions"
 
 const mapStateToProps = state => {
   return {
@@ -9,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchQuestion: question => dispatch(receiveQuestion(question))
+    fetchQuestion: question => dispatch(fetchQuestion(question.id))
   }
 }
 

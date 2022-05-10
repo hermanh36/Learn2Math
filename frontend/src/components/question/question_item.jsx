@@ -10,7 +10,7 @@ class QuestionItem extends React.Component {
   }
 
   render() {
-    if (!question) {
+    if (!this.props.question) {
       return null;
     } else {
       return (
