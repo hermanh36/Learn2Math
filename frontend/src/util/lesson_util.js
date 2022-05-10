@@ -9,13 +9,13 @@ export const fetchLesson = lessonId => {
 };
 
 export const createLesson = lesson => {
-  return axios.post('api/lessons/', lesson)
+  return axios.post('/api/lessons/', lesson)
 };
 
 export const updateLesson = lesson => {
-  return axios.patch(`api/lessons/${lesson.id}`, lesson)
+  return axios.patch(`/api/lessons/${lesson.id}`, lesson)
 };
 
 export const deleteLesson = lessonId => {
-  return axios.delete(`api/lessons/${lessonId}`)
+  return axios.delete(`/api/lessons/${lessonId}`)
 }
