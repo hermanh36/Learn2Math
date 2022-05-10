@@ -1,4 +1,5 @@
 import React from 'react';
+import QuestionItem from '../question/question_item';
 
 class QuizIndex extends React.Component {
   constructor(props){
@@ -23,11 +24,13 @@ class QuizIndex extends React.Component {
               {this.props.questions.map(question => <QuestionItem question={question}/>)}
             </ul>
           </div>
-          <div id='right-side-of-quiz'>
+          {/* <div id='right-side-of-quiz'>
             <QuestionFormComponent/>
-          </div>
+          </div> */}
         </div>
       )
     }
   }
 }
+
+export default QuizIndex;
