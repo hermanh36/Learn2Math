@@ -11,6 +11,8 @@ import { logout } from './actions/session_actions';
 import * as lessonAction from './actions/lesson_actions';
 import * as QuestionAction from './actions/question_actions'
 
+import * as QuizAction from './actions/quiz_action';
+
 window.axios = axios;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -43,6 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
   window.createQuestion = QuestionAction.createQuestion;
   window.updateQuestion = QuestionAction.updateQuestion;
   window.deleteQuestion = QuestionAction.deleteQuestion;
+
+  window.fetchQuizzes = QuizAction.fetchQuizzes;
+  window.fetchQuiz = QuizAction.fetchQuiz;
+  window.createQuiz = QuizAction.createQuiz;
+  // window.updateQuiz = QuizAction.updateQuiz;
+  window.deleteQuiz = QuizAction.deleteQuiz;
+
   const root = document.getElementById('root');
 
   ReactDOM.render(<Root store={store} />, root);
