@@ -42,20 +42,19 @@ router.post('/',
 
 router.patch('/:id',
   passport.authenticate('jwt', { session: false }),
-  (req, res) => {
+  async (req, res) => {
     const { errors, isValid } = validateLessonInput(req.body);
 
     if (!isValid) {
       return res.status(400).json(errors);
     }
 
-    const currentLesson = Lesson.findById(req.params.id).then(
-    {
-      title: req.body.title,
-      content: req.body.content,
-    });
-
-    currentLesson.save().then(lesson => res.json(lesson));
+    await Lesson.findByIdAndUpdate(req.params.id, {
+    title: req.body.title,
+    content: req.body.content
+    })
+    .then(lesson => res.json(lesson))
+    .catch(err => res.json(err))
   }
 );
 
