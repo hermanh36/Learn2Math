@@ -9,7 +9,10 @@ class LessonForm extends React.Component {
     super(props)
     this.state = { content: this.props.content }
     this.update = this.update.bind(this);
+    this.submitHandler = this.submitHandler.bind(this);
   }
+
+  
   modules = {
     toolbar: [
       [{ 'header': [1, 2, false] }],
@@ -30,6 +33,7 @@ class LessonForm extends React.Component {
   submitHandler(e) {
     e.preventDefault();
     // console.log(this.state);
+
     this.props.createLesson(this.state);
   }
 
@@ -39,20 +43,14 @@ class LessonForm extends React.Component {
   }
 
   render() {
-    // const parser = new DOMParser()
-    // const domParser = parser.parseFromString(this.state.content,'text/html');
-    // const tings = domParser.documentElement.textContent;
-    // console.log(this.state.content);
-    // document.getElementById('hook').innerHTML = this.state.content;
     return (
-    <form onSubmit={this.submitHandler}>
-      <h1>{this.props.header}</h1>
-      <ReactQuill modules={this.modules} formats={this.formats} value={this.state.content} onChange={this.update}>
-      </ReactQuill>
-      <div id='hook'></div>
-      {/* {tings} */}
-      <input type="submit" value="Make Your Lesson" />
-    </form>
+      <form onSubmit={this.submitHandler}>
+        <h1>{this.props.header}</h1>
+        <ReactQuill modules={this.modules} formats={this.formats} value={this.state.content} onChange={this.update}>
+        </ReactQuill>
+        <div id='hook'></div>
+        <input type="submit" value="Make Your Lesson" />
+      </form>
     )
   }
 }
