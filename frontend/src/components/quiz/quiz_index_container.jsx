@@ -4,7 +4,7 @@ import { createQuestion, fetchQuestions } from '../../actions/question_actions'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    quizId: state.entities.quizzes[ownProps.match.params.quizId],
+    quizId: ownProps.match.params.quizId,
     questions: Object.values(state.entities.questions)
   }
 }
