@@ -11,7 +11,7 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import ProfileContainer from './profile/profile_container';
 import TweetComposeContainer from './tweets/tweet_compose_container';
-import QuillTest from './lessons/lesson_form';
+import CreateLessonContainer from './lessons/create_lesson_container';
 import CategoryIndexContainer from './category/category_index_container';
 import LeftSidebar from './left_sidebar/left_sidebar';
 
@@ -21,7 +21,7 @@ const App = () => (
     <NavBarContainer />
     {/* <LeftSidebar /> */}
     <Switch>
-      <Route exact path = "/quilltest" component={QuillTest} />
+      <Route exact path = "/createlessontest" component={CreateLessonContainer} />
       <AuthRoute exact path="/" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
