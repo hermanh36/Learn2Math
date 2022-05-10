@@ -1,5 +1,5 @@
 import { RECEIVE_LESSONS, RECEIVE_LESSON, REMOVE_LESSON } 
-from "../actions/lession_actions";
+from "../actions/lesson_actions";
 
 const LessonsReducer = (state = {}, action) => {
   Object.freeze(state);

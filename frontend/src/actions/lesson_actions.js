@@ -36,7 +36,7 @@ export const removeLesson = lessonId => {
 export const fetchLessons = () => dispatch => {
   return (
     lessonUtil.fetchLessons()
-    .then(lessons => dispatch(receiveLessons(lessons)))
+    .then(lessons => dispatch(receiveLessons(lessons.data)))
     .catch(err => dispatch(receiveLessonError(err)))
   )
 };
@@ -44,7 +44,7 @@ export const fetchLessons = () => dispatch => {
 export const fetchLesson = lessonId => dispatch => {
   return (
     lessonUtil.fetchLesson(lessonId)
-    .then(lesson => dispatch(receiveLesson(lesson)))
+    .then(lesson => dispatch(receiveLesson(lesson.data)))
     .catch(err => dispatch(receiveLessonError(err)))
   )
 };
@@ -52,7 +52,7 @@ export const fetchLesson = lessonId => dispatch => {
 export const createLesson = lesson => dispatch => {
   return (
     lessonUtil.createLesson(lesson)
-    .then(lesson => dispatch(receiveLesson(lesson)))
+    .then(lesson => dispatch(receiveLesson(lesson.data)))
     .catch(err => dispatch(receiveLessonError(err)))
   )
 };
@@ -60,7 +60,7 @@ export const createLesson = lesson => dispatch => {
 export const updateLesson = lesson => dispatch => {
   return (
     lessonUtil.updateLesson(lesson)
-    .then(lesson => dispatch(receiveLesson(lesson)))
+    .then(lesson => dispatch(receiveLesson(lesson.data)))
     .catch(err => dispatch(receiveLessonError(err)))
   )
 };
