@@ -7,7 +7,7 @@ class LessonForm extends React.Component {
 
   constructor(props){
     super(props)
-    this.state = { content: this.props.content }
+    this.state = { content: this.props.content, category: this.props.category }
     this.update = this.update.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
   }

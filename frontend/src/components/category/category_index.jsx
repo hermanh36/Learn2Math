@@ -4,8 +4,11 @@ import LeftSidebar from '../left_sidebar/left_sidebar';
 export default class CategoryIndex extends React.Component {
 
     componentDidMount(){
-        this.props.fetchLessons(); 
-        debugger;
+        this.props.fetchLessons().then((res) => {
+            console.log(res);
+            
+        }); 
+        
     }
 
     render() {
@@ -68,33 +71,7 @@ export default class CategoryIndex extends React.Component {
                                         Lesson 1
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        Lesson 1
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        Lesson 1
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        Lesson 1
-                                    </a>
-                                </li>
+                            
                             </ul>
                         </div>
                     </div>

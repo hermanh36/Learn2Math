@@ -5,7 +5,8 @@ import LessonForm from './lesson_form'
 const mapStateToProps = state => {
   return {
     content: "",
-    header: 'Create Your Lesson!'
+    header: 'Create Your Lesson!', 
+    category: ""
   }
 }
 

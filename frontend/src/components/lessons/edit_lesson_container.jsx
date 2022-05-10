@@ -5,7 +5,8 @@ import LessonForm from "./lesson_form";
 const mapStateToProps = (state, ownProps) => {
   return {
     content: this.state.lessons[ownProps.match.params.lessonId].content,
-    header: 'Create Your Lesson!'
+    header: 'Create Your Lesson!', 
+    category: this.state.lessons[ownProps.match.params.lessonId].content
   }
 }
 
