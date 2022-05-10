@@ -143,4 +143,8 @@
     .category-wrap{
         width: 100%;
     }
+
+    .category-index-wrap{
+        margin-top: 2rem;
+    }
 }
