@@ -9,6 +9,7 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import * as lessonAction from './actions/lesson_actions';
+import * as QuestionAction from './actions/question_actions'
 
 window.axios = axios;
 
@@ -36,6 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
   window.createLesson = lessonAction.createLesson;
   window.updateLesson = lessonAction.updateLesson;
   window.deleteLesson = lessonAction.deleteLesson;
+  window.fetchQuestion = QuestionAction.fetchQuestion;
+  window.fetchQuestions = QuestionAction.fetchQuestions;
+  window.createQuestion = QuestionAction.createQuestion;
+  window.updateQuestion = QuestionAction.updateQuestion;
+  window.deleteQuestion = QuestionAction.deleteQuestion;
   const root = document.getElementById('root');
 
   ReactDOM.render(<Root store={store} />, root);

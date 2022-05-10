@@ -41,7 +41,7 @@ router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, re
     })
 
 
-router.get('/:', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
     Question.find()
         .then(questions => res.json(questions))
         .catch((err) => res.json(err))
