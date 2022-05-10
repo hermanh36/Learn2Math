@@ -148,6 +148,7 @@ table {
   border-spacing: 0;
 }
 
+
 :root {
   --yellow-1: #FFC44F; 
   --yellow-2: #F5B433; 
@@ -171,4 +172,5 @@ table {
 @import "./stylesheets/footer.css";
 @import "./stylesheets/signup.css";
 @import "./components/category/categories.css";
+@import "./components/left_sidebar/left_sidebar.css";
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700&display=swap');

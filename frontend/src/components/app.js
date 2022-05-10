@@ -13,11 +13,13 @@ import ProfileContainer from './profile/profile_container';
 import TweetComposeContainer from './tweets/tweet_compose_container';
 import QuillTest from './lessons/lesson_form';
 import CategoryIndexContainer from './category/category_index_container';
+import LeftSidebar from './left_sidebar/left_sidebar';
 
 
 const App = () => (
-  <div>
+  <div className="app-wrap">
     <NavBarContainer />
+    {/* <LeftSidebar /> */}
     <Switch>
       <Route exact path = "/quilltest" component={QuillTest} />
       <AuthRoute exact path="/" component={MainPage} />

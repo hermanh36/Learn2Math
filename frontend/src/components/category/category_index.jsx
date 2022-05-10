@@ -1,9 +1,11 @@
 import React from 'react';
+import LeftSidebar from '../left_sidebar/left_sidebar';
 
 export default class CategoryIndex extends React.Component {
     render() {
         return (
             <div className="category-index-wrap">
+                <LeftSidebar />
                 <div>
                     <div>
                         <div className="category-wrap">
