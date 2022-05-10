@@ -1,4 +1,4 @@
-import { connect } from "mongoose";
+import { connect } from "react-redux";
 import { createLesson } from "../../actions/lesson_actions";
 import LessonForm from './lesson_form'
 

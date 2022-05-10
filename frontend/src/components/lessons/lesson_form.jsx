@@ -8,6 +8,7 @@ class LessonForm extends React.Component {
   constructor(props){
     super(props)
     this.state = { content: this.props.content }
+    this.update = this.update.bind(this);
   }
   modules = {
     toolbar: [
@@ -31,16 +32,18 @@ class LessonForm extends React.Component {
     this.props.createLesson(this.state);
   }
 
-  update(e) {
-    this.setState({ content: e.target.value })
+  update(context, delta, source, editor) {
+    const text = editor.getText(context);
+    this.setState({ ['content']: text })
   }
 
   render() {
     return (
     <form onSubmit={this.submitHanlder}>
       <h1>{this.props.header}</h1>
-      <ReactQuill modules={this.modules} formats={this.formats} onChange={this.update}>
+      <ReactQuill modules={this.modules} formats={this.formats} value={this.state.content} onChange={this.update}>
       </ReactQuill>
+        <div dangerouslySetInnerHTML={this.state.content}></div>
       <input type="submit" value="Make Your Lesson" />
     </form>
     )
