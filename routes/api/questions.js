@@ -1,20 +1,25 @@
 const express = require("express");
 const router = express.Router();
-const Question = require('../../models/Question');
 const keys = require('../../config/keys');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const { json } = require("express/lib/response");
 
+const Question = require('../../models/Question');
+const validateQuestionInput = require('../../validation/question');
+
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const {errors, isValid} = validateQuestionInput(req.body);
+    if (!isValid){
+        return res.status(400).json(errors);
+    }
+    
     const newQuestion = new Question({
         quizId: req.body.quizId,
-        title: req.body.title,
         content: req.body.content,
         answerChoices: req.body.answerChoices,
         correctAnswer: req.body.correctAnswer
     })
-
     newQuestion.save().then(question => res.json(question));
 })
 
@@ -25,8 +30,12 @@ router.get('/:id', passport.authenticate('jwt', { session: false }), (req, res) 
 })
 
 router.patch('/:id', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    const { errors, isValid } = validateQuestionInput(req.body);
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
+    
     await Question.findByIdAndUpdate(req.params.id,{
-        title: req.body.title,
         content: req.body.content,
         answerChoices: req.body.answerChoices,
         correctAnswer: req.body.correctAnswer}, {new: true})
