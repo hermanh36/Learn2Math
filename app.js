@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const lessons = require("./routes/api/lessons")
 const flashcards = require("./routes/api/flashcards");
-const questions = require("./routes/api/flashcards");
+const questions = require("./routes/api/questions");
 const quizzes = require("./routes/api/quizzes")
 
 if (process.env.NODE_ENV === 'production') {
