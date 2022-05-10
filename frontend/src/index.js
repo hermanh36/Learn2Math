@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore({});
   }
   window.dispatch = store.dispatch;
+  window.getState = store.getState;
   window.fetchLesson = lessonAction.fetchLesson;
   window.fetchLessons = lessonAction.fetchLessons;
   window.createLesson = lessonAction.createLesson;

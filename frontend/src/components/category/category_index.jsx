@@ -2,6 +2,12 @@ import React from 'react';
 import LeftSidebar from '../left_sidebar/left_sidebar';
 
 export default class CategoryIndex extends React.Component {
+
+    componentDidMount(){
+        this.props.fetchLessons(); 
+        debugger;
+    }
+
     render() {
         return (
             <div className="category-index-wrap">
