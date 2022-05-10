@@ -25,6 +25,7 @@
     "mongoose": "^6.3.2",
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
+    "quill-better-table": "^1.2.10",
     "validator": "^13.7.0"
   },
   "devDependencies": {
