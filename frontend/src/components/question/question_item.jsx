@@ -6,6 +6,7 @@ class QuestionItem extends React.Component {
   }
 
   componentDidMount() {
+    debugger;
     this.props.fetchQuestion(this.props.question)
   }
 
