@@ -1,6 +1,4 @@
-import Question from '../../../models/Question';
 import * as QuestionAPIUtil from '../util/question_api_util';
-
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const RECEIVE_QUESTION = 'RECEIVE_QUESTION';
 export const REMOVE_QUESTION = 'REMOVE_QUESTION';
