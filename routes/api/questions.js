@@ -51,8 +51,10 @@ router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, re
 
 
 router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-    Question.find()
+    Question.find({quizId: req.params.quizId})
         .then(questions => res.json(questions))
         .catch((err) => res.json(err))
 })
+
+router.get('/')
 module.exports = router;

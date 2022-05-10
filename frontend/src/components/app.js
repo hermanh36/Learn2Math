@@ -24,14 +24,15 @@ const App = () => (
     <Switch>
       <Route exact path='/quiz/:quizId/question' component={NewQuestionFormContainer} />
       <Route exact path = "/createlessontest" component={CreateLessonContainer} />
-      <AuthRoute exact path="/" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <Route exact path='/quiz/' component={QuizIndexContainer} />
+      <Route exact path='/quiz/:quizId' component={QuizIndexContainer} />
       <ProtectedRoute exact path="/categories" component={CategoryIndexContainer} />
+
       <ProtectedRoute exact path="/tweets" component={TweetsContainer} />
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
       <ProtectedRoute exact path="/new_tweet" component={TweetComposeContainer} />
+      <AuthRoute exact path="/" component={MainPage} />
     </Switch>
   </div>
 );
