@@ -6,10 +6,6 @@ const QuestionSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'quiz'
     },
-    title: {
-        type: String,
-        required: true
-    },
     content: {
         type: String,
         required: true
@@ -19,7 +15,7 @@ const QuestionSchema = new Schema({
         required: true
     },
     correctAnswer: {
-        type: Number,
+        type: String,
         required: true
     }
 })

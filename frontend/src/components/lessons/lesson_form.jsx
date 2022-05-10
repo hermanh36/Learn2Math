@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import 'react-quill/dist/quill.snow.css';
 
 
-class QuillTest extends React.Component {
+class LessonForm extends React.Component {
 
   constructor(props){
     super(props)
@@ -35,11 +35,10 @@ class QuillTest extends React.Component {
     this.setState({ content: e.target.value })
   }
 
-
   render() {
     return (
     <form onSubmit={this.submitHanlder}>
-      <h1>Create Your Lesson!</h1>
+      <h1>{this.props.header}</h1>
       <ReactQuill modules={this.modules} formats={this.formats} onChange={this.update}>
       </ReactQuill>
       <input type="submit" value="Make Your Lesson" />
@@ -48,4 +47,4 @@ class QuillTest extends React.Component {
   }
 }
 
-export default QuillTest;
+export default LessonForm;

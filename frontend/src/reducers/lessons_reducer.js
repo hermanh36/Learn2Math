@@ -6,10 +6,12 @@ const LessonsReducer = (state = {}, action) => {
   let newState = Object.assign({},state);
   switch(action.type) {
     case RECEIVE_LESSONS:
-      newState = Object.values(action.lessons)
+      Object.values(action.lessons).forEach(lesson => {
+        newState[lesson._id] = lesson
+      })
       return newState
     case RECEIVE_LESSON:
-      newState[action.lesson.id] = action.lesson
+      newState[action.lesson._id] = action.lesson
       return newState;
     case REMOVE_LESSON:
       delete newState[action.lessonId]
