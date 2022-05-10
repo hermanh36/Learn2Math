@@ -5,9 +5,11 @@ import { combineReducers } from 'redux';
 import SessionErrorsReducer from './session_errors_reducer';
 import QuestionErrorsReducer from './question_errors_reducer';
 import LessonErrorReducer from './lesson_errors_reducer';
+import QuizErrorReducer from './quiz_errors_reducer';
 
 export default combineReducers({
   session: SessionErrorsReducer,
   question: QuestionErrorsReducer,
-  lesson: LessonErrorReducer
+  lesson: LessonErrorReducer,
+  quiz: QuizErrorReducer
 });

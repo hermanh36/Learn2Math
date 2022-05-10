@@ -1,6 +1,6 @@
 import { RECEIVE_QUIZ, RECEIVE_QUIZ_ERRORS } from "../actions/quiz_action";
 
-const LessonErrorReducer = (state = [], action) => {
+const QuizErrorReducer = (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_QUIZ_ERRORS:
@@ -12,4 +12,4 @@ const LessonErrorReducer = (state = [], action) => {
   }
 }
 
-export default QuizErrorReducer
+export default QuizErrorReducer;
