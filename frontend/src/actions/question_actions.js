@@ -34,25 +34,25 @@ const receiveQuestionErrors = errors => {
 
 export const fetchQuestions = () => dispatch => {
     return QuestionAPIUtil.fetchQuestions()
-        .then(questions => dispatch(receiveQuestions(questions)))
+        .then(questions => dispatch(receiveQuestions(questions.data)))
         .catch(err => dispatch(receiveQuestionErrors(err)))
 };
 
 export const fetchQuestion = questionId => dispatch => {
     return QuestionAPIUtil.fetchQuestion(questionId)
-        .then(question => dispatch(receiveQuestion(question)))
+        .then(question => dispatch(receiveQuestion(question.data)))
         .catch(err => dispatch(receiveQuestionErrors(err)))
 };
 
 export const createQuestion = question => dispatch => {
     return QuestionAPIUtil.createQuestion(question)
-        .then(question => dispatch(receiveQuestion(question)))
+        .then(question => dispatch(receiveQuestion(question.data)))
         .catch(err => dispatch(receiveQuestionErrors(err)))
 };
 
 export const updateQuestion = question => dispatch => {
     return QuestionAPIUtil.updateQuestion(question)
-        .then(question => dispatch(receiveQuestion(question)))
+        .then(question => dispatch(receiveQuestion(question.data)))
         .catch(err => dispatch(receiveQuestionErrors(err)))
 };
 

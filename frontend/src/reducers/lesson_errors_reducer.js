@@ -1,5 +1,5 @@
 import {RECEIVE_LESSON, RECEIVE_LESSON_ERRORS} 
-from "../actions/lession_actions"
+from "../actions/lesson_actions"
 
 const LessonErrorReducer = (state = [], action) => {
   Object.freeze(state);
