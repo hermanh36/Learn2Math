@@ -4,6 +4,7 @@ const Question = require('../../models/Question');
 const keys = require('../../config/keys');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
+const { json } = require("express/lib/response");
 
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
     const newQuestion = new Question({
@@ -39,4 +40,10 @@ router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, re
         .catch(err => res.status(400).json(err))
     })
 
+
+router.get('/:', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Question.find()
+        .then(questions => res.json(questions))
+        .catch((err) => res.json(err))
+})
 module.exports = router;
