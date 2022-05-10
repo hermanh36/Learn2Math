@@ -14,13 +14,14 @@ import TweetComposeContainer from './tweets/tweet_compose_container';
 import CreateLessonContainer from './lessons/create_lesson_container';
 import CategoryIndexContainer from './category/category_index_container';
 import LeftSidebar from './left_sidebar/left_sidebar';
-
+import NewQuestionFormContainer from './question/new_question_form_container';
 
 const App = () => (
   <div className="app-wrap">
     <NavBarContainer />
     {/* <LeftSidebar /> */}
     <Switch>
+      <Route exact path='/quiz/:quizId/question' component={NewQuestionFormContainer} />
       <Route exact path = "/createlessontest" component={CreateLessonContainer} />
       <AuthRoute exact path="/" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
