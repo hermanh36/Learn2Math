@@ -11,15 +11,15 @@ const QuestionSchema = new Schema({
         required: true
     },
     content: {
-        type: Array,
+        type: String,
         required: true
     },
     answerChoices: {
         type: Array,
         required: true
     },
-    correctAnswers: {
-        type: Array,
+    correctAnswer: {
+        type: Number,
         required: true
     }
 })

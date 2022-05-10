@@ -52,7 +52,7 @@ router.patch('/:id',
     await Lesson.findByIdAndUpdate(req.params.id, {
     title: req.body.title,
     content: req.body.content
-    })
+    }, {new: true})
     .then(lesson => res.json(lesson))
     .catch(err => res.json(err))
   }
@@ -61,13 +61,9 @@ router.patch('/:id',
 router.delete('/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    Lesson.findByIdAndDelete(req.params.id,(err, () => {
-      if(err){
-        res.status(404).json({nolessonfound: 'No lessons with that ID found!'})
-      } else {
-        console.log("Lesson deleted");
-      }
-    }))
+    Lesson.findByIdAndDelete(req.params.id)
+    .then(() => res.json({message:'Successfully deleted'}))
+    .catch(() =>res.json({message:'Not Found'}))
   }
 );
 

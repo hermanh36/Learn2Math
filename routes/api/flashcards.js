@@ -29,11 +29,16 @@ router.get('/:id', passport.authenticate('jwt', { session: false }), (req, res) 
         
 })
 
-router.patch('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-    Flashcard.findById(req.params.id).then(() => ({
+router.patch('/:id', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    await Flashcard.findByIdAndUpdate(req.params.id,{
         title: req.body.title,
-        body: req.body.body
-    })).then(flashcard => res.json(flashcard))
+        body: req.body.body}, {new: true})
+        .then(flashcard => res.json(flashcard))
+        .catch(err => res.json(err))
+    // Flashcard.findById(req.params.id).then(() => ({
+    //     title: req.body.title,
+    //     body: req.body.body
+    // })).then(flashcard => res.json(flashcard))
 })
 
 router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
