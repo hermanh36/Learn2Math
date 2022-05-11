@@ -53,7 +53,7 @@ class SignupForm extends React.Component {
       password: "password",
       password2: "password"
     }
-    this.props.signup(user).then((res) => {
+    this.props.login(user).then((res) => {
       this.props.history.push('/categories');
     }); 
   }
@@ -97,8 +97,10 @@ class SignupForm extends React.Component {
             <br/>
             <input className="signup-submit" type="submit" value="Submit" />
             {this.renderErrors()}
-            <br /> 
-            <Link onClick={this.handleDemoLogin}>Login as demo user</Link>
+           
+            <div className="demo-login-btn-wrap">
+              <button className="demo-login-btn" onClick={this.handleDemoLogin}>Login as demo user</button>
+            </div>
           </div>
         </form>
       </div>
