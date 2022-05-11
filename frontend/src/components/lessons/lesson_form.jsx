@@ -1,5 +1,6 @@
 import ReactQuill, { Quill } from 'react-quill';
 import React, {useState} from "react";
+import LeftSidebar from '../left_sidebar/left_sidebar';
 import 'react-quill/dist/quill.snow.css';
 
 
@@ -21,7 +22,6 @@ class LessonForm extends React.Component {
       ['link', 'image'],
       ['clean']
     ],
-
   }
   formats = [
     'header',
@@ -70,19 +70,22 @@ class LessonForm extends React.Component {
       return null
     } else {
       return (
-        <form onSubmit={this.submitHandler}>
-          <h1>{this.props.header}</h1>
-          <label htmlFor="title">Title Your Lesson</label>
-          <input type="text" name='title' value={this.state.title} onChange={this.updateTitle('title')}/>
-          <ReactQuill modules={this.modules} formats={this.formats} value={this.state.content} onChange={this.updateBody}>
-          </ReactQuill>
-          <h1>Pick a category</h1>
-          <select name="category" id='category-selector'>
-            <option value="algebra">Algebra</option>
-            <option value="geometry">Geometry</option>
-          </select>
-          <input type="submit" value={`${this.props.formType} Your Lesson`} />
-        </form>
+        <div className="lesson-form-wrap">
+          <LeftSidebar />
+          <form onSubmit={this.submitHandler}>
+            <h1>{this.props.header}</h1>
+            <label htmlFor="title">Title Your Lesson</label>
+            <input type="text" name='title' value={this.state.title} onChange={this.updateTitle('title')}/>
+            <ReactQuill modules={this.modules} formats={this.formats} value={this.state.content} onChange={this.updateBody}>
+            </ReactQuill>
+            <h1>Pick a category</h1>
+            <select name="category" id='category-selector'>
+              <option value="algebra">Algebra</option>
+              <option value="geometry">Geometry</option>
+            </select>
+            <input type="submit" value={`${this.props.formType} Your Lesson`} />
+          </form>
+        </div>
       )
     }
   }

@@ -166,7 +166,7 @@ table {
   --black-1: rgba(13, 13, 13, 1);
 }
 
-@import "./stylesheets/sessionModal.css";
+/* @import "./stylesheets/sessionModal.css"; */
 @import "./stylesheets/mainPage.css";
 @import "./stylesheets/mainNav.css";
 @import "./stylesheets/footer.css";
@@ -175,5 +175,7 @@ table {
 @import "./components/left_sidebar/left_sidebar.css";
 @import "./components/profile/profile.css";
 @import "./components/lessons/lesson_show.css";
+@import "./components/lessons/lesson_form.css";
+
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700&display=swap');
 
