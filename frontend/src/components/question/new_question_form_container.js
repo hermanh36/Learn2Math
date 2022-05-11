@@ -12,11 +12,12 @@ const mapState = (state,ownProps) => ({
         choice2: '',
         choice3: '',
         choice4: ''
-}
+    },
+    formType: 'Create'
 })
 
 const mapDispatch = dispatch => ({
-    createQuestion: question => dispatch(createQuestion(question))
+    submitForm: question => dispatch(createQuestion(question))
 })
 
 export default connect(mapState, mapDispatch)(NewQuestionForm);

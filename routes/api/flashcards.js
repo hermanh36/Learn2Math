@@ -6,11 +6,12 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 
 
-router.get('/', (req, res) => {
-    Flashcard.find()
+router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+    console.log(req.query.studentId)
+    Flashcard.find({ studentId: req.query.studentId })
         .then(flashcards => res.json(flashcards))
-        .catch(err => res.status(404).json({ noflashcardsfound: 'No Flashcards found' }));
-});
+        .catch((err) => res.json(err))
+})
 
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
     const newFlashcard = new Flashcard({

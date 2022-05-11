@@ -22,8 +22,12 @@ class QuestionItem extends React.Component {
               <div>
                 <input type="radio" name={`answer${this.props.question._id}`} value={answer}/>
                 <label>{answer}</label>
+                {/* maybe render a checkmark, hide
+                correct and incorrect until submitted */}
               </div>
             ))}
+            {/* // <div>Correct</div>
+            // <div>Incorrect</div> */}
           </div>
         </li>
       )
