@@ -18,7 +18,6 @@ class QuestionItem extends React.Component {
         <li>
           {this.props.question.content}
           <div>
-            <label>Answers</label>
             {this.props.question.answerChoices.map(answer => (
               <div>
                 <input type="radio" name={`answer${this.props.question._id}`} value={answer}/>
