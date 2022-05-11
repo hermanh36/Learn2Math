@@ -1,0 +1,4 @@
+.lesson-show-wrap{
+  position: relative; 
+  min-height: calc(100vh - 70px);
+}

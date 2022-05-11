@@ -17,6 +17,7 @@ import NewQuestionFormContainer from './question/new_question_form_container';
 import CreateLessonContainer from './lessons/create_lesson_container';
 import EditLessonContainer from './lessons/edit_lesson_container';
 import QuizIndexContainer from './quiz/quiz_index_container';
+import ShowLessonContainer from './lessons/lesson_show_container';
 
 const App = () => (
   <div className="app-wrap">
@@ -26,6 +27,7 @@ const App = () => (
       <Route exact path='/quiz/:quizId/question' component={NewQuestionFormContainer} />
       <Route exact path = '/lesson/new' component={CreateLessonContainer} />
       <Route exact path='/lesson/:lessonId/edit' component={EditLessonContainer} />
+      <Route exact path='/lesson/:lessonId' component={ShowLessonContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route exact path='/quiz/:quizId' component={QuizIndexContainer} />
