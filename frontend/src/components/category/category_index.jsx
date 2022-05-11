@@ -1,5 +1,6 @@
 import React from 'react';
 import LeftSidebar from '../left_sidebar/left_sidebar';
+import BorderBtn from '../border_btn/border_btn';
 var parser = new DOMParser();
 
 export default class CategoryIndex extends React.Component {
@@ -22,18 +23,18 @@ export default class CategoryIndex extends React.Component {
         // let dummy = parser.parseFromString("<p>Naran is cool</p>" ,"text/html"); 
         
         let algebraLessons = this.props.lessons.map((lesson) => {
-            return (
-                <li>
-                    <a href="#">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        {lesson.title}
-                        {/* { lesson.content[0] === '<' ? parser.parseFromString(lesson.content, "text/html") : null } */}
-                    </a>    
-                </li>
-            )
+            if(lesson.category === 'algebra'){
+                return (
+                  <BorderBtn lesson={lesson} />
+                )
+            }
+        })
+        let geoLessons = this.props.lessons.map((lesson) => {
+            if(lesson.category === 'geometry'){
+                return (
+                  <BorderBtn lesson={lesson} />
+                )
+            }
         })
 
         return (
@@ -44,32 +45,13 @@ export default class CategoryIndex extends React.Component {
                         <div className="category-wrap">
                             <h2>Algebra</h2>
                             <ul>
-                                <li>
-                                    <a href="#">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        Lesson 1
-                                    </a>
-                                </li>
-                                {algebraLessons}
-                                         
+                                {algebraLessons}        
                             </ul>
                         </div>
                         <div className="category-wrap">
                             <h2>Geometry</h2>
                             <ul>
-                                <li>
-                                    <a href="#">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        Lesson 1
-                                    </a>
-                                </li>
-                            
+                                {geoLessons}
                             </ul>
                         </div>
                     </div>
