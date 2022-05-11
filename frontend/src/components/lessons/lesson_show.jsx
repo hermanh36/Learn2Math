@@ -1,5 +1,6 @@
 import React from "react";
 import LeftSidebar from "../left_sidebar/left_sidebar";
+import parse from 'html-react-parser';
 
 class LessonShow extends React.Component {
   constructor(props){
@@ -12,7 +13,13 @@ class LessonShow extends React.Component {
     }); 
   }
 
+  renderLessonContent(){
+
+  }
+
   render(){
+
+
     
     return (
       <div className="lesson-show-wrap">
@@ -23,7 +30,8 @@ class LessonShow extends React.Component {
             <div>
               <div>{this.props.lesson.title} </div>
               <div> {this.props.lesson.category}</div>
-              <div>{this.props.lesson.content}</div> 
+              
+              <div id="lesson-html-content">{parse(this.props.lesson.content)}</div>
             </div> 
           )
           : null
