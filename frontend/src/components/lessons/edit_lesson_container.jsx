@@ -15,7 +15,6 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => {
-  debugger;
   return {
     submitForm: lesson => dispatch(updateLesson(lesson)),
     fetchLesson: lessonId => dispatch(fetchLesson(lessonId))

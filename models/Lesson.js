@@ -10,6 +10,10 @@ const LessonSchema = new Schema({
     type: String,
     required: true
   }, 
+  title: {
+    type: String,
+    required: true
+  },
   category: {
     type: String, 
     required: true

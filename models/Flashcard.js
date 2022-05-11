@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const FlashcardScehma = new Schema({
+const FlashcardSchema = new Schema({
     title: {
         type: String,
         required: true
@@ -17,4 +17,4 @@ const FlashcardScehma = new Schema({
     {timestamps: true
 })
 
-module.exports = Flashcard = mongoose.model('Flashcard', FlashcardScehma);
+module.exports = Flashcard = mongoose.model('Flashcard', FlashcardSchema);

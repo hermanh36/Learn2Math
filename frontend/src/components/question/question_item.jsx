@@ -1,12 +1,12 @@
 import React from 'react'
 
+
 class QuestionItem extends React.Component {
   constructor(props){
     super(props);
   }
 
   componentDidMount() {
-    debugger;
     this.props.fetchQuestion(this.props.question)
   }
 
@@ -14,7 +14,6 @@ class QuestionItem extends React.Component {
     if (!this.props.question) {
       return null;
     } else {
-      debugger;
       return (
         <li>
           {this.props.question.content}
@@ -22,7 +21,7 @@ class QuestionItem extends React.Component {
             <label>Answers</label>
             {this.props.question.answerChoices.map(answer => (
               <div>
-                <input type="radio" name='answer' value={answer}/>
+                <input type="radio" name={`answer${this.props.question._id}`} value={answer}/>
                 <label>{answer}</label>
               </div>
             ))}

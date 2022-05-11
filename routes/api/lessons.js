@@ -29,14 +29,13 @@ router.post('/',
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    console.log(req)
     const newLesson = new Lesson({
       authorId: req.user.id,
       title: req.body.title,
       content: req.body.content,
     });
 
-    newLesson.save().then(lesson => res.json(lesson));
+    newLesson.save().then(lesson => res.json(lesson)).catch(err => res.json(err));
   }
 );
 

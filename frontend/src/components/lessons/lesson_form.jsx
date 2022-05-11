@@ -8,7 +8,8 @@ class LessonForm extends React.Component {
   constructor(props){
     super(props)
     this.state = this.props.lesson;
-    this.update = this.update.bind(this);
+    this.updateTitle = this.updateTitle.bind(this);
+    this.updateBody = this.updateBody.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
   }
 
@@ -36,12 +37,17 @@ class LessonForm extends React.Component {
 
   submitHandler(e) {
     e.preventDefault();
-    debugger;
     this.props.submitForm(this.state);
   }
 
-  update(text) {
-    this.setState({ content: text })
+  updateTitle(field) {
+    return e => {
+      this.setState({ [field]: e.target.value })
+    }
+  }
+
+  updateBody(text) {
+    this.setState({ content: text})
     document.getElementById('hook').innerHTML = this.state.content;
   }
 
@@ -50,7 +56,9 @@ class LessonForm extends React.Component {
     return this.props.lesson ? (
       <form onSubmit={this.submitHandler}>
         <h1>{this.props.header}</h1>
-        <ReactQuill modules={this.modules} formats={this.formats} value={this.state.content} onChange={this.update}>
+        <label htmlFor="title">Title Your Lesson</label>
+        <input type="text" name='title' value={this.state.title} onChange={this.updateTitle('title')}/>
+        <ReactQuill modules={this.modules} formats={this.formats} value={this.state.content} onChange={this.updateBody}>
         </ReactQuill>
         <div id='hook'></div>
         <input type="submit" value="Make Your Lesson" />
