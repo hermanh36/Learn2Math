@@ -9,7 +9,6 @@ class QuizIndex extends React.Component {
   //assume props have lessonId
 
   componentDidMount() {
-    debugger;
     this.props.fetchQuestions(this.props.quizId)
   }
 

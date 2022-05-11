@@ -29,14 +29,14 @@ router.post('/',
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    console.log(req)
     const newLesson = new Lesson({
       authorId: req.user.id,
       title: req.body.title,
       content: req.body.content,
+      category: req.body.category
     });
 
-    newLesson.save().then(lesson => res.json(lesson));
+    newLesson.save().then(lesson => res.json(lesson)).catch(err => res.json(err));
   }
 );
 
@@ -51,7 +51,8 @@ router.patch('/:id',
 
     await Lesson.findByIdAndUpdate(req.params.id, {
     title: req.body.title,
-    content: req.body.content
+    content: req.body.content,
+    category: req.body.category
     }, {new: true})
     .then(lesson => res.json(lesson))
     .catch(err => res.json(err))
