@@ -47,7 +47,9 @@ class LessonForm extends React.Component {
     e.preventDefault();
     let selected = document.getElementById('category-selector')
     this.setState({ category: selected.value},() => {
-      this.props.submitForm(this.state);
+      this.props.submitForm(this.state).then((res) => {
+        this.props.history.push(`/lesson/${this.props.lessonId}`)
+      })
     })
   }
 
@@ -71,19 +73,32 @@ class LessonForm extends React.Component {
       return (
         <div className="lesson-form-wrap">
           <LeftSidebar />
-          <form onSubmit={this.submitHandler}>
-            <h1>{this.props.header}</h1>
-            <label htmlFor="title">Title Your Lesson</label>
-            <input type="text" name='title' value={this.state.title} onChange={this.updateTitle('title')}/>
-            <ReactQuill modules={this.modules} formats={this.formats} value={this.state.content} onChange={this.updateBody}>
-            </ReactQuill>
-            <h1>Pick a category</h1>
-            <select name="category" id='category-selector'>
-              <option value="algebra">Algebra</option>
-              <option value="geometry">Geometry</option>
-            </select>
-            <input type="submit" value={`${this.props.formType} Your Lesson`} />
-          </form>
+          <div>
+            <div>
+            <form className="lesson-form" onSubmit={this.submitHandler}>
+              <div className="lesson-form-header">
+                <h1>{this.props.formType} a Lesson!</h1>
+              </div>
+              <div className="lesson-title-wrap">
+                <label htmlFor="title">Title Your Lesson: </label>
+                <input placeholder="title here" type="text" name='title' value={this.state.title} onChange={this.updateTitle('title')}/>
+              </div>
+              <div className="category-select-wrap">
+                <label>Pick a category: </label>
+                <select name="category" id='category-selector'>
+                  <option value="algebra">Algebra</option>
+                  <option value="geometry">Geometry</option>
+                </select>
+              </div>
+              <div className="quill-editor-wrap">
+                <ReactQuill className="quill-editor" modules={this.modules} formats={this.formats} value={this.state.content} onChange={this.updateBody}>
+                </ReactQuill>
+              </div>
+              
+              <input class="lesson-form-submit" type="submit" value={`${this.props.formType} Your Lesson`} />
+            </form>
+            </div>
+          </div>
         </div>
       )
     }
