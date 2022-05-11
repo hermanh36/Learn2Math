@@ -5,9 +5,9 @@ import QuizScore from './quiz_score';
 class QuizItem extends React.Component {
   constructor(props){
     super(props);
-    this.state = { questions : [] };
+    this.state = { score: 0,
+    };
     this.submitHandler = this.submitHandler.bind(this);
-    this.score = 0;
     this.total = 0;
   }
   //assume props have lessonId
@@ -19,7 +19,6 @@ class QuizItem extends React.Component {
   submitHandler() {
     let correctAnswer = [];
     let submittedAnswer = [];
-    this.score = 0;
     this.total = this.props.questions.length;
     this.props.questions.forEach(question => {
       correctAnswer.push(question.correctAnswer);
@@ -30,7 +29,9 @@ class QuizItem extends React.Component {
     });
     correctAnswer.forEach((answer,index) => {
       if (answer === submittedAnswer[index]){
-        this.score += 1;
+        this.setState((prevState => (
+          { score: prevState.score+1 })
+        ))
       }
     })
   }
@@ -48,7 +49,7 @@ class QuizItem extends React.Component {
             </ul>
           </div>
           <button onClick={this.submitHandler}>Submit</button>
-          <QuizScore score={this.score} total={this.total} />
+          <QuizScore score={this.state.score} total={this.total} />
         </div>
       )
     }

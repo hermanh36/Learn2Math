@@ -24,10 +24,10 @@ class QuestionItem extends React.Component {
                 <label>{answer}</label>
                 {/* maybe render a checkmark, hide
                 correct and incorrect until submitted */}
-                <div>Correct</div>
-                <div>Incorrect</div>
               </div>
             ))}
+            {/* // <div>Correct</div>
+            // <div>Incorrect</div> */}
           </div>
         </li>
       )
