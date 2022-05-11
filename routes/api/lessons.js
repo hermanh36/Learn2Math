@@ -50,7 +50,8 @@ router.patch('/:id',
 
     await Lesson.findByIdAndUpdate(req.params.id, {
     title: req.body.title,
-    content: req.body.content
+    content: req.body.content,
+    category: req.body.category
     }, {new: true})
     .then(lesson => res.json(lesson))
     .catch(err => res.json(err))
