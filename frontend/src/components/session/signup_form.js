@@ -1,20 +1,21 @@
 // src/components/session/signup_form.js
 
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+
 
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      handle: '',
       password: '',
       password2: '',
       errors: {}
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
     this.clearedErrors = false;
   }
 
@@ -36,13 +37,24 @@ class SignupForm extends React.Component {
     e.preventDefault();
     let user = {
       email: this.state.email,
-      handle: this.state.handle,
       password: this.state.password,
       password2: this.state.password2
     };
 
-    this.props.signup(user, this.props.history).then((res)=> {
+    this.props.signup(user).then((res)=> {
         this.props.history.push('/categories');
+    }); 
+  }
+
+  handleDemoLogin(e){
+    e.preventDefault();
+    let user = {
+      email: "demouser@gmail.com",
+      password: "password",
+      password2: "password"
+    }
+    this.props.login(user).then((res) => {
+      this.props.history.push('/categories');
     }); 
   }
 
@@ -71,12 +83,6 @@ class SignupForm extends React.Component {
                 placeholder="Email"
               />
             <br/>
-              <input type="text"
-                value={this.state.handle}
-                onChange={this.update('handle')}
-                placeholder="Handle"
-              />
-            <br/>
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
@@ -91,6 +97,10 @@ class SignupForm extends React.Component {
             <br/>
             <input className="signup-submit" type="submit" value="Submit" />
             {this.renderErrors()}
+           
+            <div className="demo-login-btn-wrap">
+              <button className="demo-login-btn" onClick={this.handleDemoLogin}>Login as demo user</button>
+            </div>
           </div>
         </form>
       </div>
