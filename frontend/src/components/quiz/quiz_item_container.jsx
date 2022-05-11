@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import QuizIndex from './quiz_index'
+import QuizItem from './quiz_item'
 import { createQuestion, fetchQuestions } from '../../actions/question_actions'
 
 const mapStateToProps = (state, ownProps) => {
@@ -16,4 +16,4 @@ const mapStateToDispatch = dispatch => {
   }
 }
 
-export default connect(mapStateToProps,mapStateToDispatch)(QuizIndex)
+export default connect(mapStateToProps,mapStateToDispatch)(QuizItem)

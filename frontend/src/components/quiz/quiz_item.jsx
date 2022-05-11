@@ -1,7 +1,7 @@
 import React from 'react';
 import QuestionItemContainer from '../question/question_item_container';
 
-class QuizIndex extends React.Component {
+class QuizItem extends React.Component {
   constructor(props){
     super(props);
     this.state = { questions : [] };
@@ -33,4 +33,4 @@ class QuizIndex extends React.Component {
   }
 }
 
-export default QuizIndex;
+export default QuizItem;
