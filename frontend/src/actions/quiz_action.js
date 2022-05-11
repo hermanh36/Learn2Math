@@ -44,7 +44,7 @@ export const fetchQuizzes = () => dispatch => {
 export const fetchQuiz = (quiz) => dispatch => {
   return (
     quizUtil.fetchQuiz(quiz)
-      .then(quiz => dispatch(receiveQuizzes(quiz)))
+      .then(quiz => dispatch(receiveQuiz(quiz)))
       .catch(err => dispatch(receiveQuizError(err)))
   )
 };

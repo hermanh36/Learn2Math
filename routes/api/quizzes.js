@@ -35,13 +35,9 @@ router.post('/',
 router.delete('/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    Quiz.findByIdAndDelete(req.params.id, (err, () => {
-      if (err) {
-        res.status(404).json({ noquizfound: 'No quizzes with that ID found!' })
-      } else {
-        console.log("quiz deleted");
-      }
-    }))
+    Quiz.findByIdAndDelete(req.params.id)
+      .then(() => res.json({message: 'Successfully deleted quiz'}))
+      .catch(err => res.status(400).json(err))
   }
 );
 

@@ -1,9 +1,10 @@
 import { connect } from 'react-redux'
 import QuizIndex from './quiz_index'
+import { createQuestion, fetchQuestions } from '../../actions/question_actions'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    quizId: state.entitiy.quizzes[ownProps.match.params.quizId],
+    quizId: ownProps.match.params.quizId,
     questions: Object.values(state.entities.questions)
   }
 }

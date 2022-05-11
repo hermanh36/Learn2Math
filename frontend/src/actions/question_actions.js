@@ -32,8 +32,8 @@ const receiveQuestionErrors = errors => {
     }
 };
 
-export const fetchQuestions = () => dispatch => {
-    return QuestionAPIUtil.fetchQuestions()
+export const fetchQuestions = (quizId) => dispatch => {
+    return QuestionAPIUtil.fetchQuestions(quizId)
         .then(questions => dispatch(receiveQuestions(questions)))
         .catch(err => dispatch(receiveQuestionErrors(err)))
 };

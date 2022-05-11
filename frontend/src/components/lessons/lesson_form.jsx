@@ -7,12 +7,11 @@ class LessonForm extends React.Component {
 
   constructor(props){
     super(props)
-    this.state = { content: this.props.content, category: this.props.category }
+    this.state = this.props.lesson;
     this.update = this.update.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
   }
 
-  
   modules = {
     toolbar: [
       [{ 'header': [1, 2, false] }],
@@ -21,7 +20,7 @@ class LessonForm extends React.Component {
       ['link', 'image'],
       ['clean']
     ],
-    
+
   }
   formats = [
     'header',
@@ -30,11 +29,15 @@ class LessonForm extends React.Component {
     'link', 'image'
   ]
 
+  componentDidMount(){
+    this.props.formType === 'Edit' ? this.props.fetchLesson(this.props.lessonId)
+    .then(() => this.setState(this.props.lesson)) : this.render();
+  }
+
   submitHandler(e) {
     e.preventDefault();
-    // console.log(this.state);
-
-    this.props.createLesson(this.state);
+    debugger;
+    this.props.submitForm(this.state);
   }
 
   update(text) {
@@ -43,7 +46,8 @@ class LessonForm extends React.Component {
   }
 
   render() {
-    return (
+    console.log(this.state);
+    return this.props.lesson ? (
       <form onSubmit={this.submitHandler}>
         <h1>{this.props.header}</h1>
         <ReactQuill modules={this.modules} formats={this.formats} value={this.state.content} onChange={this.update}>
@@ -51,7 +55,7 @@ class LessonForm extends React.Component {
         <div id='hook'></div>
         <input type="submit" value="Make Your Lesson" />
       </form>
-    )
+    ) : <h1>Loading...</h1>
   }
 }
 
