@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const BorderBtn = (props) => {
     return (
          <li>
-            <a href="#">
+            <Link to={``}>
                 <span></span>
                 <span></span>
                 <span></span>
@@ -16,7 +16,7 @@ const BorderBtn = (props) => {
                     {props.lesson.category}
                 </p>
                 {/* { lesson.content[0] === '<' ? parser.parseFromString(lesson.content, "text/html") : null } */}
-            </a>    
+            </Link>    
         </li>
     )
 }
