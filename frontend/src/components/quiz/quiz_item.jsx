@@ -18,15 +18,13 @@ class QuizItem extends React.Component {
     } else {
       return (
         <div>
-          <div id='left-side-of-quiz'> 
+          <div> 
             <h1>Quiz</h1>
             <ul>
               {this.props.questions.map(question => <QuestionItemContainer question={question}/>)}
             </ul>
           </div>
-          {/* <div id='right-side-of-quiz'>
-            <QuestionFormComponent/>
-          </div> */}
+          
         </div>
       )
     }
