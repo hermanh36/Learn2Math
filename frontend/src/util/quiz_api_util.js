@@ -13,7 +13,7 @@ export const createQuiz = quiz => {
 };
 
 export const updateQuiz = quiz => {
-  return axios.patch(`/api/quizzes/${quiz.id}`, quiz)
+  return axios.patch(`/api/quizzes/${quiz._id}`, quiz)
 };
 
 export const deleteQuiz = quizId => {
