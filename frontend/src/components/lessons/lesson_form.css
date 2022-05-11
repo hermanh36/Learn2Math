@@ -13,6 +13,14 @@
   box-shadow: 3px 3px 2px 2px var(--yellow-1);
   margin-bottom: 2rem;
 }
+.quill-editor:hover{
+  box-shadow: 3px 3px 1px 1px var(--yellow-1);
+}
+
+.ql-editor{
+  min-height: 300px;
+}
+
 .lesson-form-header{
   font-size: 3rem;
   margin-bottom: 3rem;
@@ -20,7 +28,7 @@
   font-weight: 800; 
 }
 .lesson-title-wrap{ 
-  margin-bottom: 1rem;
+  
   font-size: 1rem;
 }
 .lesson-title-wrap > input{
