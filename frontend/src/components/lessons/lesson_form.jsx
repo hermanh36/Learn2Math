@@ -30,16 +30,13 @@ class LessonForm extends React.Component {
   ]
 
   componentDidMount(){
-    this.props.formType === 'Edit' ? this.props.fetchLesson(this.props.lessonId) : this.render();
-  }
-
-  componentWillReceiveProps(nextProps){
-    this.setState(nextProps.lesson);
+    this.props.formType === 'Edit' ? this.props.fetchLesson(this.props.lessonId)
+    .then(() => this.setState(this.props.lesson)) : this.render();
   }
 
   submitHandler(e) {
     e.preventDefault();
-    console.log(this.state);
+    debugger;
     this.props.submitForm(this.state);
   }
 

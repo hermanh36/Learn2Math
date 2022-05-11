@@ -3,7 +3,6 @@ import { fetchLesson, updateLesson } from "../../actions/lesson_actions";
 import LessonForm from "./lesson_form";
 
 const mapStateToProps = (state, ownProps) => {
-  debugger;
   return {
     lesson: {
       content: state.entities.lessons[ownProps.match.params.lessonId]?.content,
@@ -16,6 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => {
+  debugger;
   return {
     submitForm: lesson => dispatch(updateLesson(lesson)),
     fetchLesson: lessonId => dispatch(fetchLesson(lessonId))
