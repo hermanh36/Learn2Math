@@ -18,13 +18,18 @@ export default class QuestionIndex extends React.Component{
         const questions = allQuestions.map((question,idx) => {
             return (
                 <div key={idx}>
-                    <p>{idx+1}) {question.content}</p>
-                    <ul>
-                        <li>a) {question.answerChoices[0]}</li>
-                        <li>b) {question.answerChoices[1]}</li>
-                        <li>c) {question.answerChoices[2]}</li>
-                        <li>d) {question.answerChoices[3]}</li>
-                    </ul>
+                    <div id={`question-${idx}-container`}>
+                        <p>{idx+1}) {question.content}</p>
+                        <ul>
+                            <li>a) {question.answerChoices[0]}</li>
+                            <li>b) {question.answerChoices[1]}</li>
+                            <li>c) {question.answerChoices[2]}</li>
+                            <li>d) {question.answerChoices[3]}</li>
+                        </ul>
+                    </div>
+                    <div className='hidden-class' id={`edit-question-${idx}`}>
+                        
+                    </div>
                 </div>
             )
         })

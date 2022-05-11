@@ -5,16 +5,7 @@ export default class NewQuestionForm extends React.Component {
         super(props);
         //  quiz/:quizId/question --> new
         //  question/:questionId --> edit
-        this.state = {
-            quizId: this.props.match.params.quizId,
-            content: '',
-            answerChoices: [],
-            correctAnswer: '',
-            choice1:'',
-            choice2:'',
-            choice3:'',
-            choice4:'',
-        }
+        this.state = this.props.question;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.clearFields = this.clearFields.bind(this);
     }

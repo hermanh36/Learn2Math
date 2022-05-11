@@ -15,6 +15,7 @@ import CategoryIndexContainer from './category/category_index_container';
 import LeftSidebar from './left_sidebar/left_sidebar';
 import NewQuestionFormContainer from './question/new_question_form_container';
 import QuestionIndexContainer from './question/question_index_container';
+// import QuestionManager from './question/question_manager';
 import CreateLessonContainer from './lessons/create_lesson_container';
 import EditLessonContainer from './lessons/edit_lesson_container';
 import QuizItemContainer from './quiz/quiz_item_container';

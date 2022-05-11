@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { createQuestion } from '../../actions/question_actions';
 import NewQuestionForm from './new_question_form';
 
-const mapState = (state,ownProps) => ({
+const mapState = (state, ownProps) => ({
     question: {
         quizId: ownProps.match.params.quizId,
         content: '',
@@ -12,7 +12,7 @@ const mapState = (state,ownProps) => ({
         choice2: '',
         choice3: '',
         choice4: ''
-}
+    }
 })
 
 const mapDispatch = dispatch => ({
