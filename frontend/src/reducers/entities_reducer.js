@@ -6,7 +6,8 @@ import QuizReducer from './quiz_reducer';
 const EntitiesReducer = combineReducers({
     questions: QuestionReducer,
     lessons: LessonsReducer,
-    quizzes: QuizReducer
+    quizzes: QuizReducer,
+    flashcards:
 })
 
 export default EntitiesReducer;
