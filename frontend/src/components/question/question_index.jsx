@@ -1,5 +1,5 @@
 import React from 'react';
-
+import EditQuestionContainer from './edit_question_container';
 export default class QuestionIndex extends React.Component{
     constructor(props){
         super(props);
@@ -28,7 +28,7 @@ export default class QuestionIndex extends React.Component{
                         </ul>
                     </div>
                     <div className='hidden-class' id={`edit-question-${idx}`}>
-                        
+                        <EditQuestionContainer question={question}/>
                     </div>
                 </div>
             )

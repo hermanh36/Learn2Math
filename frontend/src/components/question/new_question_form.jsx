@@ -6,6 +6,11 @@ export default class NewQuestionForm extends React.Component {
         //  quiz/:quizId/question --> new
         //  question/:questionId --> edit
         this.state = this.props.question;
+        this.state.choice1=this.props.question.answerChoices[0];
+        this.state.choice2=this.props.question.answerChoices[1];
+        this.state.choice3=this.props.question.answerChoices[2];
+        this.state.choice4=this.props.question.answerChoices[3];
+
         this.handleSubmit = this.handleSubmit.bind(this);
         this.clearFields = this.clearFields.bind(this);
     }
@@ -16,7 +21,7 @@ export default class NewQuestionForm extends React.Component {
         console.log(this.state);
         const arr = [choice1, choice2, choice3, choice4];
         console.log(arr);
-        this.setState({answerChoices:arr}, () => this.props.createQuestion(this.state).then(() => this.clearFields()));
+        this.setState({answerChoices:arr}, () => this.props.submitForm(this.state).then(() => this.props.formType === 'Create' ? this.clearFields() : null));
     }
 
     update(field) {
@@ -47,12 +52,11 @@ export default class NewQuestionForm extends React.Component {
     }
 
     render() {
-        const { content, answerChoices, correctAnswer } = this.state;
         return (
             <>
                 <form onSubmit={this.handleSubmit}>
                     <label>
-                        <input type="text" placeholder="Question" value={content} onChange={this.update('content')} />
+                        <input type="text" placeholder="Question" value={this.state.content} onChange={this.update('content')} />
                     </label>
                     <label>
                         <input type="text" placeholder="Choice 1" value={this.state.choice1} onChange={this.updateChoice(1)} />
@@ -67,9 +71,9 @@ export default class NewQuestionForm extends React.Component {
                         <input type="text" placeholder="Choice 4" value={this.state.choice4} onChange={this.updateChoice(4)} />
                     </label>
                     <label>
-                        <input type="text" placeholder="Correct Answer" value={correctAnswer} onChange={this.update('correctAnswer')} />
+                        <input type="text" placeholder="Correct Answer" value={this.state.correctAnswer} onChange={this.update('correctAnswer')} />
                     </label>
-                    <input type="submit" value="Create Question" />
+                    <input type="submit" value={`${this.props.formType} Question`} />
                 </form>
             </>
         )
