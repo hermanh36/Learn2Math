@@ -17,7 +17,7 @@ export default class QuestionIndex extends React.Component{
         const allQuestions = Object.values(this.props.questions);
         const questions = allQuestions.map((question,idx) => {
             return (
-                <>
+                <div key={idx}>
                     <p>{idx+1}) {question.content}</p>
                     <ul>
                         <li>a) {question.answerChoices[0]}</li>
@@ -25,12 +25,10 @@ export default class QuestionIndex extends React.Component{
                         <li>c) {question.answerChoices[2]}</li>
                         <li>d) {question.answerChoices[3]}</li>
                     </ul>
-                </>
+                </div>
             )
         })
             
-
-        debugger;
         if (!questions){
             return null
         }

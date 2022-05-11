@@ -16,6 +16,7 @@ export default class NewQuestionForm extends React.Component {
             choice4:'',
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.clearFields = this.clearFields.bind(this);
     }
 
     handleSubmit(e) {
@@ -24,7 +25,7 @@ export default class NewQuestionForm extends React.Component {
         console.log(this.state);
         const arr = [choice1, choice2, choice3, choice4];
         console.log(arr);
-        this.setState({answerChoices:arr}, () => this.props.createQuestion(this.state));
+        this.setState({answerChoices:arr}, () => this.props.createQuestion(this.state).then(() => this.clearFields()));
     }
 
     update(field) {
@@ -39,6 +40,19 @@ export default class NewQuestionForm extends React.Component {
             const temp = `choice${num}`;
             this.setState({[temp]:e.target.value})
         }
+    }
+
+    clearFields(){
+        this.setState({
+            quizId: this.props.match.params.quizId,
+            content: '',
+            answerChoices: [],
+            correctAnswer: '',
+            choice1: '',
+            choice2: '',
+            choice3: '',
+            choice4: '',
+        })
     }
 
     render() {

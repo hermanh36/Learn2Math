@@ -7,7 +7,7 @@ module.exports = function validateQuestionInput(data){
     data.content = validText(data.content) ? data.content : '';
     data.correctAnswer = validText(data.correctAnswer) ? data.correctAnswer : '';
     
-    if (!Validator.isLength(data.content, {min: 5, max: 140})){
+    if (!Validator.isLength(data.content, {min: 3, max: 140})){
         errors.content = 'Content must be between 5 and 140 characters';
     }
 

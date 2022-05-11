@@ -47,7 +47,6 @@ class LessonForm extends React.Component {
     e.preventDefault();
     let selected = document.getElementById('category-selector')
     this.setState({ category: selected.value},() => {
-      debugger;
       this.props.submitForm(this.state);
     })
   }
