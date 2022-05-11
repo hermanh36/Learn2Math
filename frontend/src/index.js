@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.fetchFlashcards = FlashcardAction.fetchFlashcards;
   window.fetchFlashcard = FlashcardAction.fetchFlashcard;
-  window.removeFlashcard = FlashcardAction.deleteFlashcard;
+  window.deleteFlashcard = FlashcardAction.deleteFlashcard;
   window.updateFlashcard = FlashcardAction.updateFlashcard;
   window.createFlashcard = FlashcardAction.createFlashcard;
   

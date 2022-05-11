@@ -8,7 +8,7 @@ const EntitiesReducer = combineReducers({
     questions: QuestionReducer,
     lessons: LessonsReducer,
     quizzes: QuizReducer,
-    // flashcards: FlashcardReducer
+    flashcards: FlashcardReducer
 })
 
 export default EntitiesReducer;

@@ -19,11 +19,11 @@ export const receiveLesson = lesson => {
     lesson : lesson.data
   }
 }
-
+//    .catch(err => console.log(err.response.data))
 export const receiveLessonError = errors => {
   return {
     type: RECEIVE_LESSON_ERRORS,
-    errors
+    errors: errors.response.data
   }
 };
 

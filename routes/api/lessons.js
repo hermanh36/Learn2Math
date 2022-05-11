@@ -26,6 +26,7 @@ router.post('/',
   (req, res) => {
     const { errors, isValid } = validateLessonInput(req.body);
 
+    console.log(errors);
     if (!isValid) {
       return res.status(400).json(errors);
     }

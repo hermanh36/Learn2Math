@@ -46,7 +46,6 @@ class LessonForm extends React.Component {
   submitHandler(e) {
     e.preventDefault();
     let selected = document.getElementById('category-selector')
-    debugger
     this.setState({ category: selected.value},() => {
       this.props.submitForm(this.state).then((res) => {
         this.props.history.push(`/lesson/${res.lesson._id}`)
