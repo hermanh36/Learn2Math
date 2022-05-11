@@ -21,7 +21,7 @@ const QuestionReducer = (state={}, action) => {
             delete nextState[action.questionId]
             return nextState;
         default:
-            return nextState;
+            return state;
     }
 
 }
