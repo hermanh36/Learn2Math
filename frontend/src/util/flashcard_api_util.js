@@ -1,7 +1,12 @@
 import axios from 'axios';
 
-export const fetchFlashcards = () => {
-    return axios.get('/api/flashcards')
+export const fetchQuestions = (studentId) => {
+    return axios.get(`/api/flashcards/`, {
+        params: {
+            studentId: studentId
+        }
+    }
+    )
 };
 
 export const createFlashcard = flashcard => {
