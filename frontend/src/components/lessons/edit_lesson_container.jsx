@@ -4,13 +4,9 @@ import LessonForm from "./lesson_form";
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    lesson: {
-      content: state.entities.lessons[ownProps.match.params.lessonId]?.content,
-      category: state.entities.lessons[ownProps.match.params.lessonId]?.category
-    },
+    lesson: state.entities.lessons[ownProps.match.params.lessonId],
     lessonId: ownProps.match.params.lessonId,
     formType: 'Edit'
-
   }
 }
 

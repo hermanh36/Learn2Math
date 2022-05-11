@@ -7,6 +7,7 @@ class LessonForm extends React.Component {
 
   constructor(props){
     super(props)
+    debugger;
     this.state = this.props.lesson;
     this.updateTitle = this.updateTitle.bind(this);
     this.updateBody = this.updateBody.bind(this);
@@ -31,13 +32,20 @@ class LessonForm extends React.Component {
   ]
 
   componentDidMount(){
-    this.props.formType === 'Edit' ? this.props.fetchLesson(this.props.lessonId)
-    .then(() => this.setState(this.props.lesson)) : this.render();
+    if(this.props.formType === 'Edit') {
+      this.props.fetchLesson(this.props.lessonId).then(() =>{
+        this.setState(this.props.lesson)
+      });
+    }
   }
 
   submitHandler(e) {
     e.preventDefault();
-    this.props.submitForm(this.state);
+    let selected = document.getElementById('category-selector')
+    this.setState({ category: selected.value},() => {
+      console.log(this.state)
+      // this.props.submitForm(this.state);
+    })
   }
 
   updateTitle(field) {
@@ -51,19 +59,29 @@ class LessonForm extends React.Component {
     document.getElementById('hook').innerHTML = this.state.content;
   }
 
+  
+
   render() {
-    console.log(this.state);
-    return this.props.lesson ? (
-      <form onSubmit={this.submitHandler}>
-        <h1>{this.props.header}</h1>
-        <label htmlFor="title">Title Your Lesson</label>
-        <input type="text" name='title' value={this.state.title} onChange={this.updateTitle('title')}/>
-        <ReactQuill modules={this.modules} formats={this.formats} value={this.state.content} onChange={this.updateBody}>
-        </ReactQuill>
-        <div id='hook'></div>
-        <input type="submit" value="Make Your Lesson" />
-      </form>
-    ) : <h1>Loading...</h1>
+    if (!this.props.lesson) {
+      return null
+    } else {
+      return (
+        <form onSubmit={this.submitHandler}>
+          <h1>{this.props.header}</h1>
+          <label htmlFor="title">Title Your Lesson</label>
+          <input type="text" name='title' value={this.state.title} onChange={this.updateTitle('title')}/>
+          <ReactQuill modules={this.modules} formats={this.formats} value={this.state.content} onChange={this.updateBody}>
+          </ReactQuill>
+          <h1>Pick a category</h1>
+          <select name="category" id='category-selector'>
+            <option value="algebra">Algebra</option>
+            <option value="geometry">Geometry</option>
+          </select>
+          <div id='hook'></div>
+          <input type="submit" value="Make Your Lesson" />
+        </form>
+      )
+    }
   }
 }
 
