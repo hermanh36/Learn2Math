@@ -6,7 +6,8 @@ const mapStateToProps = state => {
     flashcard: {
       title: "",
       body: "",
-    }
+    },
+    formtype: 'Create'
   }
 }
 

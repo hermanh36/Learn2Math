@@ -74,6 +74,10 @@ export default class NewQuestionForm extends React.Component {
                         <input type="text" placeholder="Correct Answer" value={this.state.correctAnswer} onChange={this.update('correctAnswer')} />
                     </label>
                     <input type="submit" value={`${this.props.formType} Question`} />
+                    {this.props.formType === 'Update' ? 
+                    <button onClick={() => this.props.deleteQuestion(this.state._id).then(console.log(this.state))}>Delete</button>
+                    :
+                    <></>}
                 </form>
             </>
         )
