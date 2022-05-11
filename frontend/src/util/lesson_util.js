@@ -13,7 +13,7 @@ export const createLesson = lesson => {
 };
 
 export const updateLesson = lesson => {
-  return axios.patch(`/api/lessons/${lesson.id}`, lesson)
+  return axios.patch(`/api/lessons/${lesson._id}`, lesson)
 };
 
 export const deleteLesson = lessonId => {

@@ -13,7 +13,7 @@ export const fetchFlashcard = id => {
 };
 
 export const updateFlashcard = flashcard => {
-    return axios.patch(`/api/flashcards/${flashcard.id}`, flashcard)
+    return axios.patch(`/api/flashcards/${flashcard._id}`, flashcard)
 };
 
 export const deleteFlashcard = id => {

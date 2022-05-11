@@ -1,7 +1,7 @@
 import React from 'react';
 import QuestionItemContainer from '../question/question_item_container';
 
-class QuizIndex extends React.Component {
+class QuizItem extends React.Component {
   constructor(props){
     super(props);
     this.state = { questions : [] };
@@ -18,19 +18,17 @@ class QuizIndex extends React.Component {
     } else {
       return (
         <div>
-          <div id='left-side-of-quiz'> 
+          <div> 
             <h1>Quiz</h1>
             <ul>
               {this.props.questions.map(question => <QuestionItemContainer question={question}/>)}
             </ul>
           </div>
-          {/* <div id='right-side-of-quiz'>
-            <QuestionFormComponent/>
-          </div> */}
+          
         </div>
       )
     }
   }
 }
 
-export default QuizIndex;
+export default QuizItem;

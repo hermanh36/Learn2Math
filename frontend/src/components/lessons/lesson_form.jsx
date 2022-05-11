@@ -7,8 +7,7 @@ class LessonForm extends React.Component {
 
   constructor(props){
     super(props)
-    debugger;
-    this.state = this.props.lesson;
+    this.state = this.props.lesson
     this.updateTitle = this.updateTitle.bind(this);
     this.updateBody = this.updateBody.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
@@ -32,19 +31,24 @@ class LessonForm extends React.Component {
   ]
 
   componentDidMount(){
-    if(this.props.formType === 'Edit') {
-      this.props.fetchLesson(this.props.lessonId).then(() =>{
-        this.setState(this.props.lesson)
-      });
+    if (this.props.formType === 'Edit') {
+      this.props.fetchLesson(this.props.lessonId)
+
     }
   }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState(nextProps.lesson)
+  }
+
+
 
   submitHandler(e) {
     e.preventDefault();
     let selected = document.getElementById('category-selector')
     this.setState({ category: selected.value},() => {
-      console.log(this.state)
-      // this.props.submitForm(this.state);
+      debugger;
+      this.props.submitForm(this.state);
     })
   }
 
@@ -55,8 +59,8 @@ class LessonForm extends React.Component {
   }
 
   updateBody(text) {
-    this.setState({ content: text})
-    document.getElementById('hook').innerHTML = this.state.content;
+    this.setState({ content: text});
+    // document.getElementById('hook').innerHTML = this.state.content;
   }
 
   
@@ -77,8 +81,7 @@ class LessonForm extends React.Component {
             <option value="algebra">Algebra</option>
             <option value="geometry">Geometry</option>
           </select>
-          <div id='hook'></div>
-          <input type="submit" value="Make Your Lesson" />
+          <input type="submit" value={`${this.props.formType} Your Lesson`} />
         </form>
       )
     }
