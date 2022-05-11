@@ -33,6 +33,7 @@ router.post('/',
       authorId: req.user.id,
       title: req.body.title,
       content: req.body.content,
+      category: req.body.category
     });
 
     newLesson.save().then(lesson => res.json(lesson)).catch(err => res.json(err));
