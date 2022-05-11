@@ -7,8 +7,8 @@ class QuizItem extends React.Component {
     super(props);
     this.state = { questions : [] };
     this.submitHandler = this.submitHandler.bind(this);
-    this.score;
-    this.total;
+    this.score = 0;
+    this.total = 0;
   }
   //assume props have lessonId
 
@@ -48,7 +48,7 @@ class QuizItem extends React.Component {
             </ul>
           </div>
           <button onClick={this.submitHandler}>Submit</button>
-          <QuizScore score={score} total={total} />
+          <QuizScore score={this.score} total={this.total} />
         </div>
       )
     }
