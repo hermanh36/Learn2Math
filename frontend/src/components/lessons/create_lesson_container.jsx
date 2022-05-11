@@ -4,17 +4,18 @@ import LessonForm from './lesson_form'
 
 const mapStateToProps = state => {
   return {
-    content: "",
-    header: 'Create Your Lesson!', 
-    category: ""
+    lesson: {
+      content:'',
+      category:''
+    },
+    formType: 'Create'
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    createLesson: lesson => dispatch(createLesson(lesson))
+    submitForm: lesson => dispatch(createLesson(lesson))
   }
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(LessonForm)
-
