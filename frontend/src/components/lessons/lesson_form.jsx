@@ -1,6 +1,6 @@
 import ReactQuill, { Quill } from 'react-quill';
 import React, {useState} from "react";
-import LeftSidebar from '../left_sidebar/left_sidebar';
+import LeftSidebar from '../left_sidebar/left_sidebar_container';
 import 'react-quill/dist/quill.snow.css';
 // import { BoldExtension, ItalicExtension } from 'remirror/extensions';
 // import 'remirror/styles/all.css';

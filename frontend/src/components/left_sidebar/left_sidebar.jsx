@@ -22,7 +22,7 @@ class LeftSidebar extends React.Component {
                            <li><Link to="/categories">Lessons</Link></li>
                            <li><Link to="/lesson/new">Create a lesson</Link></li>
                            <li><Link to="/create_test">Create a test</Link></li>
-                           <li><Link to="/profile">Profile</Link></li>
+                           <li><Link to={`/profile/${this.props.currentUserId}`}>Profile</Link></li>
                            
                         </ul>
                     </div>
@@ -32,4 +32,4 @@ class LeftSidebar extends React.Component {
     }
 }
 
-export default LeftSidebar
+export default LeftSidebar;

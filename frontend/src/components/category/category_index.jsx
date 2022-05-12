@@ -1,5 +1,5 @@
 import React from 'react';
-import LeftSidebar from '../left_sidebar/left_sidebar';
+import LeftSidebar from '../left_sidebar/left_sidebar_container';
 import BorderBtn from '../border_btn/border_btn';
 import { BiSearchAlt } from 'react-icons/bi';
 

@@ -13,6 +13,11 @@
   box-shadow: 3px 3px 2px 2px var(--yellow-1);
   margin-bottom: 2rem;
 }
+/* added the below so that it only alters the .ql-editor class on the create/edit lesson page!!!!*/
+.quill-editor .ql-editor{
+  max-height: 25rem;
+  overflow: scroll;
+}
 .quill-editor:hover{
   box-shadow: 3px 3px 1px 1px var(--yellow-1);
 }
