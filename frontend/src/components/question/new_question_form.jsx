@@ -21,7 +21,18 @@ export default class NewQuestionForm extends React.Component {
         console.log(this.state);
         const arr = [choice1, choice2, choice3, choice4];
         console.log(arr);
-        this.setState({answerChoices:arr}, () => this.props.submitForm(this.state).then(() => this.props.formType === 'Create' ? this.clearFields() : null));
+        this.setState({answerChoices:arr}, () => {
+            this.props.submitForm(this.state)
+                .then((res) => {
+                    if(this.props.formType === 'Create'){
+                        this.clearFields();
+                    }else{
+                        
+                    }
+                    this.props.toggleEditQuestion(this.props.idx);
+                })
+            
+        });
     }
 
     update(field) {
