@@ -21,6 +21,12 @@ router.get('/:id', (req, res) => {
     );
 });
 
+router.get('/user/:authorId', (req, res)=> {
+  Lesson.find({authorId: req.params.authorId})
+    .then(lessons => res.json(lessons))
+    .catch(err => res.status(400).json(err))
+})
+
 router.post('/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {

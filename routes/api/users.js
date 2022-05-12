@@ -82,6 +82,18 @@ router.post("/login", (req, res) => {
   });
 });
 
+router.get('/', (req, res) => {
+  User.find()
+    .then(users => res.json(users))
+    .catch(err => res.status(400).json(err))
+});
+
+router.get('/:userId', (req, res) => {
+  User.findById(req.params.userId)
+    .then(user => res.json(user))
+    .catch(err => res.status(404).json(err))
+});
+
 // You may want to start commenting in information about your routes so that you can find the appropriate ones quickly.
 router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
   res.json({
