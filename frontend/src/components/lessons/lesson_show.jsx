@@ -1,5 +1,5 @@
 import React from "react";
-import LeftSidebar from "../left_sidebar/left_sidebar";
+import LeftSidebar from "../left_sidebar/left_sidebar_container";
 import parse from 'html-react-parser';
 import { Link } from "react-router-dom";
 
@@ -20,7 +20,7 @@ class LessonShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    // debugger;
+    debugger;
     this.setState({quizzes: nextProps.quizzes, questions: nextProps.questions})
     // console.log(nextProps.questions)
     // console.log(nextProps.quizzes)
@@ -31,6 +31,7 @@ class LessonShow extends React.Component {
   }
 
   render(){
+    console.log(this.state.questions.length);
     if (!this.props.lesson) {
       return null
     } 
@@ -40,7 +41,9 @@ class LessonShow extends React.Component {
       if (this.state.questions) questionsLength = Object.keys(this.state.questions).length;
       const {currentUserId} = this.props;
       const authorId = this.props.lesson.authorId;
+      const takeQuiz = this.state.questions.length > 0 ? <Link to={`/quiz/${quizId}`}>Take Quiz</Link> : <></>;
     
+      // debugger;
     return (
       <div className="lesson-show-wrap">
         <LeftSidebar />
@@ -57,7 +60,15 @@ class LessonShow extends React.Component {
           
               <div id="lesson-html-content">{parse(this.props.lesson.content)}</div>
 
-              {currentUserId === authorId ? <Link to={`/quiz/${quizId}/edit`}>Edit Quiz</Link> : <Link to={`/quiz/${quizId}`}>Take Quiz</Link>}
+              {currentUserId === authorId ? ( 
+              <>
+                  <Link to={`/lesson/${this.props.match.params.lessonId}/edit`}><button>Edit Lesson</button></Link>
+                  <Link to={`/quiz/${quizId}/edit`}><button>Edit Quiz</button></Link>
+              </>)
+                : 
+                // {takeQuiz}
+                <></>
+                }
             </div> 
           )
           : null

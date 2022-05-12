@@ -1,5 +1,5 @@
 import React from 'react';
-import LeftSidebar from '../left_sidebar/left_sidebar';
+import LeftSidebar from '../left_sidebar/left_sidebar_container';
 
 class FlashcardForm extends React.Component {
   constructor(props){
