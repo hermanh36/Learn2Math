@@ -5,7 +5,7 @@
 .category-index-wrap > div{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    
     align-items: center;
     min-height: calc(100vh - 70px);
     width: 100%;
@@ -19,7 +19,7 @@
     
 }
 .category-wrap{
-
+    flex: 1;
 }
 .category-wrap > h2{
     font-size: 3rem;
@@ -29,7 +29,7 @@
 }
 .category-wrap > ul{
     box-sizing: border-box;
-    padding: 2rem;
+    padding: 1rem;
     
 }
 .category-wrap > ul > li { 
@@ -40,10 +40,9 @@
 /* category button animation */
 .category-wrap a {
     padding: 2em 1em;
-    box-sizing: border-box;
-    max-width: 300px;
     height: 9em;
-    width: 100%;
+    width: 300px;
+    box-sizing: border-box;
     background-color: var(--blue-2);
     position: relative; 
     display: inline-block; 
@@ -178,7 +177,7 @@
 
 @media only screen and (max-width: 800px) {
     .category-index-wrap>div>div {
-    width: 100%;
+        width: 100%;
 
     }
     .category-wrap{

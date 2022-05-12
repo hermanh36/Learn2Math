@@ -26,7 +26,6 @@ const App = () => (
     {/* <LeftSidebar /> */}
       <Route exact path='/quiz/:quizId/question' component={QuestionIndexContainer} />
       <Route exact path='/quiz/:quizId/question' component={NewQuestionFormContainer} />
-
     <Switch>
       <Route exact path = '/lesson/new' component={CreateLessonContainer} />
       <Route exact path='/lesson/:lessonId/edit' component={EditLessonContainer} />
@@ -34,8 +33,8 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route exact path='/quiz/:quizId' component={QuizItemContainer} />
+      
       <ProtectedRoute exact path="/categories" component={CategoryIndexContainer} />
-
       <ProtectedRoute exact path="/tweets" component={TweetsContainer} />
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
       <ProtectedRoute exact path="/new_tweet" component={TweetComposeContainer} />

@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 class QuestionItem extends React.Component {
   constructor(props){
     super(props);
