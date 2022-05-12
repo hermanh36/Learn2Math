@@ -1,5 +1,6 @@
 import { connect } from "mongoose";
 import { createQuestion} from "../../util/question_api_util";
+import FlashcardForm from "./flashcard_form";
 
 const mapStateToProps = state => {
   return {
@@ -13,7 +14,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createQuestion : question => dispatch(createQuestion(question))
+    submitForm : question => dispatch(createQuestion(question))
   }
 }
 
