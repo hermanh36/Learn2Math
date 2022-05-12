@@ -2,7 +2,7 @@ import React from 'react';
 import LeftSidebar from '../left_sidebar/left_sidebar';
 import BorderBtn from '../border_btn/border_btn';
 import { BiSearchAlt } from 'react-icons/bi';
-var parser = new DOMParser();
+
 
 export default class CategoryIndex extends React.Component {
 
@@ -35,12 +35,20 @@ export default class CategoryIndex extends React.Component {
     render() {
         
         // let dummy = parser.parseFromString("<p>Naran is cool</p>" ,"text/html"); 
-        
+        let category; 
+        let title; 
+        let searchText;
         let algebraLessons = this.props.lessons.map((lesson) => {
-            if(lesson.category === 'algebra' && lesson.title.includes(this.state.searchText)){
+            category = lesson.category.toLowerCase();
+            title = lesson.title.toLowerCase();
+            searchText = this.state.searchText.toLowerCase();
+
+            if(category === 'algebra' && title.includes(searchText)){
                 return (
                   <BorderBtn lesson={lesson} />
                 )
+            }else{
+                return null;
             }
         })
         let geoLessons = this.props.lessons.map((lesson) => {
@@ -48,6 +56,8 @@ export default class CategoryIndex extends React.Component {
                 return (
                   <BorderBtn lesson={lesson} />
                 )
+            }else{
+                return null;
             }
         })
 
