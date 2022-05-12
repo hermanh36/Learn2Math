@@ -24,19 +24,25 @@ class LessonShow extends React.Component {
     return (
       <div className="lesson-show-wrap">
         <LeftSidebar />
+          
         {this.props.lesson ? 
         
           (
-            <div>
-              <div>{this.props.lesson.title} </div>
-              <div> {this.props.lesson.category}</div>
-              
+            <div className="lesson-show-container ql-editor">
+              <div>
+                <div className="lesson-show-category"> {this.props.lesson.category}</div>
+              </div>
+
+              <div className="lesson-show-title">{this.props.lesson.title} </div>
+          
               <div id="lesson-html-content">{parse(this.props.lesson.content)}</div>
+
             </div> 
           )
           : null
         }
       </div>
+  
     )
 
   }

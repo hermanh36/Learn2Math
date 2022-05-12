@@ -2,3 +2,51 @@
   position: relative; 
   min-height: calc(100vh - 70px);
 }
+
+
+.lesson-show-container {
+  position: absolute;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.lesson-show-category {
+  margin-bottom: 3rem;
+  border: 1px solid black;
+  color: var(--yellow-1);
+  font-weight: 800;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.lesson-show-title {
+  color: var(--yellow-1);
+  border: 1px solid black;
+  font-weight: 800;
+  font-size: 4rem;
+  margin-left: 4rem;
+  padding-top: 1rem;
+
+}
+
+
+
+
+#lesson-html-content {
+  border: 1px solid red;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  margin-left: 5rem;
+  max-width: 90rem;
+  max-height: 30rem;
+  overflow: scroll;
+}
+
+#lesson-html-content > p {
+  padding-bottom: 1rem;
+  position: relative;
+}
