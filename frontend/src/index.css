@@ -173,7 +173,7 @@ table {
 @import "./stylesheets/signup.css";
 @import "./components/category/categories.css";
 @import "./components/left_sidebar/left_sidebar.css";
-@import "./components/profile/profile.css";
+/* @import "./components/profile/profile.css"; */
 @import "./components/lessons/lesson_show.css";
 @import "./components/lessons/lesson_form.css";
 @import "./components/question/questions.css";

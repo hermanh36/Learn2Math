@@ -2,6 +2,10 @@ import ReactQuill, { Quill } from 'react-quill';
 import React, {useState} from "react";
 import LeftSidebar from '../left_sidebar/left_sidebar';
 import 'react-quill/dist/quill.snow.css';
+// import { BoldExtension, ItalicExtension } from 'remirror/extensions';
+// import 'remirror/styles/all.css';
+// import { Remirror, useRemirror } from '@remirror/react';
+// import { MyEditor } from './manager';
 
 
 class LessonForm extends React.Component {
@@ -14,21 +18,25 @@ class LessonForm extends React.Component {
     this.submitHandler = this.submitHandler.bind(this);
   }
 
+  
+
   modules = {
     toolbar: [
       [{ 'header': [1, 2, false] }],
       ['bold', 'italic', 'underline', 'strike', 'blockquote'],
       [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
       ['link', 'image'],
-      ['clean']
+      ['clean'],['table']
     ],
   }
+
   formats = [
     'header',
     'bold', 'italic', 'underline', 'strike', 'blockquote',
     'list', 'bullet', 'indent',
     'link', 'image'
   ]
+
 
   componentDidMount(){
     if (this.props.formType === 'Edit') {
@@ -94,6 +102,7 @@ class LessonForm extends React.Component {
               <div className="quill-editor-wrap">
                 <ReactQuill className="quill-editor" modules={this.modules} formats={this.formats} value={this.state.content} onChange={this.updateBody}>
                 </ReactQuill>
+                {/* <MyEditor></MyEditor> */}
               </div>
               
               <input class="lesson-form-submit" type="submit" value={`${this.props.formType} Your Lesson`} />

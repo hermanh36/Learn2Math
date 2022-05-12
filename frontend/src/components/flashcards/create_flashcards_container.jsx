@@ -1,5 +1,5 @@
-import { connect } from "mongoose";
-import { createQuestion} from "../../util/question_api_util";
+import { connect } from "react-redux";
+import { createFlashcard } from "../../actions/flashcard_actions";
 import FlashcardForm from "./flashcard_form";
 
 const mapStateToProps = state => {
@@ -8,14 +8,14 @@ const mapStateToProps = state => {
       title: "",
       body: "",
     },
-    formtype: 'Create',
+    formType: 'Create',
     errors: state.errors.flashcard
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    submitForm : question => dispatch(createQuestion(question))
+    submitForm : flashcard => dispatch(createFlashcard(flashcard))
   }
 }
 
