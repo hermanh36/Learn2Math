@@ -12,8 +12,12 @@ module.exports = function validateQuestionInput(data) {
         errors.content = 'The question must be between 3 and 140 characters';
     }
 
-    if (!Validator.isLength(data.correctAnswer, { min: 1, max: 140 })) {
-        errors.correctAnswer = 'The correct answer must be between 1 and 140 characters';
+    if (!Validator.isLength(data.correctAnswer, {max:140})){
+        errors.correctAnswer = 'The correct answer field must be less than 140 characters';
+    }
+
+    if (!Validator.isEmpty(data.correctAnswer)) {
+        errors.correctAnswer = 'The correct answer field is required';
     }
 
     if (!data.answerChoices.every(answerChoice => answerChoice.length > 0)) {
