@@ -29,7 +29,7 @@ export const removeQuiz = quizId => {
 export const receiveQuizError = errors => {
   return {
     type: RECEIVE_QUIZ_ERRORS,
-    errors
+    errors: errors.response.data
   }
 }
 

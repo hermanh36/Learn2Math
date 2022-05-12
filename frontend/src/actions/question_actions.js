@@ -28,7 +28,7 @@ const removeQuestion = questionId => {
 const receiveQuestionErrors = errors => {
     return {
         type: RECEIVE_QUESTION_ERRORS,
-        errors
+        errors:errors.response.data
     }
 };
 

@@ -28,7 +28,7 @@ const removeFlashcard = flashcardId => {
 const receiveFlashcardErrors = errors => {
     return {
         type: RECEIVE_FLASHCARD_ERRORS,
-        errors
+        errors: errors.response.data
     }
 }
 

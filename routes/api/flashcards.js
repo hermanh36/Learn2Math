@@ -4,6 +4,7 @@ const Flashcard = require('../../models/Flashcard');
 const keys = require('../../config/keys');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
+const validateFlashcardInput = require('../../validation/flashcard');
 
 
 router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -14,6 +15,12 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => 
 })
 
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const { errors, isValid } = validateFlashcardInput(req.body);
+
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
+    
     const newFlashcard = new Flashcard({
         title: req.body.title,
         body: req.body.body,
@@ -31,6 +38,12 @@ router.get('/:id', passport.authenticate('jwt', { session: false }), (req, res) 
 })
 
 router.patch('/:id', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    const { errors, isValid } = validateFlashcardInput(req.body);
+
+    if (!isValid){
+        return res.status(400).json(errors);
+    }
+    
     await Flashcard.findByIdAndUpdate(req.params.id,{
         title: req.body.title,
         body: req.body.body}, {new: true})
