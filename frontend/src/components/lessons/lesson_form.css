@@ -13,6 +13,14 @@
   box-shadow: 3px 3px 2px 2px var(--yellow-1);
   margin-bottom: 2rem;
 }
+.quill-editor:hover{
+  box-shadow: 3px 3px 1px 1px var(--yellow-1);
+}
+
+.ql-editor{
+  min-height: 300px;
+}
+
 .lesson-form-header{
   font-size: 3rem;
   margin-bottom: 3rem;
@@ -20,7 +28,7 @@
   font-weight: 800; 
 }
 .lesson-title-wrap{ 
-  margin-bottom: 1rem;
+  
   font-size: 1rem;
 }
 .lesson-title-wrap > input{
@@ -28,6 +36,7 @@
   border-radius: 5px; 
   padding: 0.5rem 1rem;
   font-size: 1.1rem;
+  box-sizing: border-box;
 }
 .lesson-title-wrap, .category-select-wrap{
   display: flex; 
@@ -59,7 +68,7 @@
   border-radius: 5%; 
   color: var(--gray-1);
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.3s;
   font-weight: 600;
   font-size: 1.2rem;
 }
@@ -74,15 +83,21 @@
     }
     .lesson-title-wrap,
     .category-select-wrap {
-      width: 50%;
+      width: 100%;
     }
     .lesson-title-wrap>label,
     .category-select-wrap>label {
-      flex: 1;
+      flex: 0.5;
     }
     
     .lesson-title-wrap>input,
     .category-select-wrap>select {
-      flex: 1;
+      flex: 0.5;
     }
+    .lesson-title-wrap>input {
+      padding: 0.5rem 0.1rem;
+      text-indent: 20px;
+    }
+
+    
 }
