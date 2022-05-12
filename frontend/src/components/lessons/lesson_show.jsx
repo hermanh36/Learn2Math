@@ -49,9 +49,6 @@ class LessonShow extends React.Component {
         
           (
             <div className="lesson-show-container ql-editor">
-              <div>
-                <div className="lesson-show-category"> {this.props.lesson.category}</div>
-              </div>
 
               <div className="lesson-show-title">{this.props.lesson.title} </div>
           
