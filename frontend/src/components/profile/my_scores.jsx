@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 
 class MyScores extends React.Component {
@@ -9,16 +10,19 @@ class MyScores extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchScores(this.props.currentUserId)
-    .then(scores => scores.forEach(score =>{
-      this.props.fetchQuiz(score.quizId)
-      .then(quiz => this.props.fetchLesson(quiz.lessonId))
-        .then(lesson => this.lessonArr.push(lesson))
-    })).then(this.setState({ lessons: this.lessonArr}))
+    this.props.fetchScores(this.props.currentUserId)//.then(scores => console.log(scores.scores))
+    .then(scores => scores.scores.forEach(score => 
+      {
+      console.log(score.quizId)
+      this.props.fetchQuiz(score.quizId).then(quiz => console.log(quiz._id))
+      }))
+    //   .then(quiz => this.props.fetchLesson(quiz.lessonId))
+    //     .then(lesson => this.lessonArr.push(lesson))
+    // })).then(this.setState({ lessons: this.lessonArr}))
   }
 
   render() {
-    if(!scores) {
+    if(!this.props.scores) {
       return null;
     } else {
       return (

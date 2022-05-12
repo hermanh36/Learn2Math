@@ -6,7 +6,6 @@ const QuizScoreReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_MY_SCORES:
       Object.values(action.scores).forEach(score => {
-        console.log(score);
         nextState[score._id] = score
       })
       return nextState;
