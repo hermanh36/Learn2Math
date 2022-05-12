@@ -2,10 +2,10 @@ import ReactQuill, { Quill } from 'react-quill';
 import React, {useState} from "react";
 import LeftSidebar from '../left_sidebar/left_sidebar';
 import 'react-quill/dist/quill.snow.css';
-import { BoldExtension, ItalicExtension } from 'remirror/extensions';
-import 'remirror/styles/all.css';
-import { Remirror, useRemirror } from '@remirror/react';
-import { MyEditor } from './manager';
+// import { BoldExtension, ItalicExtension } from 'remirror/extensions';
+// import 'remirror/styles/all.css';
+// import { Remirror, useRemirror } from '@remirror/react';
+// import { MyEditor } from './manager';
 
 
 class LessonForm extends React.Component {

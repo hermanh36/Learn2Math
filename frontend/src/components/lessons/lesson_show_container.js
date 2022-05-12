@@ -8,7 +8,10 @@ const mSTP = (state, ownProps) => {
   
   return {
     lesson: state.entities.lessons[ownProps.match.params.lessonId],
-    lessonId: ownProps.match.params.lessonId
+    lessonId: ownProps.match.params.lessonId,
+    quizzes: state.entities.quizzes,
+    questions: state.entities.questions,
+    currentUserId: state.session.user.id
   }
 };
 
