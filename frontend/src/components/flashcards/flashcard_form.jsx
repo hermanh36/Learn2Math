@@ -1,4 +1,5 @@
 import React from 'react';
+import LeftSidebar from '../left_sidebar/left_sidebar';
 
 class FlashcardForm extends React.Component {
   constructor(props){
@@ -41,21 +42,32 @@ class FlashcardForm extends React.Component {
       return null
     } else {
       return (
-        <div>
-          <h1>{this.props.formType} Flashcard</h1>
-          <form onSubmit={this.submitHandler}>
-            <label htmlFor="flashcard-title">Title</label>
-            <input onChange={this.update('title')} type="text" value={this.state.title}name='flashcard-title' />
-            <label htmlFor="flashcard-body">Content</label>
-            <input onChange={this.update('body')} type="text" value={this.state.body}name='flashcard-body' />
-            <input type="submit" value={`${this.props.formType} your flashcard`} />
-          </form>
-          {(this.props.formType === 'Edit') ? 
-            <button onClick={this.deleteHandler}>Delete</button>
-            :
-            <></>
-          }
-        {errors.length > 0 ? errors.map((err,idx) => <p key={idx}>{err}</p>): null}
+        <div className="flashcard-form-wrap">
+          <div>
+            <LeftSidebar />
+            <div>
+              <h1>{this.props.formType} Flashcard</h1>
+              <form onSubmit={this.submitHandler}>
+                <div className="create-card-input-wrap">
+                  <label htmlFor="flashcard-title">Title</label>
+                  <input onChange={this.update('title')} type="text" value={this.state.title}name='flashcard-title' />
+                </div>
+                <div className="create-card-input-wrap">
+                  <label htmlFor="flashcard-body">Content</label>
+                  <input onChange={this.update('body')} type="text" value={this.state.body}name='flashcard-body' />
+                </div>
+                <div className="create-card-submit-wrap">
+                  <input type="submit" value={`${this.props.formType} your flashcard`} />
+                </div>
+              </form>
+              {(this.props.formType === 'Edit') ? 
+                <button onClick={this.deleteHandler}>Delete</button>
+                :
+                <></>
+              }
+              {errors.length > 0 ? errors.map((err,idx) => <p key={idx}>{err}</p>): null}
+            </div>
+          </div>
         </div>
       )
     }
