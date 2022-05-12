@@ -41,9 +41,9 @@ export const fetchQuizzes = () => dispatch => {
   )
 };
 
-export const fetchQuiz = (quiz) => dispatch => {
+export const fetchQuiz = (lessonId) => dispatch => {
   return (
-    quizUtil.fetchQuiz(quiz)
+    quizUtil.fetchQuiz(lessonId)
       .then(quiz => dispatch(receiveQuiz(quiz)))
       .catch(err => dispatch(receiveQuizError(err)))
   )

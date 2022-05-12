@@ -12,11 +12,13 @@ router.get('/', (req, res) => {
     .catch(err => res.status(404).json({ noquizfound: 'No quizzes found' }));
 });
 
-router.get('/:id', (req, res) => {
-  Quiz.findById(req.params.id)
+router.get('/:lessonId', (req, res) => {
+  debugger;
+  console.log(req.params.lessonId)
+  Quiz.findOne({lessonId: req.params.lessonId})
     .then(quiz => res.json(quiz))
     .catch(err =>
-      res.status(404).json({ noquizfound: 'No quizzes found with that id' })
+      res.status(404).json({ noquizfound: 'No quizzes found with that lessonId' })
     );
 });
 

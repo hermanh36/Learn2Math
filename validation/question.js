@@ -16,7 +16,7 @@ module.exports = function validateQuestionInput(data) {
         errors.correctAnswer = 'The correct answer field must be less than 140 characters';
     }
 
-    if (!Validator.isEmpty(data.correctAnswer)) {
+    if (Validator.isEmpty(data.correctAnswer)) {
         errors.correctAnswer = 'The correct answer field is required';
     }
 
