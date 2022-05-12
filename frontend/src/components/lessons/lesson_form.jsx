@@ -67,6 +67,7 @@ class LessonForm extends React.Component {
   
 
   render() {
+    const errors = Object.values(this.props.errors);
     if (!this.props.lesson) {
       return null
     } else {
@@ -96,6 +97,7 @@ class LessonForm extends React.Component {
               </div>
               
               <input class="lesson-form-submit" type="submit" value={`${this.props.formType} Your Lesson`} />
+              {errors.length > 0 ? errors.map(err => <p>{err}</p>) : null}
             </form>
             </div>
           </div>

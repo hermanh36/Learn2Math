@@ -8,7 +8,8 @@ const mapStateToProps = state => {
       content:'',
       category:''
     },
-    formType: 'Create'
+    formType: 'Create',
+    errors: state.errors.lesson
   }
 }
 

@@ -15,6 +15,8 @@ import CategoryIndexContainer from './category/category_index_container';
 import LeftSidebar from './left_sidebar/left_sidebar';
 import NewQuestionFormContainer from './question/new_question_form_container';
 import QuestionIndexContainer from './question/question_index_container';
+import QuestionErrorContainer from './question/question_error_container';
+
 import CreateLessonContainer from './lessons/create_lesson_container';
 import EditLessonContainer from './lessons/edit_lesson_container';
 import QuizItemContainer from './quiz/quiz_item_container';
@@ -24,8 +26,9 @@ const App = () => (
   <div className="app-wrap">
     <NavBarContainer />
     {/* <LeftSidebar /> */}
-      <Route exact path='/quiz/:quizId/question' component={QuestionIndexContainer} />
-      <Route exact path='/quiz/:quizId/question' component={NewQuestionFormContainer} />
+      <Route exact path='/quiz/:quizId/edit' component={QuestionErrorContainer} />
+      <Route exact path='/quiz/:quizId/edit' component={QuestionIndexContainer} />
+      <Route exact path='/quiz/:quizId/edit' component={NewQuestionFormContainer} />
     <Switch>
       <Route exact path = '/lesson/new' component={CreateLessonContainer} />
       <Route exact path='/lesson/:lessonId/edit' component={EditLessonContainer} />

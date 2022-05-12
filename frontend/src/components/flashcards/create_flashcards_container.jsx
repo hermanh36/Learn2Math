@@ -8,7 +8,8 @@ const mapStateToProps = state => {
       title: "",
       body: "",
     },
-    formtype: 'Create'
+    formtype: 'Create',
+    errors: state.errors.flashcard
   }
 }
 

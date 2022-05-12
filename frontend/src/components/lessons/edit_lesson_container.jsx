@@ -6,7 +6,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     lesson: state.entities.lessons[ownProps.match.params.lessonId],
     lessonId: ownProps.match.params.lessonId,
-    formType: 'Edit'
+    formType: 'Edit',
+    errors: state.errors.lesson
   }
 }
 

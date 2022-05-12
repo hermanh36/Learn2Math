@@ -32,6 +32,7 @@ class FlashcardForm extends React.Component {
   }
 
   render() {
+    const errors = Object.values(this.props.errors);
     return (
       <div>
         <h1>{this.props.formType} Flashcard</h1>
@@ -42,6 +43,7 @@ class FlashcardForm extends React.Component {
           <input onChange={this.update('body')} type="text" name='flashcard-body' />
           <input type="submit" value={`${this.props.forType} your flashcard`} />
         </form>
+      {errors.length > 0 ? errors.map(err => <p>{err}</p>): null}
       </div>
     )
   }
