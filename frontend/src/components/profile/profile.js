@@ -14,8 +14,8 @@ class Profile extends React.Component {
     }
     
     componentWillMount() {
-        console.log(this.props.currentUser.id)
-        this.props.fetchUserTweets(this.props.currentUser.id);
+        console.log(this.props.currentUserId.id)
+        this.props.fetchUserTweets(this.props.currentUserId.id);
     }
 
     componentWillReceiveProps(newState) {
@@ -23,28 +23,31 @@ class Profile extends React.Component {
     }   
     
     render() {
-        if (this.state.tweets.length === 0) {
+          
           return (
             <div className="profile-wrap">
               <LeftSidebar />
               <div>
+                <h1></h1>
                 This user has no Tweets
+
               </div>
             </div>
           )
-        } else {
-          return (
-            <div className="profile-wrap">
-              <LeftSidebar />
-              <div>
-                <h2>All of This User's Tweets</h2>
-                {this.state.tweets.map(tweet => (
-                  <TweetBox key={tweet._id} text={tweet.text} />
-                ))}
-              </div>
-            </div>
-          );
-        }
+         
+        // else {
+        //   return (
+        //     <div className="profile-wrap">
+        //       <LeftSidebar />
+        //       <div>
+        //         <h2>All of This User's Tweets</h2>
+        //         {this.state.tweets.map(tweet => (
+        //           <TweetBox key={tweet._id} text={tweet.text} />
+        //         ))}
+        //       </div>
+        //     </div>
+        //   );
+        // }
       }
 }
 
