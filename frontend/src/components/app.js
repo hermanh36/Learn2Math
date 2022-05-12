@@ -22,11 +22,15 @@ import CreateLessonContainer from './lessons/create_lesson_container';
 import EditLessonContainer from './lessons/edit_lesson_container';
 import QuizItemContainer from './quiz/quiz_item_container';
 import ShowLessonContainer from './lessons/lesson_show_container';
+import MyLessonsContainer from './profile/my_lessons_container';
+import MyQuizScores from './profile/my_score_container'
 
 const App = () => (
   <div className="app-wrap">
     <NavBarContainer />
+    <Route path={`/profile/:userId`} component={MyLessonsContainer} />
     {/* <LeftSidebar /> */}
+      <Route exact path='/testmyquiz' component={MyQuizScores}/>
       <Route exact path='/testflashcardcreate' component={CreateFlashcardsContainer}/>
       <Route exact path='/test/:flashcardId/edit' component={EditFlascardsContainer}/>
       <Route exact path='/quiz/:quizId/edit' component={QuestionErrorContainer} />

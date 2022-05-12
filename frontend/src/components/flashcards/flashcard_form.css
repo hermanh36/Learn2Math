@@ -1,0 +1,91 @@
+.flashcard-form-wrap{
+  position: relative; 
+  min-height: calc(100vh - 70px);
+
+}
+
+.flashcard-form-wrap > div > div{
+  padding: 3rem 1rem;
+  
+}
+
+.flashcard-form-wrap > div > div  h1{
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.flashcard-form-wrap > div > div > form{ 
+  box-sizing: border-box;
+  padding: 3rem 1rem;
+  width: 50%; 
+  margin: 3rem auto;
+  border: 1px solid var(--gray-1);
+}
+
+.flashcard-form-wrap > div > div  label { 
+  font-size: 2rem;
+}
+.create-card-input-wrap > input { 
+  padding: 1rem;
+  font-size: 1.2rem;
+  box-sizing: border-box;
+}
+
+.create-card-input-wrap{
+  display: flex; 
+  margin: 0 0 2rem 0;
+}
+
+
+.create-card-input-wrap > * {
+  flex: 1;
+  color: var(--gray-5);
+
+}
+
+.create-card-submit-wrap { 
+  margin-top: 10rem;
+  text-align: center;
+}
+
+.create-card-submit-wrap > input{
+  background: var(--blue-1);
+  border: 1px solid var(--gray-1);
+  border-radius: 4px; 
+  font-size: 1rem;
+  padding: 1rem;
+  color: white;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.create-card-submit-wrap > input:hover{
+  text-shadow: 1px 1px var(--yellow-1);
+  box-shadow: 1px 1px 1px 1px var(--yellow-2);
+  letter-spacing: 2px;
+}
+
+@media only screen and (max-width: 800px) {
+  .flashcard-form-wrap>div>div>form {
+    
+    padding: 1rem 0.4rem;
+    width: 100%;
+    margin: 3rem auto;
+    border: 1px solid var(--gray-1);
+  }
+  .flashcard-form-wrap>div>div label {
+    font-size: 1.3rem;
+  }
+  .create-card-input-wrap>input {
+    padding: 0.8rem 0.2rem;
+    font-size: 1.2rem;
+  }
+  .flashcard-form-wrap>div>div {
+    padding: 3rem 0.5rem;
+  
+  }
+}
+
