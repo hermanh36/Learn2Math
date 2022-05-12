@@ -4,8 +4,8 @@ export const fetchQuizzes = () => {
   return axios.get('/api/quizzes')
 };
 
-export const fetchQuiz = quizId => {
-  return axios.get(`/api/quizzes/${quizId}`)
+export const fetchQuiz = lessonId => {
+  return axios.get(`/api/quizzes/${lessonId}`)
 };
 
 export const createQuiz = quiz => {

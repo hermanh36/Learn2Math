@@ -8,9 +8,11 @@ class LessonShow extends React.Component {
   }
 
   componentDidMount() { 
-    this.props.fetchLesson(this.props.lessonId).then((res) => {
-      console.log(res);
-    }); 
+    const {fetchLesson, fetchQuiz, fetchQuestions, lessonId} = this.props;
+    debugger;
+    fetchLesson(lessonId)
+      .then(lesson => fetchQuiz(lesson.lesson._id))
+      .then(quiz => fetchQuestions(quiz.quiz._id))
   }
 
   renderLessonContent(){
