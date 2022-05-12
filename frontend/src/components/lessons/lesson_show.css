@@ -37,16 +37,52 @@
 
 
 #lesson-html-content {
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  background-color: whitesmoke;
   border: 1px solid red;
   padding: 0.5rem;
   margin-top: 1rem;
   margin-left: 5rem;
-  max-width: 90rem;
+  max-width: 100rem;
   max-height: 30rem;
   overflow: scroll;
+  
 }
 
 #lesson-html-content > p {
   padding-bottom: 1rem;
   position: relative;
+  transition: 0.4s;
+}
+
+.lesson-quiz-redirect-wrap{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  padding-right: 5rem;
+}
+
+.lesson-quiz-redirect-button{
+  /* background-color: white;
+  border: 1px solid black; */
+  padding: 1rem 2.5rem;
+  font-size: 1.5rem;
+  box-sizing: content-box;
+  text-decoration: none;
+  letter-spacing: 1.1px;
+  color: white;
+  border-radius: 10px;
+  background-color: var(--blue-1);
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+.lesson-quiz-redirect-button:hover {
+  background-color: blue;
+  z-index: 10;
+  /*   h-offset, v-offset, blur, spread, color */  
+  /* box-shadow: 5px, 10px, 8px, 10px, black; */
+  box-shadow: 0.01rem 0.9rem 25px 0.2rem var(--gray-1);
+  letter-spacing: 1.5px;
 }

@@ -40,7 +40,7 @@ class LessonShow extends React.Component {
       if (this.state.questions) questionsLength = Object.keys(this.state.questions).length;
       const {currentUserId} = this.props;
       const authorId = this.props.lesson.authorId;
-    
+      const isCurrentUserAuthor = currentUserId === authorId;
     return (
       <div className="lesson-show-wrap">
         <LeftSidebar />
@@ -57,7 +57,9 @@ class LessonShow extends React.Component {
           
               <div id="lesson-html-content">{parse(this.props.lesson.content)}</div>
 
-              {currentUserId === authorId ? <Link to={`/quiz/${quizId}/edit`}>Edit Quiz</Link> : <Link to={`/quiz/${quizId}`}>Take Quiz</Link>}
+              <div className="lesson-quiz-redirect-wrap">
+                {isCurrentUserAuthor ? <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}/edit`}>Edit Quiz</Link> : <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}`}>Take Quiz</Link>}
+              </div>
             </div> 
           )
           : null
