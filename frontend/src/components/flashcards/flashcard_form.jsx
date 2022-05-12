@@ -55,7 +55,7 @@ class FlashcardForm extends React.Component {
             :
             <></>
           }
-        {errors.length > 0 ? errors.map(err => <p>{err}</p>): null}
+        {errors.length > 0 ? errors.map((err,idx) => <p key={idx}>{err}</p>): null}
         </div>
       )
     }
