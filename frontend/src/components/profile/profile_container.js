@@ -1,20 +1,21 @@
 // src/components/profile/profile_container.js
 
 import { connect } from 'react-redux';
-import { fetchUserTweets } from '../../actions/tweet_actions';
 import Profile from './profile';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    tweets: Object.values(state.tweets.user),
-    currentUserId: state.session.user, 
-
+    lessons: state.entities.lessons,
+    lesson: state.entities.lessons[ownProps.match.params.lessonId],
+    user: state.entities.user[ownProps.match.params.userId]
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUserTweets: id => dispatch(fetchUserTweets(id))
+    fetchLessons: lessons => dispatch(fetchLessons(lessons)),
+    fetchQuizScore: quizScore => dispatch(fetchQuizScore(quizScore)),
+    fetchLesson: lesson => dispatch(fetchLesson(lesson))
   };
 };
 
