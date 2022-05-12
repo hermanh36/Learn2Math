@@ -38,23 +38,23 @@ export default class CategoryIndex extends React.Component {
         let category; 
         let title; 
         let searchText;
-        let algebraLessons = this.props.lessons.map((lesson) => {
+        let algebraLessons = this.props.lessons.map((lesson, idx) => {
             category = lesson.category.toLowerCase();
             title = lesson.title.toLowerCase();
             searchText = this.state.searchText.toLowerCase();
 
             if(category === 'algebra' && title.includes(searchText)){
                 return (
-                  <BorderBtn lesson={lesson} />
+                  <BorderBtn key={idx} lesson={lesson} />
                 )
             }else{
                 return null;
             }
         })
-        let geoLessons = this.props.lessons.map((lesson) => {
+        let geoLessons = this.props.lessons.map((lesson, idx) => {
             if(lesson.category === 'geometry' && lesson.title.includes(this.state.searchText)){
                 return (
-                  <BorderBtn lesson={lesson} />
+                  <BorderBtn key={idx} lesson={lesson} />
                 )
             }else{
                 return null;
