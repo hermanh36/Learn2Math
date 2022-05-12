@@ -7,6 +7,7 @@ import QuestionErrorsReducer from './question_errors_reducer';
 import LessonErrorReducer from './lesson_errors_reducer';
 import QuizErrorReducer from './quiz_errors_reducer';
 import FlashcardErrorsReducer from './flashcard_errors_reducer';
+import QuizScoreErrorReducer from './quiz_score_errors_reducer';
 import UserErrorReducer from './user_errors_reducer';
 
 export default combineReducers({
@@ -15,5 +16,6 @@ export default combineReducers({
   lesson: LessonErrorReducer,
   quiz: QuizErrorReducer,
   flashcard: FlashcardErrorsReducer,
+  quizscore: QuizScoreErrorReducer,
   user: UserErrorReducer
 });

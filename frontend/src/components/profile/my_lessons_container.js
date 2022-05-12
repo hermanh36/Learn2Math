@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchMyLessons } from "../../util/lesson_util";
+import { fetchMyLessons } from "../../actions/lesson_actions";
 import MyLessons from './my_lesson';
 
 const mapState = state => ({
