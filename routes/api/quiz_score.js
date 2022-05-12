@@ -12,32 +12,24 @@ router.get('/', (req, res) => {
     .catch(err => res.status(404).json({err}));
 });
 
-router.get('/:lessonId', (req, res) => {
-  console.log(req.params.lessonId)
-  Quiz.findOne({ lessonId: req.params.lessonId })
-    .then(quiz => res.json(quiz))
-    .catch(err =>
-      res.status(404).json({ noquizfound: 'No quizzes found with that lessonId' })
-    );
-});
-
 router.post('/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    const newQuiz = new Quiz({
-      lessonId: req.body.lessonId,
-      studentId: req.user.id
+    const newQuizScore = new QuizScore({
+      quizId: req.body.lessonId,
+      studentId: req.user.id,
+      score: req.body.score
     });
 
-    newQuiz.save().then(quiz => res.json(quiz));
+    newQuizScore.save().then(quizScore => res.json(quizScore));
   }
 );
 
 router.delete('/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    Quiz.findByIdAndDelete(req.params.id)
-      .then(() => res.json({ message: 'Successfully deleted quiz' }))
+    QuizScore.findByIdAndDelete(req.params.id)
+      .then(() => res.json({ message: 'Successfully deleted quizScore' }))
       .catch(err => res.status(400).json(err))
   }
 );
