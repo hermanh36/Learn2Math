@@ -13,13 +13,21 @@ export default class QuestionIndex extends React.Component{
         this.setState(nextProps.questions)
     }
 
+    toggleEditQuestion(idx) { 
+        let editContainer = document.getElementById(`edit-question-${idx}`);
+        editContainer.classList.toggle('hidden-class'); 
+        
+        let question = document.getElementById(`question-${idx}-container`);
+        question.classList.toggle('hidden-class'); 
+    }
+
     render(){
         const allQuestions = Object.values(this.props.questions);
         const questions = allQuestions.map((question,idx) => {
             return (
                 <div key={idx}>
                     <div id={`question-${idx}-container`}>
-                        <p>{idx+1}) {question.content}</p>
+                        <p>{idx+1}. {question.content}</p>
                         <ul>
                             <li>a) {question.answerChoices[0]}</li>
                             <li>b) {question.answerChoices[1]}</li>
@@ -28,8 +36,9 @@ export default class QuestionIndex extends React.Component{
                         </ul>
                     </div>
                     <div className='hidden-class' id={`edit-question-${idx}`}>
-                        <EditQuestionContainer question={question}/>
+                        <EditQuestionContainer question={question} idx={idx} toggleEditQuestion={this.toggleEditQuestion}/>
                     </div>
+                    <button onClick={() => this.toggleEditQuestion(idx)}>Edit Question</button>
                 </div>
             )
         })
