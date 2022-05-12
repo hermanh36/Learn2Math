@@ -28,7 +28,9 @@ const App = () => (
     {/* <LeftSidebar /> */}
       <Route exact path='/quiz/:quizId/edit' component={QuestionErrorContainer} />
       <Route exact path='/quiz/:quizId/edit' component={QuestionIndexContainer} />
-      <Route exact path='/quiz/:quizId/edit' component={NewQuestionFormContainer} />
+      <div className="new-question-container-wrap">
+        <Route exact path='/quiz/:quizId/edit' component={NewQuestionFormContainer} />
+      </div>
     <Switch>
       <Route exact path = '/lesson/new' component={CreateLessonContainer} />
       <Route exact path='/lesson/:lessonId/edit' component={EditLessonContainer} />

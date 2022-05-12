@@ -26,12 +26,10 @@ export default class NewQuestionForm extends React.Component {
                 .then((res) => {
                     if(this.props.formType === 'Create'){
                         this.clearFields();
-                    }else{
-                        
+                    }else{      
                     }
                     this.props.toggleEditQuestion(this.props.idx);
                 })
-            
         });
     }
 
@@ -65,36 +63,49 @@ export default class NewQuestionForm extends React.Component {
     render() {
         return (
             <>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        <input type="text" placeholder="Question" value={this.state.content} onChange={this.update('content')} />
-                    </label>
-                    <label>
-                        <input type="text" placeholder="Choice 1" value={this.state.choice1} onChange={this.updateChoice(1)} />
-                    </label>
-                    <label>
-                        <input type="text" placeholder="Choice 2" value={this.state.choice2} onChange={this.updateChoice(2)} />
-                    </label>
-                    <label>
-                        <input type="text" placeholder="Choice 3" value={this.state.choice3} onChange={this.updateChoice(3)} />
-                    </label>
-                    <label>
-                        <input type="text" placeholder="Choice 4" value={this.state.choice4} onChange={this.updateChoice(4)} />
-                    </label>
-                    <label>
-                        <input type="text" placeholder="Correct Answer" value={this.state.correctAnswer} onChange={this.update('correctAnswer')} />
-                    </label>
-                    <div>
-                        <input type="submit" value={`${this.props.formType} Question`} />
-                    </div>
-                    {this.props.formType === 'Update' ? 
-                    <div>
-                        <button onClick={() => this.props.deleteQuestion(this.state._id).then(console.log(this.state))}>Delete</button>
+                <div className="new-question-form-wrap">
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                            <span>Question:  </span>
+                            <input type="text" placeholder="Question" value={this.state.content} onChange={this.update('content')} />
+                        </label>
+                        <label>
+                            <span>a. </span>
+                            <input type="text" placeholder="Choice 1" value={this.state.choice1} onChange={this.updateChoice(1)} />
+                        </label>
+                        <label>
+                            <span>b. </span>
+                            <input type="text" placeholder="Choice 2" value={this.state.choice2} onChange={this.updateChoice(2)} />
+                        </label>
+                        <label>
+                            <span>c. </span>
+                            <input type="text" placeholder="Choice 3" value={this.state.choice3} onChange={this.updateChoice(3)} />
+                        </label>
+                        <label>
+                            <span>d. </span>
+                            <input type="text" placeholder="Choice 4" value={this.state.choice4} onChange={this.updateChoice(4)} />
+                        </label>
+                        <label>
+                            <span>e. </span>
+                            <input type="text" placeholder="Correct Answer" value={this.state.correctAnswer} onChange={this.update('correctAnswer')} />
+                        </label>
+                        <div className="new-question-submit-btn-wrap">
+                            
+                            <input type="submit" value={`${this.props.formType} Question`} />
+                        </div>
+                        {this.props.formType === 'Update' ? 
+                        <div className="question-delete-btn-wrap">
+                            <button onClick={() => this.props.deleteQuestion(this.state._id).then(console.log(this.state))}>Delete</button>
+                            
+                        </div>
+                        :
+                        <></>}
+                    </form>
+                    <div className="new-question-cancel-btn-wrap">
                         <button onClick={() => this.props.toggleEditQuestion(this.props.idx)}>Cancel</button>
+
                     </div>
-                    :
-                    <></>}
-                </form>
+                </div>
             </>
         )
     }
