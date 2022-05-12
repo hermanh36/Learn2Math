@@ -2,6 +2,7 @@
 
 import { connect } from 'react-redux';
 import Profile from './profile';
+import { fetchMyLessons } from '../../actions/lesson_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -13,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchLessons: lessons => dispatch(fetchLessons(lessons)),
+    fetchMyLessons: authorId => dispatch(fetchMyLessons(authorId)),
     fetchQuizScore: quizScore => dispatch(fetchQuizScore(quizScore)),
     fetchLesson: lesson => dispatch(fetchLesson(lesson))
   };

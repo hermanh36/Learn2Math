@@ -42,6 +42,14 @@ export const fetchLessons = () => dispatch => {
   )
 };
 
+export const fetchMyLessons = authorId => dispatch => {
+  return (
+    lessonUtil.fetchMyLessons(authorId)
+      .then(lessons => dispatch(receiveLessons(lessons)))
+      .catch(err => dispatch(receiveLessonError(err)))
+  )
+}
+
 export const fetchLesson = lessonId => dispatch => {
   return (
     lessonUtil.fetchLesson(lessonId)

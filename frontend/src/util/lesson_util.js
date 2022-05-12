@@ -4,6 +4,10 @@ export const fetchLessons = () => {
   return axios.get('/api/lessons')
 };
 
+export const fetchMyLessons = authorId => {
+  return axios.get(`/api/lessons/user/${authorId}`)
+}
+
 export const fetchLesson = lessonId => {
   return axios.get(`/api/lessons/${lessonId}`)
 };

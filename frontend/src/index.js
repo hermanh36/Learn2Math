@@ -11,6 +11,7 @@ import { logout } from './actions/session_actions';
 import * as lessonAction from './actions/lesson_actions';
 import * as QuestionAction from './actions/question_actions'
 import * as FlashcardAction from './actions/flashcard_actions';
+import * as UserAction from './actions/user_actions';
 
 import * as QuizAction from './actions/quiz_action';
 
@@ -41,6 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.createLesson = lessonAction.createLesson;
   window.updateLesson = lessonAction.updateLesson;
   window.deleteLesson = lessonAction.deleteLesson;
+  window.fetchMyLessons = lessonAction.fetchMyLessons;
+
   window.fetchQuestion = QuestionAction.fetchQuestion;
   window.fetchQuestions = QuestionAction.fetchQuestions;
   window.createQuestion = QuestionAction.createQuestion;
@@ -59,6 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.deleteFlashcard = FlashcardAction.deleteFlashcard;
   window.updateFlashcard = FlashcardAction.updateFlashcard;
   window.createFlashcard = FlashcardAction.createFlashcard;
+
+  window.fetchUser = UserAction.fetchUser;
+  window.fetchUsers = UserAction.fetchUsers;
   
 
   const root = document.getElementById('root');

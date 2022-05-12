@@ -7,11 +7,13 @@ import QuestionErrorsReducer from './question_errors_reducer';
 import LessonErrorReducer from './lesson_errors_reducer';
 import QuizErrorReducer from './quiz_errors_reducer';
 import FlashcardErrorsReducer from './flashcard_errors_reducer';
+import UserErrorReducer from './user_errors_reducer';
 
 export default combineReducers({
   session: SessionErrorsReducer,
   question: QuestionErrorsReducer,
   lesson: LessonErrorReducer,
   quiz: QuizErrorReducer,
-  flashcard: FlashcardErrorsReducer
+  flashcard: FlashcardErrorsReducer,
+  user: UserErrorReducer
 });
