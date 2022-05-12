@@ -12,10 +12,6 @@ const BorderBtn = (props) => {
                 <p className="border-btn-title">
                     {props.lesson.title}
                 </p>  
-                <p className="border-btn-category">
-                    {props.lesson.category}
-                </p>
-                {/* { lesson.content[0] === '<' ? parser.parseFromString(lesson.content, "text/html") : null } */}
             </Link>    
         </li>
     )
