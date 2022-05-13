@@ -48,6 +48,7 @@ class LessonShow extends React.Component {
       return null
     }
     else {
+      //FIX QUIZ ID
       let quizId, questionsLength;
       if (this.state.quizzes) quizId = Object.keys(this.state.quizzes)[0];
       if (this.state.questions) questionsLength = Object.keys(this.state.questions).length;
