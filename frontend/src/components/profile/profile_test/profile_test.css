@@ -1,0 +1,116 @@
+.profile-wrap{
+    display: flex;
+    height: calc(100vh - 70px);
+}
+.profile-wrap > div{
+    display: flex;
+}
+
+.pro-sidebar-wrap{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: var(--gray-2);
+}
+.profile-pic-wrap, .pro-username, .card-index-link{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--gray-6);
+    box-sizing: border-box;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.profile-pic-wrap{
+    background-color: var(--blue-1);
+    color: white;
+}
+.profile-pic-wrap:hover{
+    box-shadow: 4px 4px 10px 4px var(--blue-2) inset;
+}
+.pro-username{
+    font-size: 3rem;
+    font-weight: 600;
+    background-color: var(--blue-2);
+    color: white;
+}
+.pro-username:hover{
+    box-shadow: 4px 4px 10px 4px var(--blue-1) inset;
+    
+}
+.pro-username > p{
+    text-align: center;
+}
+.card-index-link{
+    background-color: var(--blue-1);
+}
+.card-index-link > a{
+    color: white; 
+    text-decoration: none;
+    background-color: var(--blue-1);
+    height: 100%; 
+    width: 100%; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    transition: 0.3s;
+}
+.card-index-link > a:hover{
+    box-shadow: 4px 4px 10px 4px var(--blue-2) inset;
+}
+
+
+.pro-main-wrap{
+    display: flex;
+    flex-direction: column;
+    
+    flex: 2;
+}
+
+.pro-lessons-wrap{
+    
+    flex: 1;
+}
+
+.pro-quizzes-wrap{
+    flex: 1;
+}
+
+.pro-lessons-wrap{
+    overflow: scroll;
+}
+.pro-lessons-wrap > div{
+    padding: 2rem;
+    box-sizing: border-box;
+}
+.pro-lessons-wrap > div > h1{
+    font-size: 2rem;
+    letter-spacing: 20px;
+    font-weight: 200;
+    text-decoration: underline;
+    color: var(--blue-2);
+}
+.pro-lessons-wrap > div > ul{ 
+    margin: 2rem 0 0 0;
+}
+.pro-lessons-wrap > div > ul > li > button {
+    width: 100%; 
+    background: var(--yellow-2);
+    color: white; 
+    padding: 1rem 0;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pro-lessons-wrap>div>ul>li>button:hover {
+    box-shadow: 0px 0px 2px 10px var(--blue-1);
+    letter-spacing: 3px;
+}
+
