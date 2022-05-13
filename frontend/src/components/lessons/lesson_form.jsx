@@ -58,6 +58,7 @@ class LessonForm extends React.Component {
       this.props.submitForm(this.state).then((res) => {
         this.props.history.push(`/lesson/${res.lesson._id}`)
       })
+      .catch(err => null)
     })
   }
 

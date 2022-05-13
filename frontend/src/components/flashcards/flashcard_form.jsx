@@ -28,10 +28,9 @@ class FlashcardForm extends React.Component {
   }
 
   submitHandler() {
-    this.props.submitForm(this.state).then(res => {
-      console.log(res)  
-    })
+    this.props.submitForm(this.state).then(this.props.history.push(`/profile/${this.props.currentUserId}`))
   }
+  
   deleteHandler() {
     this.props.deleteFlashcard(this.props.flashcard._id)
   }
