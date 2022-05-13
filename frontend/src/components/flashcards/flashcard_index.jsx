@@ -1,4 +1,5 @@
 import React from "react";
+import LeftSidebarContainer from './../left_sidebar/left_sidebar_container';
 
 export default class FlashcardIndex extends React.Component {
     constructor(props) {
@@ -13,33 +14,74 @@ export default class FlashcardIndex extends React.Component {
     componentWillReceiveProps(nextProps) {
         this.setState({ flashcards: nextProps.flashcards })
     }
-
+    toggleCard(idx){
+        console.log("toggled");
+        let card = document.getElementById(`${idx}`);
+        console.log(card);
+        card.classList.toggle("show-card-content")
+        console.log(card.classList);
+    }
+    hideAllAnswers(){
+        Object.values(this.state.flashcards).map((flashcard, idx) => {
+              let card = document.getElementById(`${idx}`);
+              card.classList.remove("show-card-content");
+        })
+    }   
+    showAllAnswers(){
+        Object.values(this.state.flashcards).map((flashcard, idx) => {
+              let card = document.getElementById(`${idx}`);
+              card.classList.add("show-card-content");
+        })
+    }
     render() {
-        debugger;
         let flashcards;
         if (this.state.flashcards) {
             console.log(Object.values(this.state.flashcards));
             flashcards = Object.values(this.state.flashcards).map((flashcard, idx) => {
                 return (
-                    <div key={flashcard._id} id={`flashcard-${idx}`}> {/*className= flashcard container */}
-                        <div> {/* word*/}
-                            {flashcard.title}
+                    <div className="index-one-card-wrap" onClick={() => this.toggleCard(idx)} key={flashcard._id} id={`flashcard-${idx}`}> {/*className= flashcard container */}
+                        <div className="index-card-top">
+                            <div className="index-card-title-wrap"> {/* word*/}
+                                {flashcard.title}
+                            </div>
+                            <div id={`${idx}`} className="index-card-body-wrap" > {/* definition, give this a class of hidden initially */}
+                                {flashcard.body}
+                            </div>
                         </div>
-                        <div> {/* definition, give this a class of hidden initially */}
-                            {flashcard.body}
+                        <div className="index-card-bottom">
+                            <div className="index-card-edit-btn-wrap">
+                                <button>Edit</button>
+                            </div>
+                            <div className="index-card-delete-btn-wrap">
+                                <button>Delete</button>
+                            </div>
                         </div>
-                        <br /> {/* can remove line break when starting to style */}
-                        <button>Edit</button>
-                        <button>Delete</button>
                     </div>
                 )
             })
         }
         return (
             <>
-                {flashcards}
-                {/* this create flashcard button will redirect to createflashcard form */}
-                <button>Create Flashcard</button> 
+                <div className="flashcard-index-wrap">
+                    <LeftSidebarContainer />
+                    <div>
+                        <h1>Username's Flashcards</h1>
+                        <div class="hide-all-answers-btn-wrap" >
+                            <button onClick={() => this.hideAllAnswers()}>
+                                Hide all answers
+                            </button>
+                            <button onClick={() => this.showAllAnswers()}>
+                                Show all answers
+                            </button>
+                        </div>
+                        <div className="flashcard-index-list-wrap">
+                            {flashcards}
+                        </div>
+                        <div className="index-create-flashcard-btn-wrap">
+                            <button >Create Flashcard</button> 
+                        </div>
+                    </div>
+                </div>
 
             </>
         )
