@@ -78,7 +78,7 @@ class LessonShow extends React.Component {
                   </>)
                   :
                   // {takeQuiz}
-                  <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}`}>Take Quiz</Link>
+                  <Link className="lesson-quiz-redirect-button" to={{pathname:`/quiz/${quizId}`, state: this.props.lessonId }}>Take Quiz</Link>
                 }
               </div>
             )

@@ -49,6 +49,14 @@ export const fetchQuiz = (lessonId) => dispatch => {
   )
 };
 
+export const fetchQuizById = (quizId) => dispatch => {
+  return (
+    quizUtil.fetchQuizById(quizId)
+      .then(quiz => dispatch(receiveQuiz(quiz)))
+      .catch(err => dispatch(receiveQuizError(err)))
+  )
+};
+
 export const createQuiz = quiz => dispatch => {
   return (
     quizUtil.createQuiz(quiz)

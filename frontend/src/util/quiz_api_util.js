@@ -8,6 +8,10 @@ export const fetchQuiz = lessonId => {
   return axios.get(`/api/quizzes/${lessonId}`)
 };
 
+export const fetchQuizById = quizId => {
+  return axios.get(`/api/quizzes/quiz/${quizId}`)
+};
+
 export const createQuiz = quiz => {
   return axios.post('/api/quizzes/', quiz)
 };

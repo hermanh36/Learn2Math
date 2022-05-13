@@ -16,30 +16,30 @@ class MyScores extends React.Component {
       this.props.fetchLesson(score.lessonId).then(lesson => this.lessonArr.push(lesson.lesson)).then(() => this.setState( {lessons:this.lessonArr}))))
   }
 
-  selectScore(lessonId)  {
-    let answer = 0;
-      Object.values(this.props.scores).forEach( score => {
-        if (score.lessonId === lessonId){
-          answer = score.score
+  selectTitle(lessonId)  {
+    let title = null;
+      this.lessonArr.forEach( lesson => {
+        if (lesson._id === lessonId){
+          title = lesson.title
         }
       })
-    return answer
+    return title
   }
 
 
   render() {
-    if(!this.props.scores) {
+    if(!(this.props.scores.length > 0)) {
       return null;
     } else {
-      console.log(this.selectScore('627bc1e117d9a3a0e531ea60'))
+      debugger;
       return (
         <div>
           <h1>My Quiz Scores</h1>
-          {this.lessonArr.map(lesson => 
+          {this.props.scores.map(score => 
             (
               <div>
-                <button><Link to={`/lesson/${lesson._id}`}>{lesson.title}</Link></button>
-                <div>Score is {this.selectScore(lesson._id)}</div>
+                <button><Link to={`/lesson/${score.lessonId}`}>{this.selectTitle(score.lessonId)}</Link></button>
+                <div>Score is {score.score}</div>
               </div>
             )
             )}

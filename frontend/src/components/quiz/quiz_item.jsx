@@ -1,6 +1,7 @@
 import React from 'react';
 import QuestionItemContainer from '../question/question_item_container';
 import QuizScore from './quiz_score';
+import { withRouter } from 'react-router-dom';
 
 class QuizItem extends React.Component {
   constructor(props){
@@ -9,16 +10,18 @@ class QuizItem extends React.Component {
     };
     this.submitHandler = this.submitHandler.bind(this);
     this.total = 0;
+    this.lessonId = 0;
   }
   //assume props have lessonId
 
   componentDidMount() {
-    this.props.fetchQuestions(this.props.quizId)
+    this.props.fetchQuestions(this.props.quizId).then(() => this.props.fetchQuizById(this.props.quizId)).then(quiz => this.lessonId = quiz.quiz.lessonId)
   }
 
   submitHandler() {
     let correctAnswer = [];
     let submittedAnswer = [];
+    let score = 0;
     this.total = this.props.questions.length;
     this.props.questions.forEach(question => {
       correctAnswer.push(question.correctAnswer);
@@ -29,11 +32,20 @@ class QuizItem extends React.Component {
     });
     correctAnswer.forEach((answer,index) => {
       if (answer === submittedAnswer[index]){
-        this.setState((prevState => (
-          { score: prevState.score+1 })
+        score += 1;
+        this.setState(( () => (
+          { score: score })
         ))
       }
     })
+    this.props.createQuizScore(
+      {
+        studentId: this.props.currentUser,
+        score: score,
+        quizId: this.props.quizId,
+        lessonId: this.lessonId
+      }
+    )
   }
 
   render() {
@@ -56,4 +68,4 @@ class QuizItem extends React.Component {
   }
 }
 
-export default QuizItem;
+export default withRouter(QuizItem);

@@ -7,13 +7,13 @@ const passport = require('passport');
 const QuizScore = require('../../models/QuizScore');
 
 router.get('/', (req, res) => {
-  QuizScore.find({userId: req.query.userId})
+  QuizScore.find({studentId: req.query.userId})
     .then(quizScore => res.json(quizScore))
     .catch(err => res.status(404).json({err}));
 });
 
 router.get('/:lessonId', (req, res) => {
-  QuizScore.find({userId: req.query.userId})
+  QuizScore.find({lessonId: req.query.lessonId})
     .then(quizScore => res.json(quizScore))
     .catch(err => res.status(404).json({err}));
 });

@@ -6,7 +6,6 @@ import { fetchQuestions } from '../../actions/question_actions';
 import { fetchUsers } from "../../actions/user_actions";
 
 const mSTP = (state, ownProps) => {
-  debugger;
   return {
     lesson: state.entities.lessons[ownProps.match.params.lessonId],
     lessonId: ownProps.match.params.lessonId,

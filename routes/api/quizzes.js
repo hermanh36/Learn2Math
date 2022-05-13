@@ -21,6 +21,14 @@ router.get('/:lessonId', (req, res) => {
     );
 });
 
+router.get('/quiz/:quizId', (req, res) => {
+  Quiz.findOne({quizId: req.params.quizId})
+    .then(quiz => res.json(quiz))
+    .catch(err =>
+      res.status(404).json({ noquizfound: 'No quizzes found with that lessonId' })
+    );
+});
+
 router.post('/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
