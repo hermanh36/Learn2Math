@@ -1,8 +1,11 @@
-.lesson-show-wrap{
-  position: relative; 
+.lesson-show-wrap {
+  position: relative;
   min-height: calc(100vh - 70px);
 }
 
+.author {
+  font-size: .5em;
+}
 
 .lesson-show-container {
   position: absolute;
@@ -12,6 +15,7 @@
   display: flex;
   flex-direction: column;
 }
+
 /* 
 .lesson-show-category {
   margin-bottom: 3rem;
@@ -27,11 +31,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   color: var(--yellow-1);
   font-weight: 800;
   font-size: 4rem;
   padding-top: 1rem;
-  
+
 }
 
 
@@ -49,23 +54,23 @@
   max-width: 100rem;
   max-height: 30rem;
   overflow: scroll;
-  
+
 }
 
-#lesson-html-content > p {
+#lesson-html-content>p {
   /* padding-bottom: 1rem; */
   position: relative;
   transition: 0.4s;
 }
 
-.lesson-quiz-redirect-wrap{
+.lesson-quiz-redirect-wrap {
   display: flex;
   justify-content: flex-end;
   margin-top: 1rem;
   padding-right: 5rem;
 }
 
-.lesson-quiz-redirect-button{
+.lesson-quiz-redirect-button {
   /* background-color: white;
   border: 1px solid black; */
   padding: 1rem 2.5rem;
@@ -79,11 +84,12 @@
   cursor: pointer;
   transition-duration: 0.3s;
 }
+
 .lesson-quiz-redirect-button:hover {
   background-color: var(--blue-2);
   color: lightcyan;
   z-index: 10;
-  /*   h-offset, v-offset, blur, spread, color */  
+  /*   h-offset, v-offset, blur, spread, color */
   /* box-shadow: 5px, 10px, 8px, 10px, black; */
   box-shadow: 0.01rem 0.9rem 25px 0.2rem var(--gray-1);
   letter-spacing: 1.5px;

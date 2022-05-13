@@ -9,19 +9,16 @@ export default class MyLessons extends React.Component {
     }
 
     componentDidMount() {
-        // debugger;
         // console.log(this.props.match.params.userId);
         this.props.fetchMyLessons(this.props.match.params.userId)
             .then(lessons => lessons.lessons.forEach(lesson => this.arr.push(lesson)))
             .then(() => console.log(this.arr))
             .then(() => this.setState({ lessons: this.arr }));
-        // debugger;
     }
 
     render() {
         // console.log(this.arr.length)
         if (this.arr.length > 0) {
-            debugger;
             const titles = this.arr.map((lesson, idx) => {
                 return (
                     <>

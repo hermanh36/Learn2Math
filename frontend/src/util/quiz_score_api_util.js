@@ -8,6 +8,10 @@ export const fetchQuizScores = (userId) => {
   }) 
 };
 
+export const fetchQuizScore = (lessonId) => {
+  return axios.get(`/api/quizscores/${lessonId}`)
+};
+
 export const createQuizScore = quiz => {
   return axios.post('/api/quizscores', quiz)
 };
