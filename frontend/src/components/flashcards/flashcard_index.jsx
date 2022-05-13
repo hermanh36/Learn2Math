@@ -38,6 +38,9 @@ export default class FlashcardIndex extends React.Component {
         return (
             <>
                 {flashcards}
+                {/* this create flashcard button will redirect to createflashcard form */}
+                <button>Create Flashcard</button> 
+
             </>
         )
     }
