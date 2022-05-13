@@ -21,7 +21,7 @@ class LeftSidebar extends React.Component {
                         <ul>
                            <li><Link to="/categories">Lessons</Link></li>
                            <li><Link to="/lesson/new">Create a lesson</Link></li>
-                           <li><Link to="/create_test">Create a test</Link></li>
+                           {/* <li><Link to="/create_test">Create a test</Link></li> */}
                            <li><Link to={`/profile/${this.props.currentUserId}`}>Profile</Link></li>
                            
                         </ul>

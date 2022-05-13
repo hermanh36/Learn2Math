@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import LeftSidebar from '../left_sidebar/left_sidebar_container';
 
 
 
@@ -29,11 +30,12 @@ class MyScores extends React.Component {
 
   render() {
     if(!(this.props.scores.length > 0)) {
-      return null;
+      return <LeftSidebar/>;
     } else {
       debugger;
       return (
         <div>
+          <LeftSidebar />
           <h1>My Quiz Scores</h1>
           {this.props.scores.map(score => 
             (

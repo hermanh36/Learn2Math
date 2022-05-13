@@ -3,10 +3,6 @@
   min-height: calc(100vh - 70px);
 }
 
-.author {
-  font-size: .5em;
-}
-
 .lesson-show-container {
   position: absolute;
   margin-left: 10rem;

@@ -66,7 +66,7 @@ class LessonShow extends React.Component {
             (
               <div className="lesson-show-container ql-editor">
 
-                <div className="lesson-show-title">{this.props.lesson.title} <span className='author' >by {currentUserEmail}</span> </div>
+                <div className="lesson-show-title">{this.props.lesson.title}</div>
 
                 <div id="lesson-html-content">{parse(this.props.lesson.content)}</div>
 

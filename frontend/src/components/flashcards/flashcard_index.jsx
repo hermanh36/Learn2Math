@@ -72,7 +72,7 @@ export default class FlashcardIndex extends React.Component {
                     <LeftSidebarContainer />
                     <div>
                         <h1>Username's Flashcards</h1>
-                        <div class="hide-all-answers-btn-wrap" >
+                        <div className="hide-all-answers-btn-wrap" >
                             <button onClick={() => this.hideAllAnswers()}>
                                 Hide all answers
                             </button>

@@ -2,6 +2,7 @@ import React from 'react';
 import QuestionItemContainer from '../question/question_item_container';
 import QuizScore from './quiz_score';
 import { withRouter } from 'react-router-dom';
+import LeftSidebar from '../left_sidebar/left_sidebar';
 
 class QuizItem extends React.Component {
   constructor(props){
@@ -50,10 +51,11 @@ class QuizItem extends React.Component {
 
   render() {
     if (!this.props.questions){
-      return null;
+      return <LeftSidebar />;
     } else {
       return (
         <div>
+          <LeftSidebar />
           <div> 
             <h1>Quiz</h1>
             <ul>

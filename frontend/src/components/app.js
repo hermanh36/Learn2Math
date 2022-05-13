@@ -17,7 +17,7 @@ import NewQuestionFormContainer from './question/new_question_form_container';
 import QuestionIndexContainer from './question/question_index_container';
 import QuestionErrorContainer from './question/question_error_container';
 import CreateFlashcardsContainer from './flashcards/create_flashcards_container'
-import EditFlascardsContainer from './flashcards/edit_flashcards_container'
+import EditFlashcardsContainer from './flashcards/edit_flashcards_container'
 import CreateLessonContainer from './lessons/create_lesson_container';
 import EditLessonContainer from './lessons/edit_lesson_container';
 import QuizItemContainer from './quiz/quiz_item_container';
@@ -34,7 +34,7 @@ const App = () => (
       <Route exact path='/myquiz' component={MyQuizScores}/>
       <Route exact path='/profile_test' component={ProfileTest}/>
       <Route exact path='/createflashcard' component={CreateFlashcardsContainer}/>
-      <Route exact path='/:flashcardId/edit' component={EditFlascardsContainer}/>
+      <Route exact path='/:flashcardId/edit' component={EditFlashcardsContainer}/>
       <Route exact path='/quiz/:quizId/edit' component={QuestionErrorContainer} />
       <Route exact path='/quiz/:quizId/edit' component={QuestionIndexContainer} />
       <Route exact path='/quiz/:quizId/edit' component={NewQuestionFormContainer} />

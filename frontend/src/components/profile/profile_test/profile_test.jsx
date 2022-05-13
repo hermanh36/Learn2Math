@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LeftSidebar from "../../left_sidebar/left_sidebar";
 
 class ProfileTest extends React.Component{
     
     render(){
         return (
             <>
+                <LeftSidebar />
                 <div className="profile-wrap">
                     <div className="pro-sidebar-wrap">                                    
                         <div className="profile-pic-wrap">

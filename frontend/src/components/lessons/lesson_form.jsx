@@ -106,7 +106,7 @@ class LessonForm extends React.Component {
                 {/* <MyEditor></MyEditor> */}
               </div>
               
-              <input class="lesson-form-submit" type="submit" value={`${this.props.formType} Your Lesson`} />
+              <input className="lesson-form-submit" type="submit" value={`${this.props.formType} Your Lesson`} />
               {errors.length > 0 ? errors.map(err => <p>{err}</p>) : null}
             </form>
             </div>
