@@ -13,15 +13,16 @@ class LessonShow extends React.Component {
   }
 
   componentDidMount() { 
-    const {fetchLesson, fetchQuiz, fetchQuestions, lessonId} = this.props;
+    const {fetchLesson, fetchQuiz, fetchQuestions, lessonId, fetchUsers} = this.props;
     fetchLesson(lessonId)
       .then(lesson => fetchQuiz(lesson.lesson._id))
       .then(quiz => fetchQuestions(quiz.quiz._id))
+      .then(() => fetchUsers())
   }
 
   componentWillReceiveProps(nextProps){
-    debugger;
-    this.setState({quizzes: nextProps.quizzes, questions: nextProps.questions})
+    // debugger;
+    this.setState({quizzes: nextProps.quizzes, questions: nextProps.questions, users: nextProps.users})
     // console.log(nextProps.questions)
     // console.log(nextProps.quizzes)
   }
@@ -29,9 +30,14 @@ class LessonShow extends React.Component {
   renderLessonContent(){
 
   }
-
+//{this.props.users[this.props.lesson.authorId].email}
   render(){
-    console.log(this.state.questions.length);
+    // console.log(this.state.questions.length);
+    console.log(this.props.currentUserId);
+    console.log(this.state.users);
+    let currentUserEmail;
+    if (this.state.users) console.log(Object.values(this.state.users).forEach(user =>{if (user._id) currentUserEmail = user.email}));
+    debugger
     if (!this.props.lesson) {
       return null
     } 
@@ -43,7 +49,7 @@ class LessonShow extends React.Component {
       const authorId = this.props.lesson.authorId;
       const takeQuiz = this.state.questions.length > 0 ? <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}`}>Take Quiz</Link> : <></>;
     
-      // debugger;
+      debugger;
     return (
       <div className="lesson-show-wrap">
         <LeftSidebar />
@@ -53,7 +59,7 @@ class LessonShow extends React.Component {
           (
             <div className="lesson-show-container ql-editor">
 
-              <div className="lesson-show-title">{this.props.lesson.title} </div>
+              <div className="lesson-show-title">{this.props.lesson.title} by {currentUserEmail} </div>
           
               <div id="lesson-html-content">{parse(this.props.lesson.content)}</div>
 
@@ -66,7 +72,7 @@ class LessonShow extends React.Component {
               </>)
                 : 
                 // {takeQuiz}
-                <></>
+                <button>Take Quiz Button</button>
                 }
             </div> 
           )
