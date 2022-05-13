@@ -7,7 +7,8 @@ import MyScores from "./my_scores"
 const mapStateToProps = state => {
   return {
     scores: state.entities.quizScores,
-    currentUserId: state.session.user._id
+    currentUserId: state.session.user._id,
+    lessons: state.entities.lessons
   }
 }
 

@@ -15,7 +15,6 @@ export default class FlashcardIndex extends React.Component {
     }
 
     render() {
-        debugger;
         let flashcards;
         if (this.state.flashcards) {
             console.log(Object.values(this.state.flashcards));

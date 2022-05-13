@@ -37,7 +37,6 @@ class LessonShow extends React.Component {
     console.log(this.state.users);
     let currentUserEmail;
     if (this.state.users) console.log(Object.values(this.state.users).forEach(user =>{if (user._id) currentUserEmail = user.email}));
-    debugger
     if (!this.props.lesson) {
       return null
     } 
@@ -49,7 +48,6 @@ class LessonShow extends React.Component {
       const authorId = this.props.lesson.authorId;
       const takeQuiz = this.state.questions.length > 0 ? <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}`}>Take Quiz</Link> : <></>;
     
-      debugger;
     return (
       <div className="lesson-show-wrap">
         <LeftSidebar />

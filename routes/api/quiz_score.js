@@ -12,6 +12,12 @@ router.get('/', (req, res) => {
     .catch(err => res.status(404).json({err}));
 });
 
+router.get('/:lessonId', (req, res) => {
+  QuizScore.find({userId: req.query.userId})
+    .then(quizScore => res.json(quizScore))
+    .catch(err => res.status(404).json({err}));
+});
+
 router.post('/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
