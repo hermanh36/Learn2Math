@@ -1,5 +1,6 @@
 import React from "react";
 import LeftSidebarContainer from './../left_sidebar/left_sidebar_container';
+import { Link } from "react-router-dom";
 
 export default class FlashcardIndex extends React.Component {
     constructor(props) {
@@ -33,6 +34,11 @@ export default class FlashcardIndex extends React.Component {
               card.classList.add("show-card-content");
         })
     }
+
+    deleteFlashcard(flashcardId) {
+        this.props.deleteFlashcard(flashcardId)
+    }
+
     render() {
         let flashcards;
         if (this.state.flashcards) {
@@ -53,7 +59,7 @@ export default class FlashcardIndex extends React.Component {
                                 <button>Edit</button>
                             </div>
                             <div className="index-card-delete-btn-wrap">
-                                <button>Delete</button>
+                                <button onClick={() => this.deleteFlashcard(flashcard._id)}>Delete</button>
                             </div>
                         </div>
                     </div>
@@ -78,7 +84,7 @@ export default class FlashcardIndex extends React.Component {
                             {flashcards}
                         </div>
                         <div className="index-create-flashcard-btn-wrap">
-                            <button >Create Flashcard</button> 
+                            <button ><Link to='/createflashcard'>Create Flashcard</Link></button> 
                         </div>
                     </div>
                 </div>
