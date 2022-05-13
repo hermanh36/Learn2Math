@@ -1,4 +1,3 @@
-//lesson_show_container.js
 import { connect } from "react-redux";
 import LessonShow from "./lesson_show";
 import { fetchLesson } from "../../actions/lesson_actions";

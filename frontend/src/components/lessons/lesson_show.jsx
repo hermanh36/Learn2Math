@@ -1,4 +1,3 @@
-//lesson_show.jsx
 import React from "react";
 import LeftSidebar from "../left_sidebar/left_sidebar_container";
 import parse from 'html-react-parser';
