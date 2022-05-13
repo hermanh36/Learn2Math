@@ -31,10 +31,10 @@ const App = () => (
   <div className="app-wrap">
     <NavBarContainer />
     {/* <LeftSidebar /> */}
-      <Route exact path='/testmyquiz' component={MyQuizScores}/>
+      <Route exact path='/myquiz' component={MyQuizScores}/>
       <Route exact path='/profile_test' component={ProfileTest}/>
-      <Route exact path='/testflashcardcreate' component={CreateFlashcardsContainer}/>
-      <Route exact path='/test/:flashcardId/edit' component={EditFlascardsContainer}/>
+      <Route exact path='/createflashcard' component={CreateFlashcardsContainer}/>
+      <Route exact path='/:flashcardId/edit' component={EditFlascardsContainer}/>
       <Route exact path='/quiz/:quizId/edit' component={QuestionErrorContainer} />
       <Route exact path='/quiz/:quizId/edit' component={QuestionIndexContainer} />
       <Route exact path='/quiz/:quizId/edit' component={NewQuestionFormContainer} />
