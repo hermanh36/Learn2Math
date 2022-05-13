@@ -9,7 +9,7 @@ const QuizSchema = new Schema({
   studentId: {
     type: Schema.Types.ObjectId,
     ref: 'users'
-  }
+  },
 }, {
   timestamps: true
 })

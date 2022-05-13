@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import FlashcardIndex from './flashcard_index';
+import { fetchFlashcards } from '../../actions/flashcard_actions';
 
 const mapState = state => ({
     flashcards: state.entities.flashcards

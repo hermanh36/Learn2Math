@@ -16,9 +16,10 @@ router.post('/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const newQuizScore = new QuizScore({
-      quizId: req.body.lessonId,
+      quizId: req.body.quizId,
       studentId: req.user.id,
-      score: req.body.score
+      score: req.body.score,
+      lessonId: req.body.lessonId
     });
 
     newQuizScore.save().then(quizScore => res.json(quizScore));

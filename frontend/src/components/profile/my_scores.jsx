@@ -14,7 +14,7 @@ class MyScores extends React.Component {
     .then(scores => scores.scores.forEach(score => 
       {
       console.log(score.quizId)
-      this.props.fetchQuiz(score.quizId).then(quiz => console.log(quiz._id))
+      this.props.fetchQuiz(score.quizId).then(quiz => console.log(quiz))
       }))
     //   .then(quiz => this.props.fetchLesson(quiz.lessonId))
     //     .then(lesson => this.lessonArr.push(lesson))
