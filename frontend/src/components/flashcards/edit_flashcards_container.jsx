@@ -7,7 +7,8 @@ const mapStateToProps = (state, ownProps) => {
         flashcard: state.entities.flashcards[ownProps.match.params.flashcardId],
         flashcardId: ownProps.match.params.flashcardId,
         formType: 'Edit',
-        errors: state.errors.flashcard
+        errors: state.errors.flashcard,
+        currentUserId: state.session.user.id
     }
 }
 

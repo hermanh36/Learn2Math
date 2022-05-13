@@ -9,7 +9,8 @@ const mapStateToProps = state => {
       body: "",
     },
     formType: 'Create',
-    errors: state.errors.flashcard
+    errors: state.errors.flashcard,
+    currentUserId: state.session.user.id
   }
 }
 

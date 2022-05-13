@@ -20,7 +20,6 @@ class LessonShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    debugger;
     this.setState({quizzes: nextProps.quizzes, questions: nextProps.questions})
     // console.log(nextProps.questions)
     // console.log(nextProps.quizzes)
