@@ -43,18 +43,18 @@
   justify-self: center;
   flex-direction: column;
   background-color: white;
-  border: 1px solid var(--gray-1);
+  /* border: 1px solid var(--gray-1); */
   padding: 0.5rem;
   margin-top: 1rem;
 
   max-width: 100rem;
-  max-height: 30rem;
-  overflow: scroll;
+  /* max-height: 30rem;
+  overflow: scroll; */
 
 }
 
 #lesson-html-content>p {
-  /* padding-bottom: 1rem; */
+  padding-bottom: 1rem;
   position: relative;
   transition: 0.4s;
 }

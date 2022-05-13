@@ -32,7 +32,6 @@ class MyScores extends React.Component {
     if(!(this.props.scores.length > 0)) {
       return <LeftSidebar/>;
     } else {
-      debugger;
       return (
         <div>
           <LeftSidebar />
