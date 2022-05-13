@@ -24,11 +24,11 @@ import QuizItemContainer from './quiz/quiz_item_container';
 import ShowLessonContainer from './lessons/lesson_show_container';
 import MyLessonsContainer from './profile/my_lessons_container';
 import MyQuizScores from './profile/my_score_container'
+import FlashcardIndexContainer from './flashcards/flashcard_index_container';
 
 const App = () => (
   <div className="app-wrap">
     <NavBarContainer />
-    <Route path={`/profile/:userId`} component={MyLessonsContainer} />
     {/* <LeftSidebar /> */}
       <Route exact path='/testmyquiz' component={MyQuizScores}/>
       <Route exact path='/testflashcardcreate' component={CreateFlashcardsContainer}/>
@@ -38,6 +38,8 @@ const App = () => (
       <Route exact path='/quiz/:quizId/edit' component={NewQuestionFormContainer} />
 
     <Switch>
+      <Route path={`/profile/:userId/flashcards`} component={FlashcardIndexContainer} />
+      <Route path={`/profile/:userId`} component={MyLessonsContainer} />
       <Route exact path = '/lesson/new' component={CreateLessonContainer} />
       <Route exact path='/lesson/:lessonId/edit' component={EditLessonContainer} />
       <Route exact path='/lesson/:lessonId' component={ShowLessonContainer} />
