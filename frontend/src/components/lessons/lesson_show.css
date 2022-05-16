@@ -4,24 +4,11 @@
 }
 
 .lesson-show-container {
-  position: absolute;
-  margin-left: 10rem;
-  margin-right: 10rem;
-  margin-top: 2rem;
+  padding: 2rem 20% 0 20%;
   display: flex;
   flex-direction: column;
-}
 
-/* 
-.lesson-show-category {
-  margin-bottom: 3rem;
-  border: 1px solid black;
-  color: var(--yellow-1);
-  font-weight: 800;
-  font-size: 1rem;
-  display: flex;
-  justify-content: center;
-} */
+}
 
 .lesson-show-title {
   display: flex;
@@ -32,25 +19,26 @@
   font-weight: 800;
   font-size: 4rem;
   padding-top: 1rem;
+  margin-bottom: 3rem;
 
 }
-
-
-
 
 #lesson-html-content {
   display: flex;
   justify-self: center;
   flex-direction: column;
   background-color: white;
-  /* border: 1px solid var(--gray-1); */
-  padding: 0.5rem;
+  padding: 2rem 5rem;
   margin-top: 1rem;
-
+  border-left: 1px solid var(--gray-1);
+  border-right: 1px solid var(--gray-1);
+  border-top: 3px solid var(--gray-1);
+  border-bottom: 3px solid var(--gray-1);
   max-width: 100rem;
-  /* max-height: 30rem;
-  overflow: scroll; */
-
+  transition: 0.7s;
+}
+#lesson-html-content:hover{
+  box-shadow: 1px 1px 2px 2px var(--gray-6);
 }
 
 #lesson-html-content>p {
@@ -63,7 +51,7 @@
   display: flex;
   justify-content: flex-end;
   margin-top: 1rem;
-  padding-right: 5rem;
+  
 }
 
 .lesson-quiz-redirect-button {
@@ -88,4 +76,17 @@
   /* box-shadow: 5px, 10px, 8px, 10px, black; */
   box-shadow: 0.01rem 0.9rem 25px 0.2rem var(--gray-1);
   letter-spacing: 1.5px;
+}
+
+@media only screen and (max-width: 800px) {
+  #lesson-html-content {
+    padding: 2rem 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 1200px){
+  .lesson-show-container{
+    padding: 3rem 5% 3rem 5%;
+  }
+
 }

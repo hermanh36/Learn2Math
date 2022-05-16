@@ -64,7 +64,7 @@ class LessonShow extends React.Component {
           {this.props.lesson ?
 
             (
-              <div className="lesson-show-container ql-editor">
+              <div className="lesson-show-container">
 
                 <div className="lesson-show-title">{this.props.lesson.title}</div>
 
@@ -79,7 +79,9 @@ class LessonShow extends React.Component {
                   </>)
                   :
                   // {takeQuiz}
-                  <Link className="lesson-quiz-redirect-button" to={{pathname:`/quiz/${quizId}`, state: this.props.lessonId }}>Take Quiz</Link>
+                  <div className="lesson-quiz-redirect-wrap">
+                    <Link className="lesson-quiz-redirect-button" to={{pathname:`/quiz/${quizId}`, state: this.props.lessonId }}>Take Quiz</Link>
+                  </div>
                 }
               </div>
             )
