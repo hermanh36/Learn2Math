@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import LessonShow from "./lesson_show";
 import { fetchLesson } from "../../actions/lesson_actions";
-import { fetchQuiz } from '../../actions/quiz_action';
+import { fetchQuizByLessonId } from '../../actions/quiz_action';
 import { fetchQuestions } from '../../actions/question_actions';
 import { fetchUsers } from "../../actions/user_actions";
 
@@ -18,7 +18,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => ({
   fetchLesson: (lessonId) => dispatch(fetchLesson(lessonId)),
-  fetchQuiz: lessonId => dispatch(fetchQuiz(lessonId)),
+  fetchQuizByLessonId: lessonId => dispatch(fetchQuizByLessonId(lessonId)),
   fetchQuestions: quizId => dispatch(fetchQuestions(quizId)),
   fetchUsers: () => dispatch(fetchUsers())
 })

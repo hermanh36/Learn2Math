@@ -41,17 +41,17 @@ export const fetchQuizzes = () => dispatch => {
   )
 };
 
-export const fetchQuiz = (lessonId) => dispatch => {
+export const fetchQuiz = (quizId) => dispatch => {
   return (
-    quizUtil.fetchQuiz(lessonId)
+    quizUtil.fetchQuiz(quizId)
       .then(quiz => dispatch(receiveQuiz(quiz)))
       .catch(err => dispatch(receiveQuizError(err)))
   )
 };
 
-export const fetchQuizById = (quizId) => dispatch => {
+export const fetchQuizByLessonId = (lessonId) => dispatch => {
   return (
-    quizUtil.fetchQuizById(quizId)
+    quizUtil.fetchQuizByLessonId(lessonId)
       .then(quiz => dispatch(receiveQuiz(quiz)))
       .catch(err => dispatch(receiveQuizError(err)))
   )

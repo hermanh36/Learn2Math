@@ -4,12 +4,12 @@ export const fetchQuizzes = () => {
   return axios.get('/api/quizzes')
 };
 
-export const fetchQuiz = lessonId => {
-  return axios.get(`/api/quizzes/${lessonId}`)
+export const fetchQuizByLessonId = lessonId => {
+  return axios.get(`/api/quizzes/lesson/${lessonId}`)
 };
 
-export const fetchQuizById = quizId => {
-  return axios.get(`/api/quizzes/quiz/${quizId}`)
+export const fetchQuiz = quizId => {
+  return axios.get(`/api/quizzes/${quizId}`)
 };
 
 export const createQuiz = quiz => {

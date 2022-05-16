@@ -1,4 +1,4 @@
-import { RECEIVE_LESSONS, RECEIVE_LESSON, REMOVE_LESSON } 
+import { RECEIVE_LESSONS, RECEIVE_LESSON, REMOVE_LESSON, RESET_LESSON } 
 from "../actions/lesson_actions";
 
 const LessonsReducer = (state = {}, action) => {
@@ -16,6 +16,8 @@ const LessonsReducer = (state = {}, action) => {
     case REMOVE_LESSON:
       delete newState[action.lessonId]
       return newState;
+    case RESET_LESSON:
+      return {};
     default:
       return state;
   }

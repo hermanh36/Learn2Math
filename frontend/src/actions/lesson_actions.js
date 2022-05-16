@@ -4,6 +4,7 @@ export const RECEIVE_LESSONS = 'RECEIVE_LESSONS';
 export const RECEIVE_LESSON = 'RECEIVE_LESSON';
 export const REMOVE_LESSON = 'REMOVE_LESSON';
 export const RECEIVE_LESSON_ERRORS = 'RECEIVE_LESSON_ERRORS'
+export const RESET_LESSON = 'RESET_LESSON'
 
 
 export const receiveLessons = lessons => {
@@ -34,6 +35,12 @@ export const removeLesson = lessonId => {
   }
 };
 
+export const resetLessons = () => {
+  return {
+    type: RESET_LESSON
+  }
+}
+
 export const fetchLessons = () => dispatch => {
   return (
     lessonUtil.fetchLessons()
@@ -41,6 +48,12 @@ export const fetchLessons = () => dispatch => {
     .catch(err => dispatch(receiveLessonError(err)))
   )
 };
+
+export const clearLessons = () => dispatch => {
+  return (
+    dispatch(resetLessons())
+  )
+}
 
 export const fetchMyLessons = authorId => dispatch => {
   return (

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchMyLessons } from "../../actions/lesson_actions";
+import { clearLessons, fetchMyLessons } from "../../actions/lesson_actions";
 import MyLessons from './my_lesson';
 
 const mapState = state => ({
@@ -7,7 +7,8 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-    fetchMyLessons: authorId => dispatch(fetchMyLessons(authorId))
+    fetchMyLessons: authorId => dispatch(fetchMyLessons(authorId)),
+    clearLessons: () => dispatch(clearLessons())
 })
 
 export default connect(mapState, mapDispatch)(MyLessons);

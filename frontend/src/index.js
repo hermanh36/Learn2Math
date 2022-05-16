@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.updateLesson = lessonAction.updateLesson;
   window.deleteLesson = lessonAction.deleteLesson;
   window.fetchMyLessons = lessonAction.fetchMyLessons;
+  window.clearLesson = lessonAction.clearLessons;
 
   window.fetchQuestion = QuestionAction.fetchQuestion;
   window.fetchQuestions = QuestionAction.fetchQuestions;
@@ -55,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.createScore = ScoreAction.createScore;
 
   window.fetchQuizzes = QuizAction.fetchQuizzes;
+  window.fetchQuizByLessonId = QuizAction.fetchQuizByLessonId;
   window.fetchQuiz = QuizAction.fetchQuiz;
   window.createQuiz = QuizAction.createQuiz;
   // window.updateQuiz = QuizAction.updateQuiz;

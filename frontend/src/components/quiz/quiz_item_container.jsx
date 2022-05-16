@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import QuizItem from './quiz_item'
 import { createQuestion, fetchQuestions } from '../../actions/question_actions'
 import { createScore } from '../../actions/quiz_score_action'
-import { fetchQuizById } from '../../actions/quiz_action'
+import { fetchQuiz } from '../../actions/quiz_action'
 import { fetchLesson } from '../../actions/lesson_actions'
 
 const mapStateToProps = (state, ownProps) => {
@@ -17,7 +17,7 @@ const mapStateToDispatch = dispatch => {
   return {
     createQuestion: question => dispatch(createQuestion(question)),
     fetchQuestions: (quizId) => dispatch(fetchQuestions(quizId)),
-    fetchQuizById: quizId => dispatch(fetchQuizById(quizId)),
+    fetchQuiz: quizId => dispatch(fetchQuiz(quizId)),
     fetchLesson: lessonId => dispatch(fetchLesson(lessonId)),
     createQuizScore: score => dispatch(createScore(score))
   }

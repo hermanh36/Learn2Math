@@ -14,9 +14,9 @@ class LessonShow extends React.Component {
   }
 
   componentDidMount() {
-    const { fetchLesson, fetchQuiz, fetchQuestions, lessonId, fetchUsers } = this.props;
+    const { fetchLesson, fetchQuizByLessonId, fetchQuestions, lessonId, fetchUsers } = this.props;
     fetchLesson(lessonId)
-      .then(lesson => fetchQuiz(lesson.lesson._id))
+      .then(lesson => fetchQuizByLessonId(lesson.lesson._id))
       .then(quiz => fetchQuestions(quiz.quiz._id))
       .then(() => fetchUsers())
       .then(() => {
