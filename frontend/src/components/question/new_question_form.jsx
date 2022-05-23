@@ -6,10 +6,18 @@ export default class NewQuestionForm extends React.Component {
         //  quiz/:quizId/question --> new
         //  question/:questionId --> edit
         this.state = this.props.question;
-        this.state.choice1='';
-        this.state.choice2='';
-        this.state.choice3='';
-        this.state.choice4='';
+        if (this.props.formType === 'Create'){
+            this.state.choice1='';
+            this.state.choice2='';
+            this.state.choice3='';
+            this.state.choice4='';
+        }
+        else {
+            this.state.choice1=this.props.question.answerChoices[0];
+            this.state.choice2=this.props.question.answerChoices[1];
+            this.state.choice3=this.props.question.answerChoices[2];
+            this.state.choice4=this.props.question.answerChoices[3];
+        }
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.clearFields = this.clearFields.bind(this);
@@ -27,8 +35,8 @@ export default class NewQuestionForm extends React.Component {
                     if(this.props.formType === 'Create'){
                         this.clearFields();
                     }else{      
+                        this.props.toggleEditQuestion(this.props.idx);
                     }
-                    this.props.toggleEditQuestion(this.props.idx);
                 })
         });
     }
@@ -60,19 +68,8 @@ export default class NewQuestionForm extends React.Component {
         })
     }
 
-    toggleEditQuestion(idx) {
-
-        let editContainer = document.getElementById(`edit-question-${idx}`);
-        editContainer.classList.toggle('hidden-class');
-
-        let question = document.getElementById(`question-${idx}-container`);
-        question.classList.toggle('hidden-class');
-
-        let questionBtn = document.getElementById(`edit-question-btn-wrap`);
-        questionBtn.classList.toggle('hidden-class');
-    }
-
     render() {
+        debugger
         const stuff = (<div className="new-question-form-wrap">
             <form onSubmit={this.handleSubmit}>
                 <label>
