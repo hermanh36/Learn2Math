@@ -56,7 +56,7 @@ class LessonShow extends React.Component {
       const authorId = this.props.lesson.authorId;
       const takeQuiz = this.state.questions.length > 0 ? <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}`}>Take Quiz</Link> : <></>;
 
-      // debugger;
+      debugger;
       return (
         <div className="lesson-show-wrap">
           <LeftSidebar />

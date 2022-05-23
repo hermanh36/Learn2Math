@@ -26,8 +26,10 @@ export default class QuestionIndex extends React.Component{
     }
 
     render(){
+        debugger;
         const allQuestions = Object.values(this.props.questions);
         const questions = allQuestions.map((question,idx) => {
+            // console.log(question._id);
             return (
                 <div key={idx} className="question-index-wrap">
                     <div id={`question-${idx}-container`} className="question-index-question-wrap">
@@ -44,6 +46,7 @@ export default class QuestionIndex extends React.Component{
                     </div>
                     <div id="edit-question-btn-wrap" className="edit-question-btn-wrap">
                         <button onClick={() => this.toggleEditQuestion(idx)}>Edit Question</button>
+                        <button onClick={() => this.props.deleteQuestion(question._id)}>Delete Question</button>
                     </div>
                 </div>
             )

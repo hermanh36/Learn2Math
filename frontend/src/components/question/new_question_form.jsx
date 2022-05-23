@@ -6,10 +6,10 @@ export default class NewQuestionForm extends React.Component {
         //  quiz/:quizId/question --> new
         //  question/:questionId --> edit
         this.state = this.props.question;
-        this.state.choice1=this.props.question.answerChoices[0];
-        this.state.choice2=this.props.question.answerChoices[1];
-        this.state.choice3=this.props.question.answerChoices[2];
-        this.state.choice4=this.props.question.answerChoices[3];
+        this.state.choice1='';
+        this.state.choice2='';
+        this.state.choice3='';
+        this.state.choice4='';
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.clearFields = this.clearFields.bind(this);
