@@ -31,13 +31,13 @@ const App = () => (
   <div className="app-wrap">
     <NavBarContainer />
     {/* <LeftSidebar /> */}
-      <Route exact path='/myquiz' component={MyQuizScores}/>
+      <ProtectedRoute exact path='/myquiz' component={MyQuizScores}/>
       <Route exact path='/profile_test' component={ProfileTest}/>
-      <Route exact path='/createflashcard' component={CreateFlashcardsContainer}/>
-      <Route exact path='/:flashcardId/edit' component={EditFlashcardsContainer}/>
-      <Route exact path='/quiz/:quizId/edit' component={QuestionErrorContainer} />
-      <Route exact path='/quiz/:quizId/edit' component={QuestionIndexContainer} />
-      <Route exact path='/quiz/:quizId/edit' component={NewQuestionFormContainer} />
+      <ProtectedRoute exact path='/createflashcard' component={CreateFlashcardsContainer}/>
+      <ProtectedRoute exact path='/:flashcardId/edit' component={EditFlashcardsContainer}/>
+      <ProtectedRoute exact path='/quiz/:quizId/edit' component={QuestionErrorContainer} />
+      <ProtectedRoute exact path='/quiz/:quizId/edit' component={QuestionIndexContainer} />
+      <ProtectedRoute exact path='/quiz/:quizId/edit' component={NewQuestionFormContainer} />
 
     <Switch>
       <Route path={`/profile/:userId/flashcards`} component={FlashcardIndexContainer} />
