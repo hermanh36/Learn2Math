@@ -39,6 +39,10 @@ export default class FlashcardIndex extends React.Component {
         this.props.deleteFlashcard(flashcardId)
     }
 
+    editFlashcard(flashcardId) {
+        this.props.history.push(`/${flashcardId}/edit`)
+    }
+
     render() {
         let flashcards;
         if (this.state.flashcards) {
@@ -56,7 +60,7 @@ export default class FlashcardIndex extends React.Component {
                         </div>
                         <div className="index-card-bottom">
                             <div className="index-card-edit-btn-wrap">
-                                <button>Edit</button>
+                                <button onClick={() => this.editFlashcard(flashcard._id)}>Edit</button>
                             </div>
                             <div className="index-card-delete-btn-wrap">
                                 <button onClick={() => this.deleteFlashcard(flashcard._id)}>Delete</button>

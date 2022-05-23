@@ -60,6 +60,18 @@ export default class NewQuestionForm extends React.Component {
         })
     }
 
+    toggleEditQuestion(idx) {
+
+        let editContainer = document.getElementById(`edit-question-${idx}`);
+        editContainer.classList.toggle('hidden-class');
+
+        let question = document.getElementById(`question-${idx}-container`);
+        question.classList.toggle('hidden-class');
+
+        let questionBtn = document.getElementById(`edit-question-btn-wrap`);
+        questionBtn.classList.toggle('hidden-class');
+    }
+
     render() {
         const stuff = (<div className="new-question-form-wrap">
             <form onSubmit={this.handleSubmit}>

@@ -56,7 +56,10 @@ class LessonForm extends React.Component {
     let selected = document.getElementById('category-selector')
     this.setState({ category: selected.value},() => {
       this.props.submitForm(this.state).then((res) => {
-        this.props.history.push(`/lesson/${res.lesson._id}`)
+        this.props.createQuiz({lessonId: res.lesson._id}).then(quiz => {
+          this.props.history.push(`/lesson/${quiz.quiz.lessonId}`)
+        })
+        //this.props.history.push(`/lesson/${res.lesson._id}`)
       })
       .catch(err => null)
     })
