@@ -11,6 +11,7 @@ class LessonShow extends React.Component {
       quizzes: this.props.quizzes,
       users: this.props.users
     }
+    this.deleteHandler = this.deleteHandler.bind(this);
   }
 
   componentDidMount() {
@@ -36,6 +37,12 @@ class LessonShow extends React.Component {
 
   }
   //{this.props.users[this.props.lesson.authorId].email}
+
+
+  deleteHandler() {
+    this.props.deleteLesson(this.props.lessonId).then(this.props.history.push('/categories'))
+  }
+
   render() {
     // console.log(this.state.questions.length);
     console.log(this.props.currentUserId);
@@ -73,6 +80,7 @@ class LessonShow extends React.Component {
                 {currentUserId === authorId ? (
                   <>
                     <Link to={`/lesson/${this.props.match.params.lessonId}/edit`}><button>Edit Lesson</button></Link>
+                    <button onClick={this.deleteHandler}>Delete Lesson</button>
                     <div className="lesson-quiz-redirect-wrap">
                       <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}/edit`}>Edit Quiz</Link>
                     </div>
