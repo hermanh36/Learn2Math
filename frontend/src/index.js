@@ -13,6 +13,7 @@ import * as QuestionAction from './actions/question_actions'
 import * as FlashcardAction from './actions/flashcard_actions';
 import * as ScoreAction from './actions/quiz_score_action';
 import * as UserAction from './actions/user_actions';
+import * as CommentAction from './actions/comment_actions';
 
 import * as QuizAction from './actions/quiz_action';
 
@@ -62,12 +63,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.updateQuiz = QuizAction.updateQuiz;
   window.deleteQuiz = QuizAction.deleteQuiz;
 
-
   window.fetchFlashcards = FlashcardAction.fetchFlashcards;
   window.fetchFlashcard = FlashcardAction.fetchFlashcard;
   window.deleteFlashcard = FlashcardAction.deleteFlashcard;
   window.updateFlashcard = FlashcardAction.updateFlashcard;
   window.createFlashcard = FlashcardAction.createFlashcard;
+
+  window.fetchCommentsByUser = CommentAction.fetchCommentsByUser;
+  window.fetchCommentsByLesson = CommentAction.fetchCommentsByLesson;
+  window.updateComment = CommentAction.updateComment;
+  window.deleteComment = CommentAction.deleteComment;
+  window.createComment = CommentAction.createComment;
+
 
   window.fetchUser = UserAction.fetchUser;
   window.fetchUsers = UserAction.fetchUsers;

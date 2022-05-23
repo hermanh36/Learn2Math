@@ -1,5 +1,4 @@
 // src/reducers/errors_reducer.js
-
 import { combineReducers } from 'redux';
 
 import SessionErrorsReducer from './session_errors_reducer';
@@ -9,6 +8,7 @@ import QuizErrorReducer from './quiz_errors_reducer';
 import FlashcardErrorsReducer from './flashcard_errors_reducer';
 import QuizScoreErrorReducer from './quiz_score_errors_reducer';
 import UserErrorReducer from './user_errors_reducer';
+import CommentErrorReducer from './comments_error_reducer';
 
 export default combineReducers({
   session: SessionErrorsReducer,
@@ -17,5 +17,6 @@ export default combineReducers({
   quiz: QuizErrorReducer,
   flashcard: FlashcardErrorsReducer,
   quizscore: QuizScoreErrorReducer,
-  user: UserErrorReducer
+  user: UserErrorReducer,
+  comment: CommentErrorReducer
 });

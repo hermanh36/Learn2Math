@@ -7,11 +7,12 @@ const users = require("./routes/api/users");
 const tweets = require("./routes/api/tweets");
 const bodyParser = require('body-parser');
 const path = require('path');
-const lessons = require("./routes/api/lessons")
+const lessons = require("./routes/api/lessons");
 const flashcards = require("./routes/api/flashcards");
 const questions = require("./routes/api/questions");
-const quizzes = require("./routes/api/quizzes")
-const quizscores = require("./routes/api/quiz_score")
+const quizzes = require("./routes/api/quizzes");
+const quizscores = require("./routes/api/quiz_score");
+const comments = require("./routes/api/comments");
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
@@ -40,6 +41,7 @@ app.use("/api/questions", questions);
 app.use("/api/flashcards", flashcards);
 app.use("/api/quizzes", quizzes)
 app.use("/api/quizscores", quizscores);
+app.use("/api/comments", comments);
 
 
 

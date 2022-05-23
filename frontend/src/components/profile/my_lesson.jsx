@@ -10,7 +10,6 @@ export default class MyLessons extends React.Component {
 
     componentDidMount() {
         // console.log(this.props.match.params.userId);
-        debugger;
         this.props.fetchMyLessons(this.props.match.params.userId,
             this.props.clearLessons()
         ).then(() => console.log(this.props.lessons))

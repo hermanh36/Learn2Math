@@ -69,7 +69,6 @@ export default class NewQuestionForm extends React.Component {
     }
 
     render() {
-        debugger
         const stuff = (<div className="new-question-form-wrap">
             <form onSubmit={this.handleSubmit}>
                 <label>

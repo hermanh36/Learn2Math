@@ -5,6 +5,7 @@ import QuizReducer from './quiz_reducer';
 import FlashcardReducer from './flashcard_reducer';
 import QuizScoreReducer from './quiz_score_reducer';
 import UserReducer from './users_reducer';
+import CommentReducer from './comments_reducer';
 
 const EntitiesReducer = combineReducers({
     questions: QuestionReducer,
@@ -12,7 +13,8 @@ const EntitiesReducer = combineReducers({
     quizzes: QuizReducer,
     flashcards: FlashcardReducer,
     quizScores: QuizScoreReducer,
-    users: UserReducer
+    users: UserReducer,
+    comments: CommentReducer
 })
 
 export default EntitiesReducer;
