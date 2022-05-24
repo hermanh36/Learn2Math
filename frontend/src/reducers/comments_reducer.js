@@ -2,10 +2,11 @@ import { RECEIVE_COMMENT, RECEIVE_COMMENTS, REMOVE_COMMENT } from "../actions/co
 
 const CommentReducer = (state={}, action) => {
     Object.freeze(state);
-    const nextState = Object.assign({}, state);
+    let nextState = Object.assign({}, state);
 
     switch(action.type){
         case RECEIVE_COMMENTS:
+            nextState = {}
             action.comments.forEach(comment => {
                 nextState[comment._id] = comment;
             })

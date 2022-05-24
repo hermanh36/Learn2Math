@@ -24,7 +24,7 @@ class LeftSidebar extends React.Component {
                            <li><Link to='/createflashcard'>Create Flashcard</Link></li>
                            {/* <li><Link to="/create_test">Create a test</Link></li> */}
                            <li><Link to={`/profile/${this.props.currentUserId}`}>Profile</Link></li>
-                           
+                           <li><Link to={`/profile/${this.props.currentUserId}/flashcards`}> My Flashcards</Link></li>
                         </ul>
                     </div>
                 </label>
