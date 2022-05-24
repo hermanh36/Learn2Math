@@ -32,9 +32,9 @@ class MyScores extends React.Component {
     if(!(this.props.scores.length > 0)) {
       return null;
     } else {
+      console.log(this.lessonArr) 
       return (
-        <div>
-          
+        <div>   
           <h1>My Quiz Scores</h1>
           {this.props.scores.map(score => 
             (

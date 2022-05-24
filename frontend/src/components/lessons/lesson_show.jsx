@@ -19,16 +19,20 @@ class LessonShow extends React.Component {
   }
 
   componentDidMount() {
-    const { fetchCommentsByLesson, fetchLesson, fetchQuizByLessonId, fetchQuestions, lessonId, fetchUsers } = this.props;
-    fetchLesson(lessonId)
-      .then(lesson => fetchQuizByLessonId(lesson.lesson._id))
-      .then(quiz => fetchQuestions(quiz.quiz._id))
-      .then(() => fetchUsers())
-      fetchCommentsByLesson(lessonId);
+    const { clearUsers, fetchUser, fetchCommentsByLesson, fetchLesson, fetchQuizByLessonId, fetchQuestions, lessonId, fetchUsers } = this.props;
+    fetchLesson(lessonId, this.props.clearUsers())
+      .then(lesson => {
+          fetchUser(lesson.lesson.authorId)
+            .then(() =>fetchQuizByLessonId(lesson.lesson._id))
+            .then(quiz => fetchQuestions(quiz.quiz._id))
+            .then(() => fetchCommentsByLesson(lessonId) )
+      })
+      
+      // .then(() => fetchUsers())
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ quizzes: nextProps.quizzes, questions: nextProps.questions, users: nextProps.users, comments: nextProps.comments})
+    this.setState({ quizzes: nextProps.quizzes, questions: nextProps.questions, comments: nextProps.comments})
     // console.log(nextProps.questions)
     // console.log(nextProps.quizzes)
   }
@@ -50,10 +54,23 @@ class LessonShow extends React.Component {
     this.props.deleteLesson(this.props.lessonId).then(this.props.history.push('/categories'))
   }
 
+  trimEmail(email) {
+    let username = '';
+    for( let i = 0; i< email.length; i++){
+        if (email[i] == '@'){
+            return username;
+        } else {
+            username = username + email[i];
+        }
+    }
+  }
+
+
   render() {
-  
-  
-    const author = this.state.users[this.props.lesson?.authorId]?.email;
+    // console.log(this.state.questions.length);
+    console.log(this.props.currentUserId);
+    console.log(this.state);
+    // console.log(this.state.users);
     const commentsForThisLesson = Object.values(this.state.comments).length > 0 ? (
       <div className="comment-section-wrap">
         <h1>Comments:</h1>
@@ -76,10 +93,16 @@ class LessonShow extends React.Component {
         </div>))}
       </div>
     ) : null;
+<<<<<<< HEAD
 
     let currentUserEmail;
     if (this.state.users) Object.values(this.state.users).forEach(user => { if (user._id === this.props.lesson.authorId) currentUserEmail = user.email });
     console.log(currentUserEmail);
+=======
+    // let currentUserEmail;
+    // if (this.state.users) Object.values(this.state.users).forEach(user => { if (user._id === this.props.lesson.authorId) currentUserEmail = user.email });
+    // console.log(currentUserEmail);
+>>>>>>> af29c03d78535ae9ab9f7fc146dea91fd86c6750
     if (!this.props.lesson) {
       return null
     }
@@ -91,6 +114,7 @@ class LessonShow extends React.Component {
       const { currentUserId } = this.props;
       const authorId = this.props.lesson.authorId;
       const takeQuiz = this.state.questions.length > 0 ? <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}`}>Take Quiz</Link> : <></>;
+<<<<<<< HEAD
 
 
       return (
@@ -134,6 +158,47 @@ class LessonShow extends React.Component {
 
 
 
+=======
+      if (this.props.users && Object.values(this.props.users).length > 0){
+        console.log(this.props.users)
+        debugger;
+        return (
+          <div className="lesson-show-wrap">
+            <LeftSidebar />
+
+            {this.props.lesson ?
+
+              (
+                <div className="lesson-show-container ql-editor">
+
+                  <div className="lesson-show-title">{this.props.lesson.title} by {this.trimEmail(Object.values(this.props.users)[0].email)}</div>
+
+                  <div id="lesson-html-content">{parse(this.props.lesson.content)}</div>
+
+                  {currentUserId === authorId ? (
+                    <>
+                      <Link to={`/lesson/${this.props.match.params.lessonId}/edit`}><button>Edit Lesson</button></Link>
+                      <button onClick={this.deleteHandler}>Delete Lesson</button>
+                      <div className="lesson-quiz-redirect-wrap">
+                        <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}/edit`}>Edit Quiz</Link>
+                      </div>
+                    </>)
+                    :
+                    // {takeQuiz}
+                    <Link className="lesson-quiz-redirect-button" to={{pathname:`/quiz/${quizId}`, state: this.props.lessonId }}>Take Quiz</Link>
+                  }
+                  {commentsForThisLesson}
+                  <CreateCommentContainer match={this.props.match} createComment={this.props.createComment} />
+                </div>
+              )
+              : null
+            }
+          </div>
+        )}
+        else {
+          return null;
+        }
+>>>>>>> af29c03d78535ae9ab9f7fc146dea91fd86c6750
     }
   }
 }

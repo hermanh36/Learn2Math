@@ -6,8 +6,10 @@ import LessonForm from './lesson_form'
 const mapStateToProps = state => {
   return {
     lesson: {
-      content:'',
-      category:''
+      authorId: '',
+      content: '',
+      title: '',
+      category: ''
     },
     formType: 'Create',
     errors: state.errors.lesson

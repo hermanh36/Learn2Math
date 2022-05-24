@@ -16,10 +16,13 @@ class QuizItem extends React.Component {
   //assume props have lessonId
 
   componentDidMount() {
-    this.props.fetchQuestions(this.props.quizId).then(() => this.props.fetchQuiz(this.props.quizId)).then(quiz => this.lessonId = quiz.quiz.lessonId)
+    this.props.fetchQuestions(this.props.quizId)
+    .then(() => this.props.fetchQuiz(this.props.quizId))
+    .then(quiz => this.lessonId = quiz.quiz.lessonId)
   }
 
   submitHandler() {
+    debugger;
     let correctAnswer = [];
     let submittedAnswer = [];
     let score = 0;

@@ -13,6 +13,10 @@ export default class QuestionIndex extends React.Component{
         this.setState(nextProps.questions)
     }
 
+    componentWillUnmount() {
+        this.props.clearQuestion();
+    }
+    
     toggleEditQuestion(idx) { 
         
         let editContainer = document.getElementById(`edit-question-${idx}`);
