@@ -8,7 +8,7 @@ class LessonForm extends React.Component {
 
   constructor(props){
     super(props)
-    this.state = this.props.lesson
+    this.state = this.props.lesson;
     this.updateTitle = this.updateTitle.bind(this);
     this.updateBody = this.updateBody.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
@@ -87,13 +87,16 @@ class LessonForm extends React.Component {
     if (!this.props.lesson) {
       return null
     } else {
-      if(this.props.currentUserId !== this.props.lesson.authorId) {
-        return (
-          <div>
-            <div>This is not your lesson!</div>
-            <Link to={`/profile/${this.props.currentUserId}`}><button>Go Back</button></Link>
-          </div>
-        )
+      debugger
+      if (this.props.formType === 'Update'){
+        if(this.props.currentUserId !== this.props.lesson.authorId) {
+          return (
+            <div>
+              <div>This is not your lesson!</div>
+              <Link to={`/profile/${this.props.currentUserId}`}><button>Go Back</button></Link>
+            </div>
+          )
+        }
       }
       return (
         <div className="lesson-form-wrap">

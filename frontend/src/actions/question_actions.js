@@ -3,6 +3,7 @@ export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const RECEIVE_QUESTION = 'RECEIVE_QUESTION';
 export const REMOVE_QUESTION = 'REMOVE_QUESTION';
 export const RECEIVE_QUESTION_ERRORS = 'RECEIVE_QUESTION_ERRORS';
+export const REMOVE_QUESTIONS = 'REMOVE_QUESTIONS';
 
 const receiveQuestions = questions => {
     return {
@@ -24,6 +25,12 @@ const removeQuestion = questionId => {
         questionId
     }
 };
+
+const removeQuestions = () => {
+    return {
+        type: REMOVE_QUESTIONS
+    }
+}
 
 const receiveQuestionErrors = errors => {
     return {
@@ -61,3 +68,7 @@ export const deleteQuestion = questionId => dispatch => {
         .then(() => dispatch(removeQuestion(questionId)))
         .catch(err => dispatch(receiveQuestionErrors(err)))
 };
+
+export const clearQuestions = () => dispatch => {
+    dispatch(removeQuestions);
+}
