@@ -99,7 +99,9 @@ class LessonShow extends React.Component {
       const { currentUserId } = this.props;
       const authorId = this.props.lesson.authorId;
       const takeQuiz = this.state.questions.length > 0 ? <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}`}>Take Quiz</Link> : <></>;
-      if (Object.values(this.props.users).length > 0){
+      if (this.props.users && Object.values(this.props.users).length > 0){
+        console.log(this.props.users)
+        debugger;
         return (
           <div className="lesson-show-wrap">
             <LeftSidebar />
@@ -109,7 +111,7 @@ class LessonShow extends React.Component {
               (
                 <div className="lesson-show-container ql-editor">
 
-                  <div className="lesson-show-title">{this.props.lesson.title} by {this.trimEmail(this.props.users[this.props.lesson.authorId].email)}</div>
+                  <div className="lesson-show-title">{this.props.lesson.title} by {this.trimEmail(Object.values(this.props.users)[0].email)}</div>
 
                   <div id="lesson-html-content">{parse(this.props.lesson.content)}</div>
 
