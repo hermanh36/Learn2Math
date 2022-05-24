@@ -16,19 +16,26 @@ class LessonShow extends React.Component {
       comments: this.props.comments
     }
     this.deleteHandler = this.deleteHandler.bind(this);
+    this.author = this.author.bind(this);
   }
 
   componentDidMount() {
-    const { fetchCommentsByLesson, fetchLesson, fetchQuizByLessonId, fetchQuestions, lessonId, fetchUsers } = this.props;
+    const { clearUsers, fetchUser, fetchCommentsByLesson, fetchLesson, fetchQuizByLessonId, fetchQuestions, lessonId, fetchUsers } = this.props;
     fetchLesson(lessonId)
-      .then(lesson => fetchQuizByLessonId(lesson.lesson._id))
-      .then(quiz => fetchQuestions(quiz.quiz._id))
-      .then(() => fetchUsers())
-      fetchCommentsByLesson(lessonId);
+      .then(lesson => {
+        debugger
+          fetchUser(lesson.lesson.authorId, () => clearUsers())
+            .then(() =>fetchQuizByLessonId(lesson.lesson._id))
+            .then(quiz => fetchQuestions(quiz.quiz._id))
+            .then(() => fetchCommentsByLesson(lessonId) )
+      })
+      
+      // .then(() => fetchUsers())
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ quizzes: nextProps.quizzes, questions: nextProps.questions, users: nextProps.users, comments: nextProps.comments})
+    debugger
+    this.setState({ quizzes: nextProps.quizzes, questions: nextProps.questions, comments: nextProps.comments})
     // console.log(nextProps.questions)
     // console.log(nextProps.quizzes)
   }
@@ -50,12 +57,16 @@ class LessonShow extends React.Component {
     this.props.deleteLesson(this.props.lessonId).then(this.props.history.push('/categories'))
   }
 
+  author(){
+
+      return this.trimEmail(this.state.users[this.props.lesson?.authorId]?.email);
+
+  }
+
   render() {
     // console.log(this.state.questions.length);
     console.log(this.props.currentUserId);
     console.log(this.state);
-    debugger
-    const author = this.state.users[this.props.lesson?.authorId]?.email;
     // console.log(this.state.users);
     const commentsForThisLesson = Object.values(this.state.comments).length > 0 ? (
       <div>
@@ -71,9 +82,9 @@ class LessonShow extends React.Component {
         </div>))}
       </div>
     ) : null;
-    let currentUserEmail;
-    if (this.state.users) Object.values(this.state.users).forEach(user => { if (user._id === this.props.lesson.authorId) currentUserEmail = user.email });
-    console.log(currentUserEmail);
+    // let currentUserEmail;
+    // if (this.state.users) Object.values(this.state.users).forEach(user => { if (user._id === this.props.lesson.authorId) currentUserEmail = user.email });
+    // console.log(currentUserEmail);
     if (!this.props.lesson) {
       return null
     }
@@ -96,7 +107,7 @@ class LessonShow extends React.Component {
             (
               <div className="lesson-show-container ql-editor">
 
-                <div className="lesson-show-title">{this.props.lesson.title} by {author}</div>
+                <div className="lesson-show-title">{this.props.lesson.title} by {this.author()}</div>
 
                 <div id="lesson-html-content">{parse(this.props.lesson.content)}</div>
 
