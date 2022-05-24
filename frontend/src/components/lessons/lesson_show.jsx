@@ -3,6 +3,8 @@ import LeftSidebar from "../left_sidebar/left_sidebar_container";
 import parse from 'html-react-parser';
 import { Link } from "react-router-dom";
 import CommentForm from "../comment/comment_form";
+import UpdateCommentContainer from "../comment/update_comment_container";
+import CreateCommentContainer from "../comment/create_comment_container";
 
 class LessonShow extends React.Component {
   constructor(props) {
@@ -58,15 +60,15 @@ class LessonShow extends React.Component {
         {Object.values(this.state.comments).map(comment =>(
         <div>
           {comment.message}
-          {/* update comment should render comment form */}
-          {/* onClick={this.updateComment(this.state[comment._id])} */}
+          {/* SOME NOTES: */}
+          {/* the toggle comment form button should toggle visibility for the UpdateCommentContainer for that comment */}
+          {/* deletecomment button deletes comment */}
           <button>*Toggle Comment Form*</button>
-          <CommentForm comment={comment} updateComment={this.props.updateComment}/>
+          <UpdateCommentContainer comment={comment} updateComment={this.props.updateComment}/>
           <button onClick={this.deleteComment(comment._id)}>Delete Comment</button>
         </div>))}
       </div>
     ) : null;
-          // debugger
     let currentUserEmail;
     if (this.state.users) Object.values(this.state.users).forEach(user => { if (user._id === this.props.lesson.authorId) currentUserEmail = user.email });
     console.log(currentUserEmail);
@@ -109,6 +111,7 @@ class LessonShow extends React.Component {
                   <Link className="lesson-quiz-redirect-button" to={{pathname:`/quiz/${quizId}`, state: this.props.lessonId }}>Take Quiz</Link>
                 }
                 {commentsForThisLesson}
+                <CreateCommentContainer match={this.props.match} createComment={this.props.createComment} />
               </div>
             )
             : null

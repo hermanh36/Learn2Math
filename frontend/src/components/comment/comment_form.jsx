@@ -16,7 +16,10 @@ export default class CommentForm extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.updateComment(this.state);
+        this.props.submitForm(this.state);
+        if (this.props.formType === 'Create'){
+            this.setState({message: ''});
+        }
       }
 
     render(){
@@ -24,7 +27,8 @@ export default class CommentForm extends React.Component{
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <textarea value={this.state.message} onChange={this.updateComment}/>
-                    <button>Update Comment</button>
+                    {/* this button below either creates a new comment or updates an existing comment under the current lesson */}
+                    <button>{this.props.formType === 'Update' ? 'Update ' : ''}Comment</button>
                 </form>
             </div>
         )
