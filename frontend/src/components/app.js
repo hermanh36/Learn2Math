@@ -26,6 +26,7 @@ import MyLessonsContainer from './profile/my_lessons_container';
 import MyQuizScores from './profile/my_score_container'
 import ProfileTest from './profile/profile_test/profile_test';
 import FlashcardIndexContainer from './flashcards/flashcard_index_container';
+import ProfileContainer from './profile/profile_container'; 
 
 const App = () => (
   <div className="app-wrap">
@@ -41,7 +42,7 @@ const App = () => (
 
     <Switch>
       <Route path={`/profile/:userId/flashcards`} component={FlashcardIndexContainer} />
-      <Route path={`/profile/:userId`} component={MyLessonsContainer} />
+      <Route path={`/profile/:userId`} component={ProfileContainer} />
       <Route exact path = '/lesson/new' component={CreateLessonContainer} />
       <Route exact path='/lesson/:lessonId/edit' component={EditLessonContainer} />
       <Route exact path='/lesson/:lessonId' component={ShowLessonContainer} />

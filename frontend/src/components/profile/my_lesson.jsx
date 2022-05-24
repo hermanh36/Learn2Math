@@ -10,10 +10,11 @@ export default class MyLessons extends React.Component {
 
     componentDidMount() {
         // console.log(this.props.match.params.userId);
-        this.props.fetchMyLessons(this.props.match.params.userId,
+        this.props.fetchMyLessons(this.props.authorId,
             this.props.clearLessons()
-        ).then(() => console.log(this.props.lessons))
-        .then(() => this.setState({ lessons: this.props.lessons }));
+        ).then((res) => {
+            this.setState({ lessons: this.props.lessons })
+        });
     }
 
     render() {
@@ -22,7 +23,7 @@ export default class MyLessons extends React.Component {
             return (
                 <div>
                     {Object.values(this.state.lessons).map((lesson,idx) => 
-                    <button key={idx}><Link to={`/lesson/${lesson.id}`}>{lesson.title}</Link></button>
+                        <button key={idx}><Link to={`/lesson/${lesson.id}`}>{lesson.title}</Link></button>
                     )}
                 </div>
             )

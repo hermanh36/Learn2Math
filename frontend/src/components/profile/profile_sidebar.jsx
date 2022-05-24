@@ -11,7 +11,6 @@ class ProfileSidebar extends React.Component {
             </div>
         )
     }
-
 }
 
 export default ProfileSidebar; 
