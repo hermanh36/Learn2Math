@@ -2,7 +2,6 @@ import CommentForm from "./comment_form";
 import { connect } from "react-redux";
 
 const mapState = (state, ownProps) => {
-    debugger
     return {
         comment:{
             message:'',
@@ -13,7 +12,6 @@ const mapState = (state, ownProps) => {
 };
 
 const mapDispatch = (dispatch,ownProps) => {
-    debugger
     return {
         submitForm: ownProps.createComment
     }

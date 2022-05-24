@@ -54,6 +54,8 @@ class LessonShow extends React.Component {
     // console.log(this.state.questions.length);
     console.log(this.props.currentUserId);
     console.log(this.state);
+    debugger
+    const author = this.state.users[this.props.lesson?.authorId]?.email;
     // console.log(this.state.users);
     const commentsForThisLesson = Object.values(this.state.comments).length > 0 ? (
       <div>
@@ -94,7 +96,7 @@ class LessonShow extends React.Component {
             (
               <div className="lesson-show-container ql-editor">
 
-                <div className="lesson-show-title">{this.props.lesson.title}</div>
+                <div className="lesson-show-title">{this.props.lesson.title} by {author}</div>
 
                 <div id="lesson-html-content">{parse(this.props.lesson.content)}</div>
 
