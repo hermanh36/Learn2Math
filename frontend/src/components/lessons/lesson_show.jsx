@@ -107,45 +107,49 @@ class LessonShow extends React.Component {
       const { currentUserId } = this.props;
       const authorId = this.props.lesson.authorId;
       const takeQuiz = this.state.questions.length > 0 ? <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}`}>Take Quiz</Link> : <></>;
-      if (this.props.users && Object.values(this.props.users).length > 0){
-        console.log(this.props.users)
-        debugger;
-        return (
-          <div className="lesson-show-wrap">
-            <LeftSidebar />
 
-            {this.props.lesson ?
 
-              (
-                <div className="lesson-show-container ql-editor">
+      return (
+        <div className="lesson-show-wrap">
+          <LeftSidebar />
 
-                  <div className="lesson-show-title">{this.props.lesson.title} by {this.trimEmail(Object.values(this.props.users)[0].email)}</div>
+          {this.props.lesson ?
 
-                  <div id="lesson-html-content">{parse(this.props.lesson.content)}</div>
+            (
+              <div className="lesson-show-container">
 
-                  {currentUserId === authorId ? (
-                    <>
-                      <Link to={`/lesson/${this.props.match.params.lessonId}/edit`}><button>Edit Lesson</button></Link>
-                      <button onClick={this.deleteHandler}>Delete Lesson</button>
-                      <div className="lesson-quiz-redirect-wrap">
-                        <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}/edit`}>Edit Quiz</Link>
+                <p className="lesson-show-title">{this.props.lesson.title} by </p>
+
+                <div id="lesson-html-content">{parse(this.props.lesson.content)}</div>
+
+                {currentUserId === authorId ? (
+                  <>
+                    
+                    <div className="lesson-quiz-redirect-wrap">
+                      <Link className="lesson-quiz-redirect-button" to={`/lesson/${this.props.match.params.lessonId}/edit`}>Edit Lesson</Link>
+                      <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}/edit`}>Edit Quiz</Link>
+                      <div className="delete-lesson-btn-wrap">
+                        <button className="delete-lesson-btn" onClick={this.deleteHandler}>Delete Lesson</button>
                       </div>
-                    </>)
-                    :
-                    // {takeQuiz}
-                    <Link className="lesson-quiz-redirect-button" to={{pathname:`/quiz/${quizId}`, state: this.props.lessonId }}>Take Quiz</Link>
-                  }
-                  {commentsForThisLesson}
-                  <CreateCommentContainer match={this.props.match} createComment={this.props.createComment} />
-                </div>
-              )
-              : null
-            }
-          </div>
-        )}
-        else {
-          return null;
-        }
+                    </div>
+                  </>)
+                  :
+                  // {takeQuiz}
+                  <Link className="lesson-quiz-redirect-button" to={{pathname:`/quiz/${quizId}`, state: this.props.lessonId }}>Take Quiz</Link>
+                }
+                {commentsForThisLesson}
+                <h1 className="make-a-comment">Make a comment: </h1>
+                <CreateCommentContainer match={this.props.match} createComment={this.props.createComment} />
+              </div>
+            )
+            : null
+          }
+        </div>
+
+      )
+
+
+
     }
   }
 }
