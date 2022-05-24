@@ -4,6 +4,7 @@ import { deleteLesson, fetchLesson } from "../../actions/lesson_actions";
 import { fetchQuizByLessonId } from '../../actions/quiz_action';
 import { fetchQuestions } from '../../actions/question_actions';
 import { fetchUsers } from "../../actions/user_actions";
+import { fetchCommentsByLesson, createComment, updateComment, deleteComment } from '../../actions/comment_actions';
 
 const mSTP = (state, ownProps) => {
   return {
@@ -12,7 +13,8 @@ const mSTP = (state, ownProps) => {
     quizzes: state.entities.quizzes,
     questions: state.entities.questions,
     currentUserId: state.session.user.id,
-    users: state.entities.users
+    users: state.entities.users,
+    comments: state.entities.comments
   }
 };
 
@@ -21,7 +23,11 @@ const mDTP = (dispatch) => ({
   fetchQuizByLessonId: lessonId => dispatch(fetchQuizByLessonId(lessonId)),
   fetchQuestions: quizId => dispatch(fetchQuestions(quizId)),
   fetchUsers: () => dispatch(fetchUsers()),
-  deleteLesson: lessonId => dispatch(deleteLesson(lessonId))
+  deleteLesson: lessonId => dispatch(deleteLesson(lessonId)),
+  fetchCommentsByLesson: lessonId => dispatch(fetchCommentsByLesson(lessonId)),
+  createComment: comment => dispatch(createComment(comment)),
+  updateComment: comment => dispatch(updateComment(comment)),
+  deleteComment: commentId => dispatch(deleteComment(commentId))
 })
 
 export default connect(mSTP, mDTP)(LessonShow);
