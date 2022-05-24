@@ -50,15 +50,23 @@ class LessonForm extends React.Component {
   submitHandler(e) {
     e.preventDefault();
     let selected = document.getElementById('category-selector')
-    this.setState({ category: selected.value},() => {
-      this.props.submitForm(this.state).then((res) => {
-        this.props.createQuiz({lessonId: res.lesson._id}).then(quiz => {
-          this.props.history.push(`/lesson/${quiz.quiz.lessonId}`)
+    debugger;
+    if (formType === 'Create') {
+      this.setState({ category: selected.value},() => {
+        this.props.submitForm(this.state).then((res) => {
+          this.props.createQuiz({lessonId: res.lesson._id}).then(quiz => {
+            this.props.history.push(`/lesson/${quiz.quiz.lessonId}`)
+          })
+          //this.props.history.push(`/lesson/${res.lesson._id}`)
         })
-        //this.props.history.push(`/lesson/${res.lesson._id}`)
+        .catch(err => null)
       })
-      .catch(err => null)
-    })
+    } else {
+      this.setState({ category: selected.value},() => {
+        this.props.submitForm(this.state).then( () => this.props.history.push(`/lesson/${this.props.lessonId}`))
+        .catch(err => null)
+      })
+    }
   }
 
   updateTitle(field) {
