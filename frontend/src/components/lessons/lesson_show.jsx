@@ -2,6 +2,7 @@ import React from "react";
 import LeftSidebar from "../left_sidebar/left_sidebar_container";
 import parse from 'html-react-parser';
 import { Link } from "react-router-dom";
+import CommentForm from "../comment/comment_form";
 
 class LessonShow extends React.Component {
   constructor(props) {
@@ -9,28 +10,32 @@ class LessonShow extends React.Component {
     this.state = {
       questions: this.props.questions,
       quizzes: this.props.quizzes,
-      users: this.props.users
+      users: this.props.users,
+      comments: this.props.comments
     }
     this.deleteHandler = this.deleteHandler.bind(this);
   }
 
   componentDidMount() {
-    const { fetchLesson, fetchQuizByLessonId, fetchQuestions, lessonId, fetchUsers } = this.props;
+    const { fetchCommentsByLesson, fetchLesson, fetchQuizByLessonId, fetchQuestions, lessonId, fetchUsers } = this.props;
     fetchLesson(lessonId)
       .then(lesson => fetchQuizByLessonId(lesson.lesson._id))
       .then(quiz => fetchQuestions(quiz.quiz._id))
       .then(() => fetchUsers())
-      .then(() => {
-        console.log(this.state);
-        // debugger;
-      })
+      fetchCommentsByLesson(lessonId);
   }
 
   componentWillReceiveProps(nextProps) {
-    // debugger;
-    this.setState({ quizzes: nextProps.quizzes, questions: nextProps.questions, users: nextProps.users })
+    this.setState({ quizzes: nextProps.quizzes, questions: nextProps.questions, users: nextProps.users, comments: nextProps.comments})
     // console.log(nextProps.questions)
     // console.log(nextProps.quizzes)
+  }
+
+  deleteComment(commentId){
+    return e => {
+      e.preventDefault();
+      this.props.deleteComment(commentId);
+    }
   }
 
   renderLessonContent() {
@@ -46,8 +51,22 @@ class LessonShow extends React.Component {
   render() {
     // console.log(this.state.questions.length);
     console.log(this.props.currentUserId);
-
+    console.log(this.state);
     // console.log(this.state.users);
+    const commentsForThisLesson = Object.values(this.state.comments).length > 0 ? (
+      <div>
+        {Object.values(this.state.comments).map(comment =>(
+        <div>
+          {comment.message}
+          {/* update comment should render comment form */}
+          {/* onClick={this.updateComment(this.state[comment._id])} */}
+          <button>*Toggle Comment Form*</button>
+          <CommentForm comment={comment} updateComment={this.props.updateComment}/>
+          <button onClick={this.deleteComment(comment._id)}>Delete Comment</button>
+        </div>))}
+      </div>
+    ) : null;
+          // debugger
     let currentUserEmail;
     if (this.state.users) Object.values(this.state.users).forEach(user => { if (user._id === this.props.lesson.authorId) currentUserEmail = user.email });
     console.log(currentUserEmail);
@@ -89,6 +108,7 @@ class LessonShow extends React.Component {
                   // {takeQuiz}
                   <Link className="lesson-quiz-redirect-button" to={{pathname:`/quiz/${quizId}`, state: this.props.lessonId }}>Take Quiz</Link>
                 }
+                {commentsForThisLesson}
               </div>
             )
             : null
