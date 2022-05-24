@@ -22,7 +22,7 @@ export default class MyLessons extends React.Component {
             return (
                 <div>
                     {Object.values(this.state.lessons).map((lesson,idx) => 
-                    <button key={idx}><Link to={`/lesson/${lesson.id}`}>{lesson.title}</Link></button>
+                    <button key={idx}><Link to={`/lesson/${lesson._id}`}>{lesson.title}</Link></button>
                     )}
                 </div>
             )
