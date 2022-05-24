@@ -70,5 +70,5 @@ export const deleteQuestion = questionId => dispatch => {
 };
 
 export const clearQuestions = () => dispatch => {
-    dispatch(removeQuestions);
+    dispatch(removeQuestions());
 }
