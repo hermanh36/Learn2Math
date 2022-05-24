@@ -18,7 +18,7 @@ export default class Profile extends React.Component{
     render(){
         return (
             <>
-                <ProfileSidebarContainer />
+                <ProfileSidebarContainer match={this.props.match}/>
                 <MyLessonsContainer authorId={this.props.userId}/>
                 <MyScoreContainer />
             </>
