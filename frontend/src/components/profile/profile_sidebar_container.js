@@ -2,7 +2,6 @@ import { connect } from "react-redux";
 import ProfileSidebar from "./profile_sidebar";
 
 const mSTP = (state, ownProps) => {
-    debugger
     return {
         currentUserId: state.session.user._id,
         userId: ownProps.match.params.userId
