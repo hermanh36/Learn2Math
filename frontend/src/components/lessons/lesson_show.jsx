@@ -51,26 +51,31 @@ class LessonShow extends React.Component {
   }
 
   render() {
-    // console.log(this.state.questions.length);
-    console.log(this.props.currentUserId);
-    console.log(this.state);
-    debugger
+  
+  
     const author = this.state.users[this.props.lesson?.authorId]?.email;
-    // console.log(this.state.users);
     const commentsForThisLesson = Object.values(this.state.comments).length > 0 ? (
-      <div>
+      <div className="comment-section-wrap">
+        <h1>Comments:</h1>
         {Object.values(this.state.comments).map(comment =>(
-        <div>
-          {comment.message}
+        <div >
+          <div className="comment-wrap">
+            {comment.message}
+          </div>
           {/* SOME NOTES: */}
           {/* the toggle comment form button should toggle visibility for the UpdateCommentContainer for that comment */}
           {/* deletecomment button deletes comment */}
-          <button>*Toggle Comment Form*</button>
+          <div className="toggle-comment-btn-wrap">
+            <button className="toggle-comment-btn">Toggle Comment Form</button>
+          </div>
           <UpdateCommentContainer comment={comment} updateComment={this.props.updateComment}/>
-          <button onClick={this.deleteComment(comment._id)}>Delete Comment</button>
+          <div className="delete-comment-btn-wrap">
+            <button className="delete-comment-btn" onClick={this.deleteComment(comment._id)}>Delete Comment</button>
+          </div>
         </div>))}
       </div>
     ) : null;
+
     let currentUserEmail;
     if (this.state.users) Object.values(this.state.users).forEach(user => { if (user._id === this.props.lesson.authorId) currentUserEmail = user.email });
     console.log(currentUserEmail);
@@ -94,7 +99,7 @@ class LessonShow extends React.Component {
           {this.props.lesson ?
 
             (
-              <div className="lesson-show-container ql-editor">
+              <div className="lesson-show-container">
 
                 <div className="lesson-show-title">{this.props.lesson.title} by {author}</div>
 
@@ -102,10 +107,13 @@ class LessonShow extends React.Component {
 
                 {currentUserId === authorId ? (
                   <>
-                    <Link to={`/lesson/${this.props.match.params.lessonId}/edit`}><button>Edit Lesson</button></Link>
-                    <button onClick={this.deleteHandler}>Delete Lesson</button>
+                    
                     <div className="lesson-quiz-redirect-wrap">
+                      <Link className="lesson-quiz-redirect-button" to={`/lesson/${this.props.match.params.lessonId}/edit`}>Edit Lesson</Link>
                       <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}/edit`}>Edit Quiz</Link>
+                      <div className="delete-lesson-btn-wrap">
+                        <button className="delete-lesson-btn" onClick={this.deleteHandler}>Delete Lesson</button>
+                      </div>
                     </div>
                   </>)
                   :
