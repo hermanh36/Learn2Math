@@ -45,15 +45,16 @@ export default class FlashcardIndex extends React.Component {
     editFlashcard(flashcardId) {
         this.props.history.push(`/${flashcardId}/edit`)
     }
+
     trimEmail(email) {
         let username = '';
-        email.forEach(char => {
-            if (char !== '@'){
-                username = username + char;
-            } else {
+        for( let i = 0; i< email.length; i++){
+            if (email[i] == '@'){
                 return username;
+            } else {
+                username = username + email[i];
             }
-        })
+        }
     }
 
     render() {
@@ -99,7 +100,7 @@ export default class FlashcardIndex extends React.Component {
                     <div className="flashcard-index-wrap">
                         <LeftSidebarContainer />
                         <div>
-                            <h1>{Object.values(this.props.authors)[0].email}'s Flashcards</h1>
+                            <h1>{this.trimEmail(Object.values(this.props.authors)[0].email)}'s Flashcards</h1>
                             <div className="hide-all-answers-btn-wrap" >
                                 <button onClick={() => this.hideAllAnswers()}>
                                     Hide all answers
