@@ -51,7 +51,7 @@ class LessonForm extends React.Component {
     e.preventDefault();
     let selected = document.getElementById('category-selector')
     debugger;
-    if (formType === 'Create') {
+    if (this.props.formType === 'Create') {
       this.setState({ category: selected.value},() => {
         this.props.submitForm(this.state).then((res) => {
           this.props.createQuiz({lessonId: res.lesson._id}).then(quiz => {
