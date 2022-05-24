@@ -54,7 +54,7 @@ class LessonShow extends React.Component {
     // console.log(this.state.questions.length);
     console.log(this.props.currentUserId);
     console.log(this.state);
-    debugger
+
     const author = this.state.users[this.props.lesson?.authorId]?.email;
     // console.log(this.state.users);
     const commentsForThisLesson = Object.values(this.state.comments).length > 0 ? (
