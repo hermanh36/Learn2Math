@@ -16,15 +16,13 @@ class LessonShow extends React.Component {
       comments: this.props.comments
     }
     this.deleteHandler = this.deleteHandler.bind(this);
-    this.author = this.author.bind(this);
   }
 
   componentDidMount() {
     const { clearUsers, fetchUser, fetchCommentsByLesson, fetchLesson, fetchQuizByLessonId, fetchQuestions, lessonId, fetchUsers } = this.props;
-    fetchLesson(lessonId)
+    fetchLesson(lessonId, this.props.clearUsers())
       .then(lesson => {
-        debugger
-          fetchUser(lesson.lesson.authorId, () => clearUsers())
+          fetchUser(lesson.lesson.authorId)
             .then(() =>fetchQuizByLessonId(lesson.lesson._id))
             .then(quiz => fetchQuestions(quiz.quiz._id))
             .then(() => fetchCommentsByLesson(lessonId) )
@@ -34,7 +32,6 @@ class LessonShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger
     this.setState({ quizzes: nextProps.quizzes, questions: nextProps.questions, comments: nextProps.comments})
     // console.log(nextProps.questions)
     // console.log(nextProps.quizzes)
@@ -66,17 +63,8 @@ class LessonShow extends React.Component {
             username = username + email[i];
         }
     }
-}
-
-  author(){
-    if (this.props.lesson){
-      if (this.state.users[this.props.lesson.authorId]){
-        return this.trimEmail(this.state.users[this.props.lesson?.authorId]?.email);
-      }
-    } else {
-      return null;
-    }
   }
+
 
   render() {
     // console.log(this.state.questions.length);
@@ -111,8 +99,7 @@ class LessonShow extends React.Component {
       const { currentUserId } = this.props;
       const authorId = this.props.lesson.authorId;
       const takeQuiz = this.state.questions.length > 0 ? <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}`}>Take Quiz</Link> : <></>;
-      debugger;
-      if (this.author()){
+      if (Object.values(this.props.users).length > 0){
         return (
           <div className="lesson-show-wrap">
             <LeftSidebar />
@@ -122,7 +109,7 @@ class LessonShow extends React.Component {
               (
                 <div className="lesson-show-container ql-editor">
 
-                  <div className="lesson-show-title">{this.props.lesson.title} by {this.author()}</div>
+                  <div className="lesson-show-title">{this.props.lesson.title} by {this.trimEmail(this.props.users[this.props.lesson.authorId].email)}</div>
 
                   <div id="lesson-html-content">{parse(this.props.lesson.content)}</div>
 
@@ -149,9 +136,6 @@ class LessonShow extends React.Component {
         else {
           return null;
         }
-
-
-
     }
   }
 }

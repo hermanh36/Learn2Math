@@ -5,6 +5,7 @@ import { fetchQuizByLessonId } from '../../actions/quiz_action';
 import { fetchQuestions } from '../../actions/question_actions';
 import { fetchUsers, fetchUser } from "../../actions/user_actions";
 import { fetchCommentsByLesson, createComment, updateComment, deleteComment } from '../../actions/comment_actions';
+import { removeUsers } from "../../actions/user_actions";
 
 const mSTP = (state, ownProps) => {
   return {
@@ -28,7 +29,8 @@ const mDTP = (dispatch) => ({
   createComment: comment => dispatch(createComment(comment)),
   updateComment: comment => dispatch(updateComment(comment)),
   deleteComment: commentId => dispatch(deleteComment(commentId)),
-  fetchUser: userId => dispatch(fetchUser(userId))
+  fetchUser: userId => dispatch(fetchUser(userId)),
+  clearUsers: () => dispatch(removeUsers())
 })
 
 export default connect(mSTP, mDTP)(LessonShow);
