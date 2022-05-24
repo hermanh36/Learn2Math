@@ -9,7 +9,8 @@ export default class FlashcardIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchFlashcards(this.props.match.params.userId, this.props.clearUsers())
+        debugger;
+        this.props.fetchFlashcards(this.props.userId, this.props.clearUsers())
         .then(() => this.props.fetchUser(this.props.userId))
     }
 
