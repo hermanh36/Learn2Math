@@ -2,11 +2,7 @@ import ReactQuill, { Quill } from 'react-quill';
 import React, {useState} from "react";
 import LeftSidebar from '../left_sidebar/left_sidebar_container';
 import 'react-quill/dist/quill.snow.css';
-// import { BoldExtension, ItalicExtension } from 'remirror/extensions';
-// import 'remirror/styles/all.css';
-// import { Remirror, useRemirror } from '@remirror/react';
-// import { MyEditor } from './manager';
-
+import { Link } from 'react-router-dom';
 
 class LessonForm extends React.Component {
 
@@ -83,6 +79,14 @@ class LessonForm extends React.Component {
     if (!this.props.lesson) {
       return null
     } else {
+      if(this.props.currentUserId !== this.props.lesson.authorId) {
+        return (
+          <div>
+            <div>This is not your lesson!</div>
+            <Link to={`/profile/${this.props.currentUserId}`}><button>Go Back</button></Link>
+          </div>
+        )
+      }
       return (
         <div className="lesson-form-wrap">
           <LeftSidebar />
