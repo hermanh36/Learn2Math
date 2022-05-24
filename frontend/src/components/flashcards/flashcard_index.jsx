@@ -5,11 +5,14 @@ import { Link } from "react-router-dom";
 export default class FlashcardIndex extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.flashcards;
+        this.state = {};
     }
 
     componentDidMount() {
-        this.props.fetchFlashcards(this.props.match.params.userId).then(res => console.log(res));
+        this.props.fetchFlashcards(this.props.match.params.userId, () => {
+            this.props.clearUsers();
+        })
+        .then(() => this.props.fetchUser(this.props.userId))
     }
 
     componentWillReceiveProps(nextProps) {
@@ -41,6 +44,16 @@ export default class FlashcardIndex extends React.Component {
 
     editFlashcard(flashcardId) {
         this.props.history.push(`/${flashcardId}/edit`)
+    }
+    trimEmail(email) {
+        let username = '';
+        email.forEach(char => {
+            if (char !== '@'){
+                username = username + char;
+            } else {
+                return username;
+            }
+        })
     }
 
     render() {
@@ -77,30 +90,35 @@ export default class FlashcardIndex extends React.Component {
                 )
             })
         }
-        return (
-            <>
-                <div className="flashcard-index-wrap">
-                    <LeftSidebarContainer />
-                    <div>
-                        <h1>Username's Flashcards</h1>
-                        <div className="hide-all-answers-btn-wrap" >
-                            <button onClick={() => this.hideAllAnswers()}>
-                                Hide all answers
-                            </button>
-                            <button onClick={() => this.showAllAnswers()}>
-                                Show all answers
-                            </button>
-                        </div>
-                        <div className="flashcard-index-list-wrap">
-                            {flashcards}
-                        </div>
-                        <div className="index-create-flashcard-btn-wrap">
-                            <button ><Link to='/createflashcard'>Create Flashcard</Link></button> 
+        if(Object.values(this.props.authors).length === 0){
+            return null
+        } else {
+
+            return (
+                <>
+                    <div className="flashcard-index-wrap">
+                        <LeftSidebarContainer />
+                        <div>
+                            <h1>{Object.values(this.props.authors)[0].email}'s Flashcards</h1>
+                            <div className="hide-all-answers-btn-wrap" >
+                                <button onClick={() => this.hideAllAnswers()}>
+                                    Hide all answers
+                                </button>
+                                <button onClick={() => this.showAllAnswers()}>
+                                    Show all answers
+                                </button>
+                            </div>
+                            <div className="flashcard-index-list-wrap">
+                                {flashcards}
+                            </div>
+                            <div className="index-create-flashcard-btn-wrap">
+                                <button ><Link to='/createflashcard'>Create Flashcard</Link></button> 
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            </>
-        )
+                </>
+            )
+        }
     }
 }
