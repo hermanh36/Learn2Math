@@ -26,9 +26,13 @@ export default class CommentForm extends React.Component{
         return (
             <div className="edit-comment-wrap">
                 <form onSubmit={this.handleSubmit}>
-                    <textarea value={this.state.message} onChange={this.updateComment}/>
+                    <div className="update-comment-textarea-wrap">
+                        <textarea className="update-comment-textarea" value={this.state.message} onChange={this.updateComment}/>
+                    </div>
+                    <div className="update-comment-btn-wrap">
+                        <button>{this.props.formType === 'Update' ? 'Update ' : ''}Comment</button>
+                    </div>
                     {/* this button below either creates a new comment or updates an existing comment under the current lesson */}
-                    <button>{this.props.formType === 'Update' ? 'Update ' : ''}Comment</button>
                 </form>
             </div>
         )

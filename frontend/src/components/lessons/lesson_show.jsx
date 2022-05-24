@@ -62,6 +62,7 @@ class LessonShow extends React.Component {
           <div className="comment-wrap">
             {comment.message}
           </div>
+          <p className="comment-author">by Author Name</p>
           {/* SOME NOTES: */}
           {/* the toggle comment form button should toggle visibility for the UpdateCommentContainer for that comment */}
           {/* deletecomment button deletes comment */}
@@ -101,7 +102,7 @@ class LessonShow extends React.Component {
             (
               <div className="lesson-show-container">
 
-                <div className="lesson-show-title">{this.props.lesson.title} by {author}</div>
+                <p className="lesson-show-title">{this.props.lesson.title} by {author}</p>
 
                 <div id="lesson-html-content">{parse(this.props.lesson.content)}</div>
 
@@ -121,6 +122,7 @@ class LessonShow extends React.Component {
                   <Link className="lesson-quiz-redirect-button" to={{pathname:`/quiz/${quizId}`, state: this.props.lessonId }}>Take Quiz</Link>
                 }
                 {commentsForThisLesson}
+                <h1 className="make-a-comment">Make a comment: </h1>
                 <CreateCommentContainer match={this.props.match} createComment={this.props.createComment} />
               </div>
             )
