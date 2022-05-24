@@ -1,5 +1,6 @@
 import React from 'react';
 import LeftSidebar from '../left_sidebar/left_sidebar_container';
+import { Link } from 'react-router-dom';
 
 class FlashcardForm extends React.Component {
   constructor(props){
@@ -40,6 +41,17 @@ class FlashcardForm extends React.Component {
   }
 
   render() {
+    if(!this.props.flashcard){
+      return null;
+    } 
+    if (this.props.formType === 'Edit' && this.props.currentUserId !== this.props.flashcard.authorId) {
+      return (
+        <div>
+          <div>This is not your flashcard!</div>
+          <Link to={`/profile/${this.props.currentUserId}`}><button>Go Back</button></Link>
+        </div>
+      )
+    }
     const errors = Object.values(this.props.errors);
     if (!this.props.flashcard){
       return null

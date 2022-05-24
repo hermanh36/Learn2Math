@@ -3,7 +3,8 @@ import FlashcardIndex from './flashcard_index';
 import { deleteFlashcard, fetchFlashcards } from '../../actions/flashcard_actions';
 
 const mapState = state => ({
-    flashcards: state.entities.flashcards
+    flashcards: state.entities.flashcards,
+    currentUserId: state.session.user.id
 })
 
 const mapDispatch = dispatch => ({

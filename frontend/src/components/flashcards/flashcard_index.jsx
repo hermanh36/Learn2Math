@@ -58,13 +58,20 @@ export default class FlashcardIndex extends React.Component {
                                 {flashcard.body}
                             </div>
                         </div>
-                        <div className="index-card-bottom">
-                            <div className="index-card-edit-btn-wrap">
-                                <button onClick={() => this.editFlashcard(flashcard._id)}>Edit</button>
+                        <div>
+                            {this.props.currentUserId === flashcard.authorId
+                            ?
+                            <div className="index-card-bottom">
+                                <div className="index-card-edit-btn-wrap">
+                                    <button onClick={() => this.editFlashcard(flashcard._id)}>Edit</button>
+                                </div>
+                                <div className="index-card-delete-btn-wrap">
+                                    <button onClick={() => this.deleteFlashcard(flashcard._id)}>Delete</button>
+                                </div>
                             </div>
-                            <div className="index-card-delete-btn-wrap">
-                                <button onClick={() => this.deleteFlashcard(flashcard._id)}>Delete</button>
-                            </div>
+                            :
+                            <></>
+                            }
                         </div>
                     </div>
                 )
