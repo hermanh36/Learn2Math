@@ -93,16 +93,9 @@ class LessonShow extends React.Component {
         </div>))}
       </div>
     ) : null;
-<<<<<<< HEAD
-
-    let currentUserEmail;
-    if (this.state.users) Object.values(this.state.users).forEach(user => { if (user._id === this.props.lesson.authorId) currentUserEmail = user.email });
-    console.log(currentUserEmail);
-=======
     // let currentUserEmail;
     // if (this.state.users) Object.values(this.state.users).forEach(user => { if (user._id === this.props.lesson.authorId) currentUserEmail = user.email });
     // console.log(currentUserEmail);
->>>>>>> af29c03d78535ae9ab9f7fc146dea91fd86c6750
     if (!this.props.lesson) {
       return null
     }
@@ -114,51 +107,6 @@ class LessonShow extends React.Component {
       const { currentUserId } = this.props;
       const authorId = this.props.lesson.authorId;
       const takeQuiz = this.state.questions.length > 0 ? <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}`}>Take Quiz</Link> : <></>;
-<<<<<<< HEAD
-
-
-      return (
-        <div className="lesson-show-wrap">
-          <LeftSidebar />
-
-          {this.props.lesson ?
-
-            (
-              <div className="lesson-show-container">
-
-                <p className="lesson-show-title">{this.props.lesson.title} by {author}</p>
-
-                <div id="lesson-html-content">{parse(this.props.lesson.content)}</div>
-
-                {currentUserId === authorId ? (
-                  <>
-                    
-                    <div className="lesson-quiz-redirect-wrap">
-                      <Link className="lesson-quiz-redirect-button" to={`/lesson/${this.props.match.params.lessonId}/edit`}>Edit Lesson</Link>
-                      <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}/edit`}>Edit Quiz</Link>
-                      <div className="delete-lesson-btn-wrap">
-                        <button className="delete-lesson-btn" onClick={this.deleteHandler}>Delete Lesson</button>
-                      </div>
-                    </div>
-                  </>)
-                  :
-                  // {takeQuiz}
-                  <Link className="lesson-quiz-redirect-button" to={{pathname:`/quiz/${quizId}`, state: this.props.lessonId }}>Take Quiz</Link>
-                }
-                {commentsForThisLesson}
-                <h1 className="make-a-comment">Make a comment: </h1>
-                <CreateCommentContainer match={this.props.match} createComment={this.props.createComment} />
-              </div>
-            )
-            : null
-          }
-        </div>
-
-      )
-
-
-
-=======
       if (this.props.users && Object.values(this.props.users).length > 0){
         console.log(this.props.users)
         debugger;
@@ -198,7 +146,6 @@ class LessonShow extends React.Component {
         else {
           return null;
         }
->>>>>>> af29c03d78535ae9ab9f7fc146dea91fd86c6750
     }
   }
 }
