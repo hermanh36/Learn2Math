@@ -83,9 +83,11 @@ class LessonShow extends React.Component {
           {/* SOME NOTES: */}
           {/* the toggle comment form button should toggle visibility for the UpdateCommentContainer for that comment */}
           {/* deletecomment button deletes comment */}
-          <div className="toggle-comment-btn-wrap">
-            <button className="toggle-comment-btn">Toggle Comment Form</button>
-          </div>
+          {(this.props.currentUserId === Object.values(this.props.users)[0]?._id ) ?
+            (<div className="toggle-comment-btn-wrap">
+              <button className="toggle-comment-btn">Toggle Comment Form</button>
+            </div>) : null
+            }
           <UpdateCommentContainer comment={comment} updateComment={this.props.updateComment}/>
           <div className="delete-comment-btn-wrap">
             <button className="delete-comment-btn" onClick={this.deleteComment(comment._id)}>Delete Comment</button>

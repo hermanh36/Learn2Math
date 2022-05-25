@@ -107,10 +107,15 @@ export default class NewQuestionForm extends React.Component {
                     :
                     <></>}
             </form>
-            <div className="new-question-cancel-btn-wrap">
-                <button onClick={() => this.props.toggleEditQuestion(this.props.idx)}>Cancel</button>
-
-            </div>
+            { (this.props.formType === 'Update') ?
+                (<div className="new-question-cancel-btn-wrap">
+                    <button onClick={() => this.props.toggleEditQuestion(this.props.idx)}>Cancel</button>
+                </div>) : 
+                (<div className="new-question-cancel-btn-wrap">
+                <button onClick={this.clearFields}>Clear</button>
+            </div>)
+                
+                }
         </div>)
         return (this.props.formType === 'Edit') ?
         {stuff}:
