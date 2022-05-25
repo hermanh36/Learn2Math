@@ -21,11 +21,25 @@ export default class MyLessons extends React.Component {
         // console.log(this.arr.length)
         if (this.state.lessons) {
             return (
-                <div>
-                    {Object.values(this.state.lessons).map((lesson,idx) => 
-                    <button key={idx}><Link to={`/lesson/${lesson._id}`}>{lesson.title}</Link></button>
-                    )}
-                </div>
+                <>
+                    <div className="pro-lessons-wrap">
+                            <div>
+                                <h1>Lessons</h1>
+                                <ul className="pro-lessons-list">
+                                    {Object.values(this.state.lessons).map((lesson,idx) => {
+                                        return (
+                                            <li>
+                                                <button key={idx}>
+                                                    <Link to={`/lesson/${lesson._id}`}>{lesson.title}</Link>
+                                                </button>
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
+                            </div>
+                    </div>
+                  
+                </>
             )
         }
         else {

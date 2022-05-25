@@ -2,6 +2,7 @@ import React from 'react';
 import MyLessonsContainer from './my_lessons_container'; 
 import MyScoreContainer from './my_score_container';
 import ProfileSidebarContainer from './profile_sidebar_container';
+import LeftSidebar from '../left_sidebar/left_sidebar';
 
 
 export default class Profile extends React.Component{
@@ -18,9 +19,16 @@ export default class Profile extends React.Component{
     render(){
         return (
             <>
-                <ProfileSidebarContainer match={this.props.match}/>
-                <MyLessonsContainer authorId={this.props.userId}/>
-                <MyScoreContainer />
+                <div className="profile-meta-wrap">
+                    <LeftSidebar />
+                    <div className="profile-wrap">
+                        <ProfileSidebarContainer match={this.props.match}/>
+                        <div className="pro-main-wrap">
+                            <MyLessonsContainer authorId={this.props.userId}/>
+                            <MyScoreContainer />  
+                        </div>
+                    </div>
+                </div>
             </>
         )
     }

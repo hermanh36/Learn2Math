@@ -22,7 +22,6 @@ class QuizItem extends React.Component {
   }
 
   submitHandler() {
-    debugger;
     let correctAnswer = [];
     let submittedAnswer = [];
     let score = 0;

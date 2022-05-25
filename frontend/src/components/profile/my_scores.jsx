@@ -2,8 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import LeftSidebar from '../left_sidebar/left_sidebar_container';
 
-
-
 class MyScores extends React.Component {
   constructor(props){
     super(props);
@@ -32,19 +30,27 @@ class MyScores extends React.Component {
     if(!(this.props.scores.length > 0)) {
       return null;
     } else {
-      console.log(this.lessonArr) 
+      
       return (
-        <div>   
-          <h1>My Quiz Scores</h1>
-          {this.props.scores.map(score => 
-            (
+        <>   
+            <div className="pro-lessons-wrap">
               <div>
-                <button><Link to={`/lesson/${score.lessonId}`}>{this.selectTitle(score.lessonId)}</Link></button>
-                <div>Score is {score.score}</div>
+                  <h1>My Quiz Scores</h1>
+                  <ul className="pro-lessons-list">
+                      {this.props.scores.map(score => 
+                        (
+                          <li className="quiz-score-btn-wrap">
+                            <button >
+                              <Link to={`/lesson/${score.lessonId}`}>{this.selectTitle(score.lessonId)}</Link>
+                              <span>Score - {score.score}</span>
+                            </button>
+                          </li>
+                        )
+                      )}
+                  </ul>
               </div>
-            )
-            )}
-        </div>
+            </div>
+        </>
       )
     }
   }

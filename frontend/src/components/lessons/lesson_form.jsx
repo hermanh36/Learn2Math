@@ -50,7 +50,7 @@ class LessonForm extends React.Component {
   submitHandler(e) {
     e.preventDefault();
     let selected = document.getElementById('category-selector')
-    debugger;
+    
     if (this.props.formType === 'Create') {
       this.setState({ category: selected.value},() => {
         this.props.submitForm(this.state).then((res) => {
@@ -87,7 +87,7 @@ class LessonForm extends React.Component {
     if (!this.props.lesson) {
       return null
     } else {
-      debugger
+      
       if (this.props.formType === 'Update'){
         if(this.props.currentUserId !== this.props.lesson.authorId) {
           return (

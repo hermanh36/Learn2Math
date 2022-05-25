@@ -114,3 +114,17 @@
     letter-spacing: 3px;
 }
 
+.pro-lessons-wrap>div>ul>.quiz-score-btn-wrap>button {
+    display: flex; 
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+.pro-lessons-wrap a { 
+    text-decoration: none;
+    color: white;
+}
+.profile-meta-wrap{
+    position: relative;
+}
+

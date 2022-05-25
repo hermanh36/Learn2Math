@@ -30,7 +30,7 @@ export default class QuestionIndex extends React.Component{
     }
 
     render(){
-        // debugger;
+        
         const allQuestions = Object.values(this.props.questions);
         const questions = allQuestions.map((question,idx) => {
             // console.log(question._id);
