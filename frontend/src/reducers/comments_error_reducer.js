@@ -1,4 +1,4 @@
-import { RECEIVE_COMMENT_ERRORS, RECEIVE_COMMENT } from "../actions/comment_actions";
+import { RECEIVE_COMMENT_ERRORS, RECEIVE_COMMENT, CLEAR_COMMENT_ERRORS } from "../actions/comment_actions";
 
 const CommentErrorReducer = (state={}, action) => {
     Object.freeze(state);
@@ -7,6 +7,8 @@ const CommentErrorReducer = (state={}, action) => {
         case RECEIVE_COMMENT_ERRORS:
             return action.errors;
         case RECEIVE_COMMENT:
+            return [];
+        case CLEAR_COMMENT_ERRORS:
             return [];
         default:
             return state;

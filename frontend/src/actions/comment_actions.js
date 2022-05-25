@@ -3,6 +3,7 @@ export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 export const RECEIVE_COMMENT_ERRORS = 'RECEIVE_COMMENT_ERRORS';
+export const CLEAR_COMMENT_ERRORS = 'CLEAR COMMENT_ERRORS';
 
 const receiveComments = comments => ({
     type: RECEIVE_COMMENTS,
@@ -23,6 +24,10 @@ const receiveCommentErrors = errors => ({
     type: RECEIVE_COMMENT_ERRORS,
     errors: errors.response.data
 });
+
+const emptyCommentErrors = () => ({
+    type: CLEAR_COMMENT_ERRORS
+})
 
 export const fetchCommentsByLesson = lessonId => dispatch => {
     return CommentAPIUtil.fetchCommentsByLesson(lessonId)
@@ -53,3 +58,7 @@ export const deleteComment = commentId => dispatch => {
         .then(() => dispatch(removeComment(commentId)))
         .catch(err => dispatch(receiveCommentErrors(err)))
 };
+
+export const clearCommentErrors = () => dispatch => {
+    return dispatch(emptyCommentErrors());
+}

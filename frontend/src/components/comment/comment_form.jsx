@@ -16,15 +16,23 @@ export default class CommentForm extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.submitForm(this.state);
+        debugger
+        this.props.submitForm(this.state, this.props.clearCommentErrors());
         if (this.props.formType === 'Create'){
             this.setState({message: ''});
         }
       }
 
     render(){
-        const errors = Object.values(this.props.errors).length > 0 ? 
-        Object.values(this.props.errors).map((error, idx) => <p key={idx}>{error}</p>) : null;
+        debugger
+        let createErrors, editErrors;
+        if (this.props.formType === 'Create'){
+            createErrors = Object.values(this.props.createErrors).length > 0 ? 
+            Object.values(this.props.createErrors).map((error, idx) => <p key={idx}>{error}</p>) : null;
+        } else {
+            editErrors = Object.values(this.props.editErrors).length > 0 ? 
+            Object.values(this.props.editErrors).map((error, idx) => <p key={idx}>{error}</p>) : null;
+        }
         return (
             <div className="edit-comment-wrap">
                 <form onSubmit={this.handleSubmit}>
@@ -34,7 +42,7 @@ export default class CommentForm extends React.Component{
                     <div className="update-comment-btn-wrap">
                         <button>{this.props.formType === 'Update' ? 'Update ' : ''}Comment</button>
                     </div>
-                    {errors}
+                    {this.props.formType === 'Create' ? createErrors : editErrors}
                 </form>
             </div>
         )
