@@ -8,7 +8,8 @@ import QuizErrorReducer from './quiz_errors_reducer';
 import FlashcardErrorsReducer from './flashcard_errors_reducer';
 import QuizScoreErrorReducer from './quiz_score_errors_reducer';
 import UserErrorReducer from './user_errors_reducer';
-import CommentErrorReducer from './comments_error_reducer';
+import CommentCreateErrorReducer from './comments_create_error_reducer';
+import CommentUpdateErrorReducer from './comments_update_error_reducer';
 
 export default combineReducers({
   session: SessionErrorsReducer,
@@ -18,5 +19,6 @@ export default combineReducers({
   flashcard: FlashcardErrorsReducer,
   quizscore: QuizScoreErrorReducer,
   user: UserErrorReducer,
-  comment: CommentErrorReducer
+  commentCreate: CommentCreateErrorReducer,
+  commentUpdate: CommentUpdateErrorReducer
 });

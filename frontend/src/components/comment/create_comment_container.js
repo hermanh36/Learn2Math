@@ -8,7 +8,7 @@ const mapState = (state, ownProps) => {
             lessonId: ownProps.match.params.lessonId
         },
         formType: 'Create',
-        createErrors: state.errors.comment
+        createErrors: state.errors.commentCreate
     }
 };
 

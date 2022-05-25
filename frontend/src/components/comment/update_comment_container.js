@@ -5,7 +5,7 @@ const mapState = (state, ownProps) => {
     return {
         comment: ownProps.comment,
         formType: 'Update',
-        editErrors: state.errors.comment
+        editErrors: state.errors.commentUpdate
     }
 };
 
