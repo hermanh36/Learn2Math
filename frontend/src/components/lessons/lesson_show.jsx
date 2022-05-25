@@ -75,8 +75,9 @@ class LessonShow extends React.Component {
 
   render() {
     // console.log(this.state.questions.length);
-    console.log(this.props.currentUserId);
-    console.log(this.state);
+    // console.log(this.props.currentUserId);
+    // console.log(this.state);
+    // console.log(this.props.lesson);
     const {users, comments} = this.state;
     // console.log(this.state.users);
     const commentsForThisLesson = (Object.values(comments).length > 0) && (Object.values(users).length>0) ? (
@@ -107,7 +108,6 @@ class LessonShow extends React.Component {
     // let currentUserEmail;
     // if (this.state.users) Object.values(this.state.users).forEach(user => { if (user._id === this.props.lesson.authorId) currentUserEmail = user.email });
     // console.log(currentUserEmail);
-    console.log(this.props.users);
     if (!this.props.lesson) {
       return null
     }
@@ -116,11 +116,11 @@ class LessonShow extends React.Component {
       let quizId, questionsLength;
       if (this.state.quizzes) quizId = Object.keys(this.state.quizzes)[0];
       if (this.state.questions) questionsLength = Object.keys(this.state.questions).length;
-      const { currentUserId } = this.props;
+      const { currentUserId,lesson, users } = this.props;
       const authorId = this.props.lesson.authorId;
       const takeQuiz = this.state.questions.length > 0 ? <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}`}>Take Quiz</Link> : <></>;
-
-      if (this.props.users && Object.values(this.props.users).length > 0){
+      debugger
+      if (Object.values(this.props.lesson).length>0 && Object.values(this.props.users).length > 1){
         return (
           <div className="lesson-show-wrap">
             <LeftSidebar />
