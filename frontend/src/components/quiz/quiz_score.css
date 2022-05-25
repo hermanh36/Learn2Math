@@ -28,7 +28,7 @@
     transition: 0.3s;
     cursor: pointer;
 }
-.quiz-confirm-btn-wrap>button:hover{
+.quiz-confirm-btn-wrap> button:hover{
     letter-spacing: 1px;
     color: white;
     background-color: var(--yellow-2);

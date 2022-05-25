@@ -72,9 +72,7 @@ class QuizItem extends React.Component {
             <div className="submit-quiz-btn-wrap">
               <button id='quiz-submit' className="submit-quiz-btn" onClick={this.submitHandler}>Submit</button>
             </div>
-            <div>
-              <QuizScore score={this.state.score} total={this.total} />
-            </div>
+            <QuizScore history={this.props.history} currentUserId={this.props.currentUser} score={this.state.score} total={this.total} />
           </div>
         </div>
       )
