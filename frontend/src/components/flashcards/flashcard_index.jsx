@@ -105,7 +105,7 @@ export default class FlashcardIndex extends React.Component {
                     <div className="flashcard-index-wrap">
                         <LeftSidebarContainer />
                         <div>
-                            <h1>{this.trimEmail(Object.values(this.props.authors)[0].email)}'s Flashcards</h1>
+                            <h1><Link to={`/profile/${Object.values(this.props.authors)[0]._id}`}>{this.trimEmail(Object.values(this.props.authors)[0].email)}</Link>'s Flashcards</h1>
                             <div className="hide-all-answers-btn-wrap" >
                                 <button onClick={() => this.hideAllAnswers()}>
                                     Hide all answers
