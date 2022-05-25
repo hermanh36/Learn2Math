@@ -105,7 +105,7 @@ export default class FlashcardIndex extends React.Component {
                     <div className="flashcard-index-wrap">
                         <LeftSidebarContainer />
                         <div>
-                            <h1><Link to={`/profile/${Object.values(this.props.authors)[0]._id}`}>{this.trimEmail(Object.values(this.props.authors)[0].email)}</Link>'s Flashcards</h1>
+                            <h1 className="flashcard-index-header"><Link to={`/profile/${Object.values(this.props.authors)[0]._id}`}>{this.trimEmail(Object.values(this.props.authors)[0].email)}</Link>'s Flashcards</h1>
                             <div className="hide-all-answers-btn-wrap" >
                                 <button onClick={() => this.hideAllAnswers()}>
                                     Hide all answers
@@ -120,7 +120,7 @@ export default class FlashcardIndex extends React.Component {
                             {(this.props.userId === this.props.currentUserId)
                             ?
                             <div className="index-create-flashcard-btn-wrap">
-                                <button ><Link to='/createflashcard'>Create Flashcard</Link></button> 
+                                <Link to='/createflashcard'>Create Flashcard</Link>
                             </div>
                             :
                             <div id='flashcard-index-page-bottom-pad'></div>
