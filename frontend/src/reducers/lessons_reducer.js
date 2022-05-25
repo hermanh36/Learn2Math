@@ -6,6 +6,7 @@ const LessonsReducer = (state = {}, action) => {
   let newState = Object.assign({},state);
   switch(action.type) {
     case RECEIVE_LESSONS:
+      newState = {};
       Object.values(action.lessons).forEach(lesson => {
         newState[lesson._id] = lesson
       })

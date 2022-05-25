@@ -10,11 +10,19 @@ export default class MyLessons extends React.Component {
 
     componentDidMount() {
         // console.log(this.props.match.params.userId);
-        this.props.fetchMyLessons(this.props.authorId,
-            this.props.clearLessons()
+        this.props.fetchMyLessons(this.props.authorId
         ).then((res) => {
             this.setState({ lessons: this.props.lessons })
         });
+    }
+
+    componentDidUpdate(prevProps) {
+        if(this.props.authorId !== prevProps.authorId) {
+            this.props.fetchMyLessons(this.props.authorId
+            ).then((res) => {
+                this.setState({ lessons: res.lessons })
+            });
+        }
     }
 
     render() {

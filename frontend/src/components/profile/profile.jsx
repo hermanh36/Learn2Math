@@ -8,20 +8,20 @@ import LeftSidebar from '../left_sidebar/left_sidebar_container';
 export default class Profile extends React.Component{
     constructor(props){
         super(props);
+        this.state = {};
     }
 
     componentDidMount(){
-        this.props.fetchUser(this.props.userId).then((res) => {
-            console.log(res);
-        })
+        this.props.fetchUser(this.props.userId)
     }
 
-    componentDidUpdate() {
-        debugger;
+    componentDidUpdate(prevProps) {
+        if(this.props !== prevProps) {
+            this.setState( {userId: this.props.userId})
+        }
     }
 
     render(){
-        debugger;
         return (
             <>
                 <div className="profile-meta-wrap">
