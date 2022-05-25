@@ -14,10 +14,7 @@ export default class CategoryIndex extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchLessons().then((res) => {
-            console.log(res);
-        }); 
-        
+        this.props.fetchLessons()
     }
     stringToHTML = function (str) {
         var dom = document.createElement('div');

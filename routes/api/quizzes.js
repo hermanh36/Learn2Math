@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
 });
 
 router.get('/lesson/:lessonId', (req, res) => {
-  console.log(req.params.lessonId)
   Quiz.findOne({lessonId: req.params.lessonId})
     .then(quiz => res.json(quiz))
     .catch(err =>

@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
-const tweets = require("./routes/api/tweets");
 const bodyParser = require('body-parser');
 const path = require('path');
 const lessons = require("./routes/api/lessons");
@@ -35,7 +34,6 @@ require('./config/passport')(passport);
 app.get("/", (req, res) => res.send("Using Nodemon"));
 
 app.use("/api/users", users);
-app.use("/api/tweets", tweets);
 app.use("/api/lessons", lessons);
 app.use("/api/questions", questions);
 app.use("/api/flashcards", flashcards);

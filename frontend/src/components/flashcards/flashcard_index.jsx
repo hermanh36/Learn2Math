@@ -24,11 +24,8 @@ export default class FlashcardIndex extends React.Component {
         this.setState({ flashcards: nextProps.flashcards })
     }
     toggleCard(idx){
-        console.log("toggled");
         let card = document.getElementById(`${idx}`);
-        console.log(card);
         card.classList.toggle("show-card-content")
-        console.log(card.classList);
     }
     hideAllAnswers(){
         Object.values(this.state.flashcards).map((flashcard, idx) => {
@@ -65,7 +62,6 @@ export default class FlashcardIndex extends React.Component {
     render() {
         let flashcards;
         if (this.state.flashcards) {
-            console.log(Object.values(this.state.flashcards));
             flashcards = Object.values(this.state.flashcards).map((flashcard, idx) => {
                 return (
                     <div className="index-one-card-wrap" onClick={() => this.toggleCard(idx)} key={flashcard._id} id={`flashcard-${idx}`}> {/*className= flashcard container */}

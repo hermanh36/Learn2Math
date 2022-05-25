@@ -46,7 +46,6 @@ class LessonShow extends React.Component {
   }
 
   toggleCommentForm(id) { 
-      console.log(id); 
       this.props.clearCommentErrors();
       let commentWrapId = "comment-form-" + id;
       let commentWrap = document.getElementById(commentWrapId); 
