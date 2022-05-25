@@ -9,7 +9,7 @@ const mapState = (state, ownProps) => {
     }
 };
 
-const mapDispatch = (dispatch,ownProps) => {
+const mapDispatch = (dispatch, ownProps) => {
     return {
         submitForm: ownProps.updateComment
     }

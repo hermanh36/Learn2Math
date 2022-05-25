@@ -108,7 +108,7 @@ class LessonShow extends React.Component {
                 </div>) : null}
                 
                 <div className="comment-form-wrap" id={"comment-form-" + comment._id}>
-                  <UpdateCommentContainer comment={comment} updateComment={this.props.updateComment}/>
+                  <UpdateCommentContainer comment={comment} updateComment={this.props.updateComment} toggleCommentForm={(commentId) => this.toggleCommentForm(commentId)}/>
                 </div>
               </div>))}
           </div>

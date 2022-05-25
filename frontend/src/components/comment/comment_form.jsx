@@ -3,7 +3,7 @@ import React from 'react';
 export default class CommentForm extends React.Component{
     constructor(props){
         super(props);
-        this.state=this.props.comment;
+        this.state = this.props.comment;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateComment = this.updateComment.bind(this);
     }
@@ -16,11 +16,14 @@ export default class CommentForm extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.submitForm(this.state);
-        if (this.props.formType === 'Create'){
-            this.setState({message: ''});
-        }
-      }
+        this.props.submitForm(this.state).then((res) => {
+            if (this.props.formType === 'Create'){
+                this.setState({message: ''});
+            }else{
+                this.props.toggleCommentForm(this.state._id); 
+            }
+        });
+    }
 
     render(){
         let createErrors, editErrors;
