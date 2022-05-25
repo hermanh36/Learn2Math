@@ -205,6 +205,13 @@
   font-weight: 300;
 }
 
+.comment-form-wrap{
+  display: none; 
+}
+.comment-form-wrap.show{
+  display: block;
+}
+
 @media only screen and (max-width: 600px) {
   .lesson-quiz-redirect-button, .delete-lesson-btn{
     width: 100%; 

@@ -65,6 +65,13 @@ class LessonShow extends React.Component {
     }
   }
 
+  toggleCommentForm(id) { 
+      console.log(id); 
+      let commentWrapId = "comment-form-" + id;
+      let commentWrap = document.getElementById(commentWrapId); 
+      commentWrap.classList.toggle('show'); 
+  }
+
 
   render() {
     // console.log(this.state.questions.length);
@@ -84,11 +91,13 @@ class LessonShow extends React.Component {
           {/* the toggle comment form button should toggle visibility for the UpdateCommentContainer for that comment */}
           {/* deletecomment button deletes comment */}
           <div className="toggle-comment-btn-wrap">
-            <button className="toggle-comment-btn">Toggle Comment Form</button>
+            <button onClick={() => this.toggleCommentForm(comment._id)} className="toggle-comment-btn">Toggle Comment Form</button>
           </div>
-          <UpdateCommentContainer comment={comment} updateComment={this.props.updateComment}/>
-          <div className="delete-comment-btn-wrap">
-            <button className="delete-comment-btn" onClick={this.deleteComment(comment._id)}>Delete Comment</button>
+          <div className="comment-form-wrap" id={"comment-form-" + comment._id}>
+            <UpdateCommentContainer comment={comment} updateComment={this.props.updateComment}/>
+            <div className="delete-comment-btn-wrap">
+              <button className="delete-comment-btn" onClick={this.deleteComment(comment._id)}>Delete Comment</button>
+            </div>
           </div>
         </div>))}
       </div>
