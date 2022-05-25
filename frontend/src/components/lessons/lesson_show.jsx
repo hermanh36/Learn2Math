@@ -107,6 +107,7 @@ class LessonShow extends React.Component {
     // let currentUserEmail;
     // if (this.state.users) Object.values(this.state.users).forEach(user => { if (user._id === this.props.lesson.authorId) currentUserEmail = user.email });
     // console.log(currentUserEmail);
+    console.log(this.props.users);
     if (!this.props.lesson) {
       return null
     }
@@ -129,7 +130,7 @@ class LessonShow extends React.Component {
               (
                 <div className="lesson-show-container">
 
-                  <p className="lesson-show-title">{this.props.lesson.title} by {this.trimEmail(Object.values(this.props.users)[0].email)}</p>
+                  <p className="lesson-show-title">{this.props.lesson.title} by {this.trimEmail(this.props.users[this.props.lesson.authorId].email)}</p>
 
                   <div id="lesson-html-content">{parse(this.props.lesson.content)}</div>
 
