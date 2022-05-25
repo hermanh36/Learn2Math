@@ -10,8 +10,6 @@ export default class CommentForm extends React.Component{
 
     updateComment(e){
         this.setState({message: e.currentTarget.value})
-        console.log(this.state);
-        console.log(e.currentTarget.value);
     }
 
     handleSubmit(e){

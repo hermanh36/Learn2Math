@@ -8,7 +8,6 @@ const validateFlashcardInput = require('../../validation/flashcard');
 
 
 router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-    console.log(req.query.studentId)
     Flashcard.find({ authorId: req.query.studentId })
         .then(flashcards => res.json(flashcards))
         .catch((err) => res.json(err))

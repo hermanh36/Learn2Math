@@ -26,9 +26,7 @@ export default class NewQuestionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const {choice1, choice2, choice3, choice4} = this.state;
-        console.log(this.state);
         const arr = [choice1, choice2, choice3, choice4];
-        console.log(arr);
         this.setState({answerChoices:arr}, () => {
             this.props.submitForm(this.state)
                 .then((res) => {
@@ -42,7 +40,6 @@ export default class NewQuestionForm extends React.Component {
     }
 
     update(field) {
-        // console.log(this.state.answerChoices);
         return (e) => {
             this.setState({ [field]: e.target.value })
         }

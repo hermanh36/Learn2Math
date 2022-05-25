@@ -33,7 +33,6 @@ export default class QuestionIndex extends React.Component{
         
         const allQuestions = Object.values(this.props.questions);
         const questions = allQuestions.map((question,idx) => {
-            // console.log(question._id);
             return (
                 <div key={idx} className="question-index-wrap">
                     <div id={`question-${idx}-container`} className="question-index-question-wrap">

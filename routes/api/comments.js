@@ -45,7 +45,6 @@ router.patch('/:id', passport.authenticate('jwt', { session: false }), (req, res
         message: req.body.message
     }, {new: true})
         .then(comment => {
-            console.log(comment)
             return res.json(comment)})
         .catch(err => res.json(err))
 });

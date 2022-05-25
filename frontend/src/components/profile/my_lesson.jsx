@@ -4,12 +4,10 @@ import { Link } from "react-router-dom";
 export default class MyLessons extends React.Component {
     constructor(props) {
         super(props);
-        // this.arr = [];
         this.state = {};
     }
 
     componentDidMount() {
-        // console.log(this.props.match.params.userId);
         this.props.fetchMyLessons(this.props.authorId
         ).then((res) => {
             this.setState({ lessons: this.props.lessons })
@@ -26,7 +24,6 @@ export default class MyLessons extends React.Component {
     }
 
     render() {
-        // console.log(this.arr.length)
         if (this.state.lessons) {
             return (
                 <>
