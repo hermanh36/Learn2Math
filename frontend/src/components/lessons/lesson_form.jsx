@@ -87,8 +87,8 @@ class LessonForm extends React.Component {
     if (!this.props.lesson) {
       return null
     } else {
-      
-      if (this.props.formType === 'Update'){
+      debugger;
+      if (this.props.formType === 'Edit'){
         if(this.props.currentUserId !== this.props.lesson.authorId) {
           return (
             <div className="not-yours-wrap">
