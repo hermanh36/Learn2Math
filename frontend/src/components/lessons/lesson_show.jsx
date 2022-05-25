@@ -70,7 +70,7 @@ class LessonShow extends React.Component {
             {lesson ?
               (
                 <div className="lesson-show-container">
-                  <p className="lesson-show-title">{lesson.title} by &nbsp;<Link to={`/profile/${users[lesson.authorId]._id}`}>{this.trimEmail(users[lesson.authorId].email)}</Link></p>
+                  <p className="lesson-show-title">{lesson.title} by&nbsp;<Link to={`/profile/${users[lesson.authorId]._id}`}>{this.trimEmail(users[lesson.authorId].email)}</Link></p>
 
                   <div id="lesson-html-content">{parse(lesson.content)}</div>
 
