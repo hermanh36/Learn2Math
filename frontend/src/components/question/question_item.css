@@ -1,0 +1,16 @@
+.quiz-question-wrap{
+    border-bottom: 2px solid black;
+    padding-bottom: 1rem;
+}
+
+.question-sentence{
+    font-size: 1.2rem; 
+    margin: 2rem 0;
+    color: var(--yellow-1);
+    background-color: var(--gray-6);
+    padding: 1rem;
+    border-radius: 10px;
+}
+.question-choices-wrap{
+    padding: 0 1rem;
+}

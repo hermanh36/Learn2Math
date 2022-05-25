@@ -1,0 +1,36 @@
+.quiz-score-wrap{
+    margin-top: 3rem;
+}
+
+.quiz-thank-you{
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--blue-1);
+}
+
+.your-score{
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.quiz-confirm-btn-wrap{
+    text-align: center;
+}
+.quiz-confirm-btn-wrap > button{
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-6);
+    background: none;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    border: 4px solid var(--yellow-1);
+    transition: 0.3s;
+    cursor: pointer;
+}
+.quiz-confirm-btn-wrap>button:hover{
+    letter-spacing: 1px;
+    color: white;
+    background-color: var(--yellow-2);
+    border-radius: 0;
+}

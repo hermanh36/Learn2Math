@@ -14,9 +14,11 @@ class QuestionItem extends React.Component {
       return null;
     } else {
       return (
-        <li>
-          {this.props.question.content}
-          <div>
+        <li className="quiz-question-wrap">
+          <p className="question-sentence">
+            {this.props.question.content}
+          </p>
+          <div className="question-choices-wrap">
             {this.props.question.answerChoices.map(answer => (
               <div>
                 <input type="radio" name={`answer${this.props.question._id}`} value={answer}/>

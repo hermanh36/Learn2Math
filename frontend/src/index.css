@@ -180,9 +180,12 @@ table {
 @import "./components/lessons/lesson_show.css";
 @import "./components/lessons/lesson_form.css";
 @import "./components/question/questions.css";
+@import "./components/question/question_item.css";
 @import "./components/flashcards/flashcard_form.css";
 @import "./components/flashcards/flashcard_index.css";
 @import "./components/profile/profile_test/profile_test.css";
+@import "./components/quiz/quiz.css";
+@import "./components/quiz/quiz_score.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700&display=swap');
 

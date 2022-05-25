@@ -119,7 +119,7 @@ class LessonShow extends React.Component {
       const { currentUserId,lesson, users } = this.props;
       const authorId = this.props.lesson.authorId;
       const takeQuiz = this.state.questions.length > 0 ? <Link className="lesson-quiz-redirect-button" to={`/quiz/${quizId}`}>Take Quiz</Link> : <></>;
-      debugger
+      
       if (Object.values(this.props.lesson).length>0 && Object.values(this.props.users).length > 1){
         return (
           <div className="lesson-show-wrap">
