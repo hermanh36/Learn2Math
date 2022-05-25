@@ -53,19 +53,25 @@ class QuizItem extends React.Component {
 
   render() {
     if (!this.props.questions){
-      return <LeftSidebar />;
+      return (
+        <div className="quiz-wrap">
+          <LeftSidebar />
+        </div>
+      )
     } else {
       return (
-        <div>
+        <div className="quiz-wrap">
           <LeftSidebar />
-          <div> 
-            <h1>Quiz</h1>
-            <ul>
+          <div className="quiz-inner-wrap"> 
+            <h1 className="quiz-header">Quiz</h1>
+            <ul className="quiz-question-list">
               {this.props.questions.map(question => <QuestionItemContainer question={question}/>)}
             </ul>
+            <div className="submit-quiz-btn-wrap">
+              <button className="submit-quiz-btn" onClick={this.submitHandler}>Submit</button>
+            </div>
+            <QuizScore score={this.state.score} total={this.total} />
           </div>
-          <button onClick={this.submitHandler}>Submit</button>
-          <QuizScore score={this.state.score} total={this.total} />
         </div>
       )
     }

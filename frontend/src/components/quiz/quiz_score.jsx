@@ -7,12 +7,11 @@ class QuizScore extends React.Component {
 
   render() {
     return (
-      <div>
-        <p>Thank you for finishing the quiz</p>
-        <p>Your score is</p>
-        <p>{this.props.score}</p>
-        <div>
-          <button value='Confirm'></button>
+      <div className="quiz-score-wrap">
+        <p className="quiz-thank-you">Thank you for finishing the quiz!</p>
+        <p className="your-score">Your score is: <span>{this.props.score}</span> </p>
+        <div className="quiz-confirm-btn-wrap">
+          <button value='Confirm'>Confirm</button>
         </div>
       </div>
     )

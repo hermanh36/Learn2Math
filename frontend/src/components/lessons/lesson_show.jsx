@@ -107,12 +107,12 @@ class LessonShow extends React.Component {
                 </div>) : null}
                 
                 <div className="comment-form-wrap" id={"comment-form-" + comment._id}>
-                  <UpdateCommentContainer comment={comment} updateComment={this.props.updateComment}/>
+                  <UpdateCommentContainer comment={comment} updateComment={this.props.updateComment} clearCommentErrors={this.props.clearCommentErrors}/>
                 </div>
               </div>))}
           </div>
                   <h1 className="make-a-comment">Make a comment: </h1>
-                  <CreateCommentContainer match={this.props.match} createComment={this.props.createComment} />
+                  <CreateCommentContainer match={this.props.match} createComment={this.props.createComment} clearCommentErrors={this.props.clearCommentErrors}/>
                 </div>
               )
               : null

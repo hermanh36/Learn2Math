@@ -87,7 +87,7 @@ class LessonForm extends React.Component {
     if (!this.props.lesson) {
       return null
     } else {
-      // debugger;
+      
       if (this.props.formType === 'Edit'){
         if(this.props.currentUserId !== this.props.lesson.authorId) {
           return (

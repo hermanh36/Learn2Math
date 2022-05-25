@@ -5,13 +5,14 @@ const mapState = (state, ownProps) => {
     return {
         comment: ownProps.comment,
         formType: 'Update',
-        errors: state.errors.comment
+        editErrors: state.errors.comment
     }
 };
 
 const mapDispatch = (dispatch,ownProps) => {
     return {
-        submitForm: ownProps.updateComment
+        submitForm: ownProps.updateComment,
+        clearCommentErrors: ownProps.clearCommentErrors
     }
 }
 
