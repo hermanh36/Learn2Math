@@ -23,6 +23,8 @@ export default class CommentForm extends React.Component{
       }
 
     render(){
+        const errors = Object.values(this.props.errors).length > 0 ? 
+        Object.values(this.props.errors).map((error, idx) => <p key={idx}>{error}</p>) : null;
         return (
             <div className="edit-comment-wrap">
                 <form onSubmit={this.handleSubmit}>
@@ -32,7 +34,7 @@ export default class CommentForm extends React.Component{
                     <div className="update-comment-btn-wrap">
                         <button>{this.props.formType === 'Update' ? 'Update ' : ''}Comment</button>
                     </div>
-                    {/* this button below either creates a new comment or updates an existing comment under the current lesson */}
+                    {errors}
                 </form>
             </div>
         )
