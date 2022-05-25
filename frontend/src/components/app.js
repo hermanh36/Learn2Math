@@ -24,19 +24,20 @@ import MyLessonsContainer from './profile/my_lessons_container';
 import MyQuizScores from './profile/my_score_container'
 import ProfileTest from './profile/profile_test/profile_test';
 import FlashcardIndexContainer from './flashcards/flashcard_index_container';
-import ProfileContainer from './profile/profile_container'; 
+import ProfileContainer from './profile/profile_container';
+import AboutUs from './about_us/about_us'; 
 
 const App = () => (
   <div className="app-wrap">
     <Route path="/" component={NavBarContainer} />
     {/* <LeftSidebar /> */}
+      <Route exact path='/hehe' component={AboutUs} />
       <ProtectedRoute exact path='/myquiz' component={MyQuizScores}/>
       <ProtectedRoute exact path='/createflashcard' component={CreateFlashcardsContainer}/>
       <ProtectedRoute exact path='/:flashcardId/edit' component={EditFlashcardsContainer}/>
       <ProtectedRoute exact path='/quiz/:quizId/edit' component={QuestionErrorContainer} />
       <ProtectedRoute exact path='/quiz/:quizId/edit' component={QuestionIndexContainer} />
       <ProtectedRoute exact path='/quiz/:quizId/edit' component={NewQuestionFormContainer} />
-
     <Switch>
       <ProtectedRoute path={`/profile/:userId/flashcards`} component={FlashcardIndexContainer} />
       <ProtectedRoute path={`/profile/:userId`} component={ProfileContainer} />
