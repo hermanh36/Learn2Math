@@ -30,7 +30,7 @@ import ProfileContainer from './profile/profile_container';
 
 const App = () => (
   <div className="app-wrap">
-    <NavBarContainer />
+    <Route path="/" component={NavBarContainer} />
     {/* <LeftSidebar /> */}
       <ProtectedRoute exact path='/myquiz' component={MyQuizScores}/>
       <Route exact path='/profile_test' component={ProfileTest}/>
@@ -43,12 +43,12 @@ const App = () => (
     <Switch>
       <Route path={`/profile/:userId/flashcards`} component={FlashcardIndexContainer} />
       <Route path={`/profile/:userId`} component={ProfileContainer} />
-      <Route exact path = '/lesson/new' component={CreateLessonContainer} />
-      <Route exact path='/lesson/:lessonId/edit' component={EditLessonContainer} />
+      <ProtectedRoute exact path = '/lesson/new' component={CreateLessonContainer} />
+      <ProtectedRoute exact path='/lesson/:lessonId/edit' component={EditLessonContainer} />
       <Route exact path='/lesson/:lessonId' component={ShowLessonContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <Route exact path='/quiz/:quizId' component={QuizItemContainer} />
+      <ProtectedRoute exact path='/quiz/:quizId' component={QuizItemContainer} />
       
       <ProtectedRoute exact path="/categories" component={CategoryIndexContainer} />
       {/* <ProtectedRoute exact path="/tweets" component={TweetsContainer} />

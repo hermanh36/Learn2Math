@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 const mapState = (state, ownProps) => {
     return {
         comment: ownProps.comment,
-        formType: 'Update'
+        formType: 'Update',
+        errors: state.errors.comment
     }
 };
 

@@ -36,10 +36,8 @@ export default class MyLessons extends React.Component {
                                 <ul className="pro-lessons-list">
                                     {Object.values(this.state.lessons).map((lesson,idx) => {
                                         return (
-                                            <li>
-                                                <button key={idx}>
-                                                    <Link to={`/lesson/${lesson._id}`}>{lesson.title}</Link>
-                                                </button>
+                                            <li key={idx}>
+                                                <Link to={`/lesson/${lesson._id}`}>{lesson.title}</Link>
                                             </li>
                                         )
                                     })}
