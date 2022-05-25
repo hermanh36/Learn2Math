@@ -52,7 +52,7 @@ class LessonShow extends React.Component {
       commentWrap.classList.toggle('show'); 
   }
   
-  commentsForThisLesson() {
+  render() {
     const {users, comments, lesson, lessonId, quizzes, questions, currentUserId} = this.props;
     if (!lesson) {
       return null
