@@ -4,10 +4,8 @@ import ProfileSidebar from "./profile_sidebar";
 const mSTP = (state, ownProps) => {
     return {
         currentUserId: state.session.user._id,
-        userId: ownProps.match.params.userId
+        profileOwner: ownProps.profileOwner
     }
-    // lessons: state.entities.lessons,
-    // lesson: state.entities.lessons[ownProps.match.params.lessonId],
 }
 
 const mDTP = (dispatch) => ({

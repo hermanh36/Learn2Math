@@ -22,7 +22,7 @@ class LessonShow extends React.Component {
     const { clearUsers, fetchUser, fetchCommentsByLesson, fetchLesson, fetchQuizByLessonId, fetchQuestions, lessonId, fetchUsers } = this.props;
     fetchLesson(lessonId, this.props.clearUsers())
       .then(lesson => {
-          fetchUser(lesson.lesson.authorId)
+          fetchUsers()
             .then(() =>fetchQuizByLessonId(lesson.lesson._id))
             .then(quiz => fetchQuestions(quiz.quiz._id))
             .then(() => fetchCommentsByLesson(lessonId) )
@@ -32,7 +32,7 @@ class LessonShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ quizzes: nextProps.quizzes, questions: nextProps.questions, comments: nextProps.comments})
+    this.setState({ quizzes: nextProps.quizzes, questions: nextProps.questions, comments: nextProps.comments, users: nextProps.users})
     // console.log(nextProps.questions)
     // console.log(nextProps.quizzes)
   }
@@ -77,22 +77,24 @@ class LessonShow extends React.Component {
     // console.log(this.state.questions.length);
     console.log(this.props.currentUserId);
     console.log(this.state);
+    const {users, comments} = this.state;
     // console.log(this.state.users);
-    const commentsForThisLesson = Object.values(this.state.comments).length > 0 ? (
+    const commentsForThisLesson = (Object.values(comments).length > 0) && (Object.values(users).length>0) ? (
       <div className="comment-section-wrap">
         <h1>Comments:</h1>
         {Object.values(this.state.comments).map(comment =>(
         <div >
+          <p className="comment-author">{this.trimEmail(users[comment.userId].email)}</p>
           <div className="comment-wrap">
             {comment.message}
           </div>
-          <p className="comment-author">by Author Name</p>
           {/* SOME NOTES: */}
           {/* the toggle comment form button should toggle visibility for the UpdateCommentContainer for that comment */}
           {/* deletecomment button deletes comment */}
+          {(this.props.currentUserId === comment.userId) ? (
           <div className="toggle-comment-btn-wrap">
             <button onClick={() => this.toggleCommentForm(comment._id)} className="toggle-comment-btn">Toggle Comment Form</button>
-          </div>
+          </div>) : null}
           <div className="comment-form-wrap" id={"comment-form-" + comment._id}>
             <UpdateCommentContainer comment={comment} updateComment={this.props.updateComment}/>
             <div className="delete-comment-btn-wrap">
