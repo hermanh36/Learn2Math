@@ -34,3 +34,7 @@
     background-color: var(--yellow-2);
     border-radius: 0;
 }
+
+.hidden-button {
+    display: none;
+}

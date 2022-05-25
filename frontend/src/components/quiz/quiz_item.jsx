@@ -22,6 +22,8 @@ class QuizItem extends React.Component {
   }
 
   submitHandler() {
+    let quizButton = document.getElementById('quiz-submit');
+    quizButton.classList.toggle('hidden-button')
     let correctAnswer = [];
     let submittedAnswer = [];
     let score = 0;
@@ -68,9 +70,11 @@ class QuizItem extends React.Component {
               {this.props.questions.map(question => <QuestionItemContainer question={question}/>)}
             </ul>
             <div className="submit-quiz-btn-wrap">
-              <button className="submit-quiz-btn" onClick={this.submitHandler}>Submit</button>
+              <button id='quiz-submit' className="submit-quiz-btn" onClick={this.submitHandler}>Submit</button>
             </div>
-            <QuizScore score={this.state.score} total={this.total} />
+            <div>
+              <QuizScore score={this.state.score} total={this.total} />
+            </div>
           </div>
         </div>
       )
