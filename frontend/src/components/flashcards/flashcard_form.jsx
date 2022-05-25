@@ -46,9 +46,9 @@ class FlashcardForm extends React.Component {
     } 
     if (this.props.formType === 'Edit' && this.props.currentUserId !== this.props.flashcard.authorId) {
       return (
-        <div>
-          <div>This is not your flashcard!</div>
-          <Link to={`/profile/${this.props.currentUserId}`}><button>Go Back</button></Link>
+        <div className="not-yours-wrap">
+          <div className="not-yours-message">This is not your flashcard!</div>
+          <Link className="not-yours-link" to={`/profile/${this.props.currentUserId}`}>Go Back</Link>
         </div>
       )
     }

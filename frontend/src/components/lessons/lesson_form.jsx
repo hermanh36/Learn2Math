@@ -91,9 +91,9 @@ class LessonForm extends React.Component {
       if (this.props.formType === 'Update'){
         if(this.props.currentUserId !== this.props.lesson.authorId) {
           return (
-            <div>
-              <div>This is not your lesson!</div>
-              <Link to={`/profile/${this.props.currentUserId}`}><button>Go Back</button></Link>
+            <div className="not-yours-wrap">
+              <div className="not-yours-message">This is not your lesson!</div>
+              <Link className="not-yours-link" to={`/profile/${this.props.currentUserId}`}>Go Back</Link>
             </div>
           )
         }
