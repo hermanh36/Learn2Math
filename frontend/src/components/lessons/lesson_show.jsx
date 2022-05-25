@@ -98,7 +98,7 @@ class LessonShow extends React.Component {
                   {comment.message}
                 </div>
 
-                {(currentUserId === comment.userId) ? (
+                 {(currentUserId === comment.userId) ? (
                 <div className="toggle-comment-btn-wrap">
                   <button onClick={() => this.toggleCommentForm(comment._id)} className="toggle-comment-btn">Edit Comment</button>
                   <div className="delete-comment-btn-wrap">
