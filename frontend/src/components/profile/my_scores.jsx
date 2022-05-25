@@ -48,10 +48,11 @@ class MyScores extends React.Component {
                       {this.props.scores.map(score => 
                         (
                           <li className="quiz-score-btn-wrap">
-                            <button >
-                              <Link to={`/lesson/${score.lessonId}`}>{this.selectTitle(score.lessonId)}</Link>
-                              <span>Score - {score.score}</span>
-                            </button>
+                            
+                              <Link to={`/lesson/${score.lessonId}`}>{this.selectTitle(score.lessonId)}
+                                <span>Score - {score.score}</span>
+                              </Link>                              
+                            
                           </li>
                         )
                       )}
