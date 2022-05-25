@@ -11,8 +11,7 @@ const mapState = (state, ownProps) => {
 
 const mapDispatch = (dispatch,ownProps) => {
     return {
-        submitForm: ownProps.updateComment,
-        clearCommentErrors: ownProps.clearCommentErrors
+        submitForm: ownProps.updateComment
     }
 }
 

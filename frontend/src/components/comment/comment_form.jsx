@@ -16,7 +16,7 @@ export default class CommentForm extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.submitForm(this.state, this.props.clearCommentErrors());
+        this.props.submitForm(this.state);
         if (this.props.formType === 'Create'){
             this.setState({message: ''});
         }

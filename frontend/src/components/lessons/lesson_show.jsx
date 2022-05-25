@@ -47,6 +47,7 @@ class LessonShow extends React.Component {
 
   toggleCommentForm(id) { 
       console.log(id); 
+      this.props.clearCommentErrors();
       let commentWrapId = "comment-form-" + id;
       let commentWrap = document.getElementById(commentWrapId); 
       commentWrap.classList.toggle('show'); 
@@ -107,12 +108,12 @@ class LessonShow extends React.Component {
                 </div>) : null}
                 
                 <div className="comment-form-wrap" id={"comment-form-" + comment._id}>
-                  <UpdateCommentContainer comment={comment} updateComment={this.props.updateComment} clearCommentErrors={this.props.clearCommentErrors}/>
+                  <UpdateCommentContainer comment={comment} updateComment={this.props.updateComment}/>
                 </div>
               </div>))}
           </div>
                   <h1 className="make-a-comment">Make a comment: </h1>
-                  <CreateCommentContainer match={this.props.match} createComment={this.props.createComment} clearCommentErrors={this.props.clearCommentErrors}/>
+                  <CreateCommentContainer match={this.props.match} createComment={this.props.createComment}/>
                 </div>
               )
               : null
