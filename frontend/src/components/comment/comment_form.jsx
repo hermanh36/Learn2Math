@@ -16,7 +16,6 @@ export default class CommentForm extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        debugger
         this.props.submitForm(this.state, this.props.clearCommentErrors());
         if (this.props.formType === 'Create'){
             this.setState({message: ''});
@@ -24,7 +23,6 @@ export default class CommentForm extends React.Component{
       }
 
     render(){
-        debugger
         let createErrors, editErrors;
         if (this.props.formType === 'Create'){
             createErrors = Object.values(this.props.createErrors).length > 0 ? 
