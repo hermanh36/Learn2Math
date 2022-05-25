@@ -9,9 +9,15 @@ export default class FlashcardIndex extends React.Component {
     }
 
     componentDidMount() {
-        
         this.props.fetchFlashcards(this.props.userId, this.props.clearUsers())
         .then(() => this.props.fetchUser(this.props.userId))
+    }
+
+    componentDidUpdate(prevProps) {
+        if(this.props.userId !== prevProps.userId) {
+            this.props.fetchFlashcards(this.props.userId, this.props.clearUsers())
+            .then(() => this.props.fetchUser(this.props.userId))
+        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -111,9 +117,14 @@ export default class FlashcardIndex extends React.Component {
                             <div className="flashcard-index-list-wrap">
                                 {flashcards}
                             </div>
+                            {(this.props.userId === this.props.currentUserId)
+                            ?
                             <div className="index-create-flashcard-btn-wrap">
                                 <button ><Link to='/createflashcard'>Create Flashcard</Link></button> 
                             </div>
+                            :
+                            <div id='flashcard-index-page-bottom-pad'></div>
+                            }
                         </div>
                     </div>
 
