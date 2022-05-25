@@ -2,18 +2,23 @@ import React from 'react';
 import MyLessonsContainer from './my_lessons_container'; 
 import MyScoreContainer from './my_score_container';
 import ProfileSidebarContainer from './profile_sidebar_container';
-import LeftSidebar from '../left_sidebar/left_sidebar';
+import LeftSidebar from '../left_sidebar/left_sidebar_container';
 
 
 export default class Profile extends React.Component{
     constructor(props){
         super(props);
+        this.state = {};
     }
 
     componentDidMount(){
-        this.props.fetchUser(this.props.userId).then((res) => {
-            console.log(res);
-        })
+        this.props.fetchUser(this.props.userId)
+    }
+
+    componentDidUpdate(prevProps) {
+        if(this.props !== prevProps) {
+            this.setState( {userId: this.props.userId})
+        }
     }
 
     render(){
@@ -25,7 +30,7 @@ export default class Profile extends React.Component{
                         <ProfileSidebarContainer match={this.props.match}/>
                         <div className="pro-main-wrap">
                             <MyLessonsContainer authorId={this.props.userId}/>
-                            <MyScoreContainer />  
+                            <MyScoreContainer userId={this.props.userId}/>  
                         </div>
                     </div>
                 </div>

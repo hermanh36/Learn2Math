@@ -10,9 +10,17 @@ class MyScores extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchScores(this.props.currentUserId)
+    this.props.fetchScores(this.props.userId)
     .then(scores => scores.scores.forEach(score => 
       this.props.fetchLesson(score.lessonId).then(lesson => this.lessonArr.push(lesson.lesson)).then(() => this.setState( {lessons:this.lessonArr}))))
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.userId !== prevProps.userId){
+      this.props.fetchScores(this.props.userId)
+      .then(scores => scores.scores.forEach(score => 
+        this.props.fetchLesson(score.lessonId).then(lesson => this.lessonArr.push(lesson.lesson)).then(() => this.setState( {lessons:this.lessonArr}))))
+    }
   }
 
   selectTitle(lessonId)  {
