@@ -2,7 +2,7 @@ import React from 'react';
 import QuestionItemContainer from '../question/question_item_container';
 import QuizScore from './quiz_score';
 import { withRouter } from 'react-router-dom';
-import LeftSidebar from '../left_sidebar/left_sidebar';
+import LeftSidebar from '../left_sidebar/left_sidebar_container';
 
 class QuizItem extends React.Component {
   constructor(props){
