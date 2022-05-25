@@ -16,7 +16,12 @@ export default class Profile extends React.Component{
         })
     }
 
+    componentDidUpdate() {
+        debugger;
+    }
+
     render(){
+        debugger;
         return (
             <>
                 <div className="profile-meta-wrap">
@@ -25,7 +30,7 @@ export default class Profile extends React.Component{
                         <ProfileSidebarContainer match={this.props.match}/>
                         <div className="pro-main-wrap">
                             <MyLessonsContainer authorId={this.props.userId}/>
-                            <MyScoreContainer />  
+                            <MyScoreContainer userId={this.props.userId}/>  
                         </div>
                     </div>
                 </div>

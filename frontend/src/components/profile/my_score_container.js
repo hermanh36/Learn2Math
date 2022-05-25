@@ -4,11 +4,11 @@ import { fetchScores } from "../../actions/quiz_score_action"
 import { connect } from "react-redux"
 import MyScores from "./my_scores"
 
-const mapStateToProps = state => {
+const mapStateToProps = (state,ownProps) => {
   return {
     scores: Object.values(state.entities.quizScores),
     currentUserId: state.session.user.id,
-    lessons: state.entities.lessons
+    lessons: state.entities.lessons,
   }
 }
 
