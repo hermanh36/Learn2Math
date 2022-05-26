@@ -21,7 +21,7 @@ class LoginForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
-      this.props.history.push('/categories');
+      this.props.history.push('/');
     }
 
     // Set or clear errors
@@ -45,7 +45,7 @@ class LoginForm extends React.Component {
     };
 
     this.props.login(user).then((res) => {
-        this.props.history.push('/categories');
+        this.props.history.push('/');
     }); 
   }
 
@@ -57,7 +57,7 @@ class LoginForm extends React.Component {
       password2: "password"
     }
     this.props.login(user).then((res) => {
-      this.props.history.push('/categories');
+      this.props.history.push('/');
     });
   }
 

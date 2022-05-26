@@ -27,7 +27,6 @@ const App = () => (
     <Route path="/" component={NavBarContainer} />
 
     <AboutUs />
-      <Route exact path='/hehe' component={AboutUs} />
       <ProtectedRoute exact path='/myquiz' component={MyQuizScores}/>
       <ProtectedRoute exact path='/createflashcard' component={CreateFlashcardsContainer}/>
       <ProtectedRoute exact path='/:flashcardId/edit' component={EditFlashcardsContainer}/>
@@ -44,7 +43,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path='/quiz/:quizId' component={QuizItemContainer} />
       
-      <ProtectedRoute exact path="/categories" component={CategoryIndexContainer} />
+      <ProtectedRoute exact path="/" component={CategoryIndexContainer} />
       <AuthRoute exact path="/" component={MainPage} />
     </Switch>
     

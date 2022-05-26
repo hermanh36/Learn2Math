@@ -31,7 +31,7 @@ class LessonShow extends React.Component {
 
   deleteHandler() {
     const {deleteLesson, lessonId, history} = this.props;
-    deleteLesson(lessonId).then(history.push('/categories'))
+    deleteLesson(lessonId).then(history.push('/'))
   }
 
   trimEmail(email) {

@@ -39,7 +39,7 @@ class NavBar extends React.Component {
       return (
         <div className="main-nav-wrap">
             <h1>
-              <Link to={this.props.loggedIn ? "/categories" : ""}>
+              <Link to={this.props.loggedIn ? "/" : ""}>
                 Learn2Math
               </Link>
             </h1>
