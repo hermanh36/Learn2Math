@@ -1,13 +1,13 @@
 .modal-container button {
     background: #333;
-    color: #dd6ff8;
+    color: #ebe70c;
     font-family: monospace;
     font-weight: 600;
     font-size: 16px;
     letter-spacing: .2px;
     width: 150px;
     border-radius: 5px;
-    border: 3px solid #dd6ff8;
+    border: 3px solid #eeff00;
     padding: 8px 6px;
     margin: 10% 45%;
     cursor: pointer;
@@ -20,10 +20,8 @@
 .modal-content h1 {
     font-family: monospace;
     font-weight: 900;
-    text-decoration: underline;
-    text-decoration-style: wavy;
-    text-decoration-color: #dd6ff8;
-    text-underline-offset: 8px;
+    font-size: 24px;
+    text-decoration: none;
 }
 
 .modal-content > div{
@@ -60,7 +58,7 @@
     height: auto;
     width: 50vw;
     border-radius: 2px;
-    box-shadow: 0px 0px 14px 1px #dd6ff8;
+    box-shadow: 0px 0px 14px 1px rgb(207, 135, 2);
     margin: 15% auto;
     padding: 1.5rem;
     z-index: 5;
@@ -84,7 +82,7 @@
 
 .close:hover,
 .close:focus {
-    color: #dd6ff8;
+    color: #0e44d8;
     text-decoration: none;
     cursor: pointer;
 }
@@ -106,10 +104,10 @@
 #background{
     height: 100vh;
     width: 100vw;
-    background-color: blue;
+    background-color: rgb(69, 140, 248);
     position: absolute;
     top: 0;
-    opacity: .2;
+    opacity: .3;
     z-index: -24;
 }
 
@@ -141,5 +139,5 @@ svg{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: purple;
+    color: rgb(3, 98, 187);
 }
