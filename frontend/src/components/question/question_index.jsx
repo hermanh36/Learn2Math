@@ -59,7 +59,7 @@ export default class QuestionIndex extends React.Component{
             return null
         }
         else {
-            return (
+                return (
                 <div>
                     {questions}
                 </div>
