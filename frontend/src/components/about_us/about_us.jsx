@@ -4,14 +4,16 @@ import {FaBeer ,FaGithub, FaLinkedin, FaAngellist } from 'react-icons/fa';
 export default class AboutUs extends React.Component{
     render(){
         return (
-            <>
-            <div className='modal-container'>
+            <div className='some-container'>
                 <div className="background-modal"></div>
-                <div className="about-us-modal">
+                <div className='about-us-modal'>
+                    <div className='test-container'>
+                        <span className="close-about-us-modal">&#x2715;</span>
+                    
                     <ul>
-                        <div className="two-people">
+                        <div>
                             <li className='member'>
-                                <li>Derek Lee</li>
+                                <p>Derek Lee</p>
                                 <img src="" alt="profile-picture" />
                                 <ul className='icons'>
                                     <li><a href="#"><FaGithub/></a></li>
@@ -20,7 +22,7 @@ export default class AboutUs extends React.Component{
                                 </ul>
                             </li>
                             <li className='member'>
-                                <li>Dominic Swaby</li>
+                                <p>Dominic Swaby</p>
                                 <img src="" alt="profile-picture" />
                                 <ul className='icons'>
                                     <li><a href="#"><FaGithub/></a></li>
@@ -29,9 +31,9 @@ export default class AboutUs extends React.Component{
                                 </ul>
                             </li>
                         </div>
-                        <div className="two-people">
+                        <div>
                             <li className='member'>
-                                <li>Herman He</li>
+                                <p>Herman He</p>
                                 <img src="" alt="profile-picture" />
                                 <ul className='icons'>
                                     <li><a href="#"><FaGithub/></a></li>
@@ -40,7 +42,7 @@ export default class AboutUs extends React.Component{
                                 </ul>
                             </li>
                             <li className='member'>
-                                <li>Naran Ivanchukov</li>
+                                <p>Naran Ivanchukov</p>
                                 <img src="" alt="profile-picture" />
                                 <ul className='icons'>
                                     <li><a href="#"><FaGithub/></a></li>
@@ -50,9 +52,9 @@ export default class AboutUs extends React.Component{
                             </li>
                         </div>
                     </ul>
+                    </div>
                 </div>
-                </div>
-            </>
+            </div>
         )
     }
 }
