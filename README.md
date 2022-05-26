@@ -63,8 +63,8 @@ to assist in learning algebra and geometry.
 * Flashcards will have their definition side hidden until the flashcard is clicked.
 * Users can also edit and delete specific flashcards.
 * Other users can view an user's flashcard but will not have the option to edit or delete
+![flashcards](https://user-images.githubusercontent.com/59910096/170572201-42fbf81a-005e-4b9d-a39e-e19e50b52cf8.gif)
 
-![search-gif](https://user-images.githubusercontent.com/59910096/170565977-9f76f24b-2e4e-4f81-844f-5bf404b7d25e.gif)
 
 [gif of flashcard index and how it works]
 [code snippet of toggle flashcard]
@@ -72,6 +72,8 @@ to assist in learning algebra and geometry.
 ### Search
 * The search bar on the main page will allow users to filter lessons by its title.
 * The filter is not case sensitive.
+* 
+![search-gif](https://user-images.githubusercontent.com/59910096/170565977-9f76f24b-2e4e-4f81-844f-5bf404b7d25e.gif)
 [GIF of searching]
 [code snippet of filter]
 
