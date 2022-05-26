@@ -78,5 +78,9 @@
   }
 }
 
-
+.signup-form-wrap {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../images/splash.png');
+}
 

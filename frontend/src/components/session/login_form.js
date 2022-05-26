@@ -76,32 +76,34 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className="signup-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="signup-form">
-            <h2>Login</h2>
-              <br />
-                <input type="text"
-                  value={this.state.email}
-                  onChange={this.update('email')}
-                  placeholder="Email"
-                />
-              <br/>
-                <input type="password"
-                  value={this.state.password}
-                  onChange={this.update('password')}
-                  placeholder="Password"
-                />
-              <br/>
-              <input className="signup-submit" type="submit" value="Submit" />
-              {this.renderErrors()}
+      <div className='signup-form-wrap'>
+        <div className="signup-form-container">
+          <form onSubmit={this.handleSubmit}>
+            <div className="signup-form">
+              <h2>Login</h2>
+                <br />
+                  <input type="text"
+                    value={this.state.email}
+                    onChange={this.update('email')}
+                    placeholder="Email"
+                  />
+                <br/>
+                  <input type="password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                    placeholder="Password"
+                  />
+                <br/>
+                <input className="signup-submit" type="submit" value="Submit" />
+                {this.renderErrors()}
 
-            <div className="demo-login-btn-wrap">
-              <button className="demo-login-btn" onClick={this.handleDemoLogin}>Login as demo user</button>
+              <div className="demo-login-btn-wrap">
+                <button className="demo-login-btn" onClick={this.handleDemoLogin}>Login as demo user</button>
+              </div>
+              
             </div>
-            
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     );
   }
