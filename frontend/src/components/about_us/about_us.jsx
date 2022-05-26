@@ -1,5 +1,5 @@
 import React from 'react';
-import {FaBeer ,FaGithub, FaLinkedin, FaAngellist } from 'react-icons/fa';
+import {FaGithub, FaLinkedin, FaAngellist } from 'react-icons/fa';
 
 export default class AboutUs extends React.Component{
 
@@ -14,8 +14,8 @@ export default class AboutUs extends React.Component{
 
     render(){
         return (
-            <>
-                <button id="modalBtn" onClick={this.toggleModal}>open modal</button>
+            <div className='modal-container'>
+                
                 <div id="modalEl" class="modal hidden">
             <div id='background' className='hidden' onClick={this.toggleModal}></div>
 
@@ -26,7 +26,7 @@ export default class AboutUs extends React.Component{
                     
                     <ul className='member'>
                         <div>
-                            <li>
+                            <li className='test'>
                                 <p>Derek Lee</p>
                                 <img src="" alt="profile-picture" />
                                 <ul className='icons'>
@@ -35,7 +35,7 @@ export default class AboutUs extends React.Component{
                                     <li><a href="#"><FaAngellist/></a></li>
                                 </ul>
                             </li>
-                            <li>
+                            <li className='test'>
                                 <p>Dominic Swaby</p>
                                 <img src="" alt="profile-picture" />
                                 <ul className='icons'>
@@ -46,7 +46,7 @@ export default class AboutUs extends React.Component{
                             </li>
                         </div>
                         <div>
-                            <li>
+                            <li className='test'>
                                 <p>Herman He</p>
                                 <img src="" alt="profile-picture" />
                                 <ul className='icons'>
@@ -55,7 +55,7 @@ export default class AboutUs extends React.Component{
                                     <li><a href="#"><FaAngellist/></a></li>
                                 </ul>
                             </li>
-                            <li>
+                            <li className='test'>
                                 <p>Naran Ivanchukov</p>
                                 <img src="" alt="profile-picture" />
                                 <ul className='icons'>
@@ -70,7 +70,7 @@ export default class AboutUs extends React.Component{
                 </div>
                 </div>
                 
-            </> 
+            </div> 
         )
     }
 }

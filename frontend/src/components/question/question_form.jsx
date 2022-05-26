@@ -98,7 +98,7 @@ export default class NewQuestionForm extends React.Component {
                 </div>
                 {this.props.formType === 'Update' ?
                     <div className="question-delete-btn-wrap">
-                        <button onClick={() => this.props.deleteQuestion(this.state._id).then(console.log(this.state))}>Delete</button>
+                        <button onClick={() => this.props.deleteQuestion(this.state._id)}>Delete</button>
 
                     </div>
                     :

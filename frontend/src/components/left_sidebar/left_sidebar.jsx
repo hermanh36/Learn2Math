@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
+import AboutUsModal from '../about_us/about_us';
 
 class LeftSidebar extends React.Component {
     constructor(props) { 
@@ -27,6 +28,14 @@ class LeftSidebar extends React.Component {
         }
     }
 
+    toggleModal(){
+        const modal = document.getElementById("modalEl");
+        const background = document.getElementById('background')
+
+        background.classList.toggle('hidden');
+        modal.classList.toggle('hidden');
+        }
+
     render() { 
         if (this.props.users && this.props.users[(this.props.currentUserId)]){
             return (
@@ -48,6 +57,7 @@ class LeftSidebar extends React.Component {
                             {/* <li><Link to="/create_test">Create a test</Link></li> */}
                             <li><Link to={`/profile/${this.props.currentUserId}`}>Profile</Link></li>
                             <li><Link to={`/profile/${this.props.currentUserId}/flashcards`}> My Flashcards</Link></li>
+                            <li id="modalBtn" className='not-a-link' onClick={this.toggleModal}>About Us</li>
                             </ul>
                         </div>
                     </label>
