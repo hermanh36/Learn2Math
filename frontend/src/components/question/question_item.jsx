@@ -14,7 +14,7 @@ class QuestionItem extends React.Component {
       return null;
     } else {
       return (
-        <li className="quiz-question-wrap" key={this.props.question._id}>
+        <li className="quiz-question-wrap">
           <p className="question-sentence">
             {this.props.question.content}
           </p>

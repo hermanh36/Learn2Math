@@ -12,7 +12,7 @@ class QuizScore extends React.Component {
   }
   render() {
     return (
-      <div className="quiz-score-wrap">
+      <div id='quiz-score-wrap' className="quiz-score-wrap hide">
         <p className="quiz-thank-you">Thank you for finishing the quiz!</p>
         <p className="your-score">Your score is: <span>{this.props.score}</span> </p>
         <div className="quiz-confirm-btn-wrap">

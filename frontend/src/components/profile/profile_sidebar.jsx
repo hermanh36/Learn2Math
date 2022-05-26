@@ -9,7 +9,7 @@ class ProfileSidebar extends React.Component {
     trimEmail(email) {
         let username = '';
         for( let i = 0; i< email.length; i++){
-            if (email[i] == '@'){
+            if (email[i] === '@'){
                 return username;
             } else {
                 username = username + email[i];
