@@ -27,6 +27,9 @@ class QuestionItem extends React.Component {
                 correct and incorrect until submitted */}
               </div>
             ))}
+            <div className='correct-answer hide'>
+              <p>correct answer: {this.props.question.correctAnswer}</p>
+            </div>
             {/* // <div>Correct</div>
             // <div>Incorrect</div> */}
           </div>

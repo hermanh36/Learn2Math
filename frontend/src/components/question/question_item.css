@@ -14,3 +14,20 @@
 .question-choices-wrap{
     padding: 0 1rem;
 }
+
+.correct-answer {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin: 10%;
+    padding: 15px;
+    border: 1px green solid;
+    border-radius: 3px;
+    width: 60%;
+    background-color: rgb(24, 182, 24);
+}
+
+.correct-answer * {
+    font-size: 24px;
+    font-weight: bold;
+}

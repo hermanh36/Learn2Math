@@ -26,6 +26,10 @@ class QuizItem extends React.Component {
     quizButton.classList.toggle('hidden-button')
     let quizConfirm = document.getElementById('quiz-score-wrap');
     quizConfirm.classList.toggle('hide');
+    let correctAnswers = document.getElementsByClassName('correct-answer');
+    for( let i=0; i<correctAnswers.length; i++) {
+      correctAnswers[i].classList.toggle('hide');
+    }
     let correctAnswer = [];
     let submittedAnswer = [];
     let score = 0;
