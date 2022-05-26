@@ -27,7 +27,6 @@ const App = () => (
     <Route path="/" component={NavBarContainer} />
 
     <AboutUs />
-      <Route exact path='/hehe' component={AboutUs} />
       <ProtectedRoute exact path='/myquiz' component={MyQuizScores}/>
       <ProtectedRoute exact path='/createflashcard' component={CreateFlashcardsContainer}/>
       <ProtectedRoute exact path='/:flashcardId/edit' component={EditFlashcardsContainer}/>

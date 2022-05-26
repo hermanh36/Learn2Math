@@ -50,7 +50,7 @@ class LeftSidebar extends React.Component {
                             <h1>L2M</h1>
                             <ul>
                             <li className='welcome-left-bar'>Welcome {this.trimEmail(this.props.users[(this.props.currentUserId)].email)}!</li>
-                            <li><Link to="/categories">Lessons</Link></li>
+                            <li><Link to="/">Lessons</Link></li>
                             <li><Link to="/lesson/new">Create a lesson</Link></li>
                             <li><Link to='/createflashcard'>Create Flashcard</Link></li>
                             {/* <li><Link to="/create_test">Create a test</Link></li> */}
