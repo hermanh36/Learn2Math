@@ -1,5 +1,9 @@
 import React from 'react';
 import {FaGithub, FaLinkedin, FaAngellist } from 'react-icons/fa';
+import Derek from './../../images/derek.jpg';
+import Dominic from './../../images/dom.jpeg';
+import Herman from './../../images/herman.jpg';
+import Naran from './../../images/naran.jpg';
 
 export default class AboutUs extends React.Component{
 
@@ -25,40 +29,40 @@ export default class AboutUs extends React.Component{
                     
                     <ul className='member'>
                         <div>
-                            <li className='test'>
+                            <li className='profile'>
                                 <p>Derek Lee</p>
-                                <img src="" alt="profile-picture" />
+                                <img src={Derek} alt="derek-lee" />
                                 <ul className='icons'>
-                                    <li><a href="#"><FaGithub/></a></li>
-                                    <li><a href="#"><FaLinkedin/></a></li>
-                                    <li><a href="#"><FaAngellist/></a></li>
+                                    <li><a href="https://github.com/derek-2"><FaGithub/></a></li>
+                                    <li><a href="https://www.linkedin.com/in/derek-lee-a43632152/"><FaLinkedin/></a></li>
+                                    <li><a href="https://angel.co/u/derek-lee-35"><FaAngellist/></a></li>
                                 </ul>
                             </li>
-                            <li className='test'>
+                            <li className='profile'>
                                 <p>Dominic Swaby</p>
-                                <img src="" alt="profile-picture" />
+                                <img src={Dominic} alt="dominic-swaby" />
                                 <ul className='icons'>
-                                    <li><a href="#"><FaGithub/></a></li>
-                                    <li><a href="#"><FaLinkedin/></a></li>
-                                    <li><a href="#"><FaAngellist/></a></li>
+                                    <li><a href="https://github.com/domswaby/"><FaGithub/></a></li>
+                                    <li><a href="https://www.linkedin.com/in/dominic-swaby-5b43681a5/"><FaLinkedin/></a></li>
+                                    <li><a href="https://angel.co/u/dominic-5"><FaAngellist/></a></li>
                                 </ul>
                             </li>
                         </div>
                         <div>
-                            <li className='test'>
+                            <li className='profile'>
                                 <p>Herman He</p>
-                                <img src="" alt="profile-picture" />
+                                <img src={Herman} alt="herman-he" />
                                 <ul className='icons'>
-                                    <li><a href="#"><FaGithub/></a></li>
-                                    <li><a href="#"><FaLinkedin/></a></li>
-                                    <li><a href="#"><FaAngellist/></a></li>
+                                    <li><a href="https://github.com/hermanh36"><FaGithub/></a></li>
+                                    <li><a href="https://www.linkedin.com/in/herman-he-0a75051b0/"><FaLinkedin/></a></li>
+                                    <li><a href="https://angel.co/u/herman-he"><FaAngellist/></a></li>
                                 </ul>
                             </li>
-                            <li className='test'>
+                            <li className='profile'>
                                 <p>Naran Ivanchukov</p>
-                                <img src="" alt="profile-picture" />
+                                <img src={Naran} alt="naran-ivanchukov" />
                                 <ul className='icons'>
-                                    <li><a href="#"><FaGithub/></a></li>
+                                    <li><a href="https://github.com/nivan16"><FaGithub/></a></li>
                                     <li><a href="#"><FaLinkedin/></a></li>
                                     <li><a href="#"><FaAngellist/></a></li>
                                 </ul>

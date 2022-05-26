@@ -141,3 +141,8 @@ svg{
     flex-direction: column;
     color: rgb(3, 98, 187);
 }
+
+.profile img {
+    width: 10%;
+    height: 10%;
+}
