@@ -8,12 +8,6 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
-import * as lessonAction from './actions/lesson_actions';
-import * as QuestionAction from './actions/question_actions'
-import * as FlashcardAction from './actions/flashcard_actions';
-import * as ScoreAction from './actions/quiz_score_action';
-import * as UserAction from './actions/user_actions';
-import * as CommentAction from './actions/comment_actions';
 
 import * as QuizAction from './actions/quiz_action';
 
@@ -37,48 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore({});
   }
-  window.dispatch = store.dispatch;
-  window.getState = store.getState;
-  window.fetchLesson = lessonAction.fetchLesson;
-  window.fetchLessons = lessonAction.fetchLessons;
-  window.createLesson = lessonAction.createLesson;
-  window.updateLesson = lessonAction.updateLesson;
-  window.deleteLesson = lessonAction.deleteLesson;
-  window.fetchMyLessons = lessonAction.fetchMyLessons;
-  window.clearLesson = lessonAction.clearLessons;
-
-  window.fetchQuestion = QuestionAction.fetchQuestion;
-  window.fetchQuestions = QuestionAction.fetchQuestions;
-  window.createQuestion = QuestionAction.createQuestion;
-  window.updateQuestion = QuestionAction.updateQuestion;
-  window.deleteQuestion = QuestionAction.deleteQuestion;
-
-  window.fetchScores = ScoreAction.fetchScores;
-  window.createScore = ScoreAction.createScore;
-
-  window.fetchQuizzes = QuizAction.fetchQuizzes;
-  window.fetchQuizByLessonId = QuizAction.fetchQuizByLessonId;
-  window.fetchQuiz = QuizAction.fetchQuiz;
-  window.createQuiz = QuizAction.createQuiz;
-  // window.updateQuiz = QuizAction.updateQuiz;
-  window.deleteQuiz = QuizAction.deleteQuiz;
-
-  window.fetchFlashcards = FlashcardAction.fetchFlashcards;
-  window.fetchFlashcard = FlashcardAction.fetchFlashcard;
-  window.deleteFlashcard = FlashcardAction.deleteFlashcard;
-  window.updateFlashcard = FlashcardAction.updateFlashcard;
-  window.createFlashcard = FlashcardAction.createFlashcard;
-
-  window.fetchCommentsByUser = CommentAction.fetchCommentsByUser;
-  window.fetchCommentsByLesson = CommentAction.fetchCommentsByLesson;
-  window.updateComment = CommentAction.updateComment;
-  window.deleteComment = CommentAction.deleteComment;
-  window.createComment = CommentAction.createComment;
-
-
-  window.fetchUser = UserAction.fetchUser;
-  window.fetchUsers = UserAction.fetchUsers;
-  
 
   const root = document.getElementById('root');
 
