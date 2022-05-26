@@ -45,7 +45,7 @@ class LoginForm extends React.Component {
     };
 
     this.props.login(user).then((res) => {
-        this.props.history.push('/');
+        this.props.history.push('/categories');
     }); 
   }
 

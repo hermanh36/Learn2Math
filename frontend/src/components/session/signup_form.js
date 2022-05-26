@@ -42,7 +42,7 @@ class SignupForm extends React.Component {
     };
 
     this.props.signup(user).then((res)=> {
-        this.props.history.push('/');
+        this.props.history.push('/categories');
     }); 
   }
 
@@ -54,7 +54,7 @@ class SignupForm extends React.Component {
       password2: "password"
     }
     this.props.login(user).then((res) => {
-      this.props.history.push('/');
+      this.props.history.push('/categories');
     }); 
   }
 
