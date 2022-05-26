@@ -2,7 +2,7 @@ import React from 'react';
 import {FaGithub, FaLinkedin, FaAngellist } from 'react-icons/fa';
 import Derek from './../../images/derek.jpg';
 import Dominic from './../../images/dom.jpeg';
-import Herman from './../../images/herman.jpg';
+import Herman from './../../images/herman.png';
 import Naran from './../../images/naran.jpg';
 
 export default class AboutUs extends React.Component{
