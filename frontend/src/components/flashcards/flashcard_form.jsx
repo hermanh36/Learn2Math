@@ -28,11 +28,16 @@ class FlashcardForm extends React.Component {
     }
   }
 
-  submitHandler() {
+  submitHandler(e) {
+    e.preventDefault();
     this.props.submitForm(this.state)
     if (Object.values(this.state).every(field => field.length > 0)){
       this.props.history.push(`/profile/${this.props.currentUserId}/flashcards`)
+    } else if (this.props.formType === 'Edit' && (this.state.title.length > 2 && this.state.title.length < 140)
+       && (this.state.body.length > 4 && this.state.body.length < 140)) {
+      this.props.history.push(`/profile/${this.props.currentUserId}/flashcards`)
     }
+
     
   }
   
@@ -71,15 +76,19 @@ class FlashcardForm extends React.Component {
                   <label htmlFor="flashcard-body">Content</label>
                   <input onChange={this.update('body')} type="text" value={this.state.body}name='flashcard-body' />
                 </div>
-                <div className="create-card-submit-wrap">
-                  <input type="submit" value={`${this.props.formType} your flashcard`} />
-                </div>
+                <div className='card-btn-container'>
+                  <div className="create-card-submit-wrap">
+                    <input type="submit" value={`${this.props.formType} your flashcard`} />
+                  </div>
+                  {(this.props.formType === 'Edit') ? 
+                  <div className='delete-card-submit-wrap'>
+                    <button  onClick={this.deleteHandler}>Delete</button>
+                  </div>
+                  :
+                  <></>
+                }
+              </div>
               </form>
-              {(this.props.formType === 'Edit') ? 
-                <button onClick={this.deleteHandler}>Delete</button>
-                :
-                <></>
-              }
               {errors.length > 0 ? errors.map((err,idx) => <p key={idx}>{err}</p>): null}
             </div>
           </div>

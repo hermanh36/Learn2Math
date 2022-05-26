@@ -45,8 +45,9 @@
 }
 
 .create-card-submit-wrap { 
-  margin-top: 10rem;
+  /* margin-top: 10rem; */
   text-align: center;
+  padding-right: 20px;
 }
 
 .create-card-submit-wrap > input{
@@ -124,3 +125,27 @@
   }
 }
 
+.card-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-card-submit-wrap > button{
+  background: var(--red-1);
+  border: 1px solid var(--gray-1);
+  border-radius: 4px; 
+  font-size: 1rem;
+  padding: 1rem;
+  color: white;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete-card-submit-wrap > button:hover{
+  text-shadow: 1px 1px var(--yellow-1);
+  box-shadow: 1px 1px 1px 1px var(--yellow-2);
+  letter-spacing: 2px;
+}
