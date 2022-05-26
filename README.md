@@ -63,6 +63,9 @@ to assist in learning algebra and geometry.
 * Flashcards will have their definition side hidden until the flashcard is clicked.
 * Users can also edit and delete specific flashcards.
 * Other users can view an user's flashcard but will not have the option to edit or delete
+
+![search-gif](https://user-images.githubusercontent.com/59910096/170565977-9f76f24b-2e4e-4f81-844f-5bf404b7d25e.gif)
+
 [gif of flashcard index and how it works]
 [code snippet of toggle flashcard]
 
