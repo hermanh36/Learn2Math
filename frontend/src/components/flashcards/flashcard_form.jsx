@@ -69,11 +69,11 @@ class FlashcardForm extends React.Component {
               <h1>{this.props.formType} Flashcard</h1>
               <form onSubmit={this.submitHandler}>
                 <div className="create-card-input-wrap">
-                  <label htmlFor="flashcard-title">Title</label>
+                  <label htmlFor="flashcard-title">Word</label>
                   <input onChange={this.update('title')} type="text" value={this.state.title}name='flashcard-title' />
                 </div>
                 <div className="create-card-input-wrap">
-                  <label htmlFor="flashcard-body">Content</label>
+                  <label htmlFor="flashcard-body">Definition</label>
                   <input onChange={this.update('body')} type="text" value={this.state.body}name='flashcard-body' />
                 </div>
                 <div className='card-btn-container'>
