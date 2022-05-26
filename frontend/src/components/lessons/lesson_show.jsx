@@ -37,7 +37,7 @@ class LessonShow extends React.Component {
   trimEmail(email) {
     let username = '';
     for( let i = 0; i< email.length; i++){
-        if (email[i] == '@'){
+        if (email[i] === '@'){
             return username;
         } else {
             username = username + email[i];
@@ -92,7 +92,7 @@ class LessonShow extends React.Component {
                   <div className="comment-section-wrap">
             <h1>Comments:</h1>
               {Object.values(comments).map(comment =>(
-              <div >
+              <div key={comment._id}>
                 <p className="comment-author"><Link to={`/profile/${users[comment.userId]._id}`}>{this.trimEmail(users[comment.userId].email)}</Link></p>
                 <div className="comment-wrap">
                   {comment.message}

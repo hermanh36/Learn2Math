@@ -11,16 +11,15 @@ export default class AboutUs extends React.Component{
         modal.classList.toggle('hidden');
         }
     
-
     render(){
         return (
             <div className='modal-container'>
                 
-                <div id="modalEl" class="modal hidden">
+                <div id="modalEl" className="modal hidden">
             <div id='background' className='hidden' onClick={this.toggleModal}></div>
 
-                <div class="modal-content">
-                    <span class="close" onClick={this.toggleModal}>&times;</span>
+                <div className="modal-content">
+                    <span className="close" onClick={this.toggleModal}>&times;</span>
                     <div>
                         <h1>About Us</h1>
                     

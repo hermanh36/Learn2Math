@@ -14,13 +14,13 @@ class QuestionItem extends React.Component {
       return null;
     } else {
       return (
-        <li className="quiz-question-wrap">
+        <li className="quiz-question-wrap" key={this.props.question._id}>
           <p className="question-sentence">
             {this.props.question.content}
           </p>
           <div className="question-choices-wrap">
-            {this.props.question.answerChoices.map(answer => (
-              <div>
+            {this.props.question.answerChoices.map((answer,idx) => (
+              <div key={idx}>
                 <input type="radio" name={`answer${this.props.question._id}`} value={answer}/>
                 <label>{answer}</label>
                 {/* maybe render a checkmark, hide

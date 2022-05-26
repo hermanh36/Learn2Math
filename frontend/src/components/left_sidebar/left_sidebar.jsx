@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
-import AboutUsModal from '../about_us/about_us';
 
 class LeftSidebar extends React.Component {
     constructor(props) { 
@@ -20,7 +19,7 @@ class LeftSidebar extends React.Component {
      trimEmail(email) {
         let username = '';
         for( let i = 0; i< email.length; i++){
-            if (email[i] == '@'){
+            if (email[i] === '@'){
                 return username;
             } else {
                 username = username + email[i];

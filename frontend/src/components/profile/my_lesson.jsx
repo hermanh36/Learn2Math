@@ -31,9 +31,9 @@ export default class MyLessons extends React.Component {
                             <div>
                                 <h1>Lessons</h1>
                                 <ul className="pro-lessons-list">
-                                    {Object.values(this.state.lessons).map((lesson,idx) => {
+                                    {Object.values(this.state.lessons).map(lesson => {
                                         return (
-                                            <li key={idx}>
+                                            <li key={lesson._id}>
                                                 <Link to={`/lesson/${lesson._id}`}>{lesson.title}</Link>
                                             </li>
                                         )

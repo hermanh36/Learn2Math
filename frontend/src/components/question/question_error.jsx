@@ -6,7 +6,7 @@ export const QuestionError = (props) => {
     return (
         <>
             <LeftSidebar />
-            {errors.length > 0 ? errors.map(err => <p>{err}</p>):null}
+            {errors.length > 0 ? errors.map((err,idx) => <p key={idx}>{err}</p>):null}
         </>
     )
 }

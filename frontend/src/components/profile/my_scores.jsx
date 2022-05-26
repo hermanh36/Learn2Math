@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import LeftSidebar from '../left_sidebar/left_sidebar_container';
 
 class MyScores extends React.Component {
   constructor(props){
@@ -47,7 +46,7 @@ class MyScores extends React.Component {
                   <ul className="pro-lessons-list">
                       {this.props.scores.map(score => 
                         (
-                          <li className="quiz-score-btn-wrap">
+                          <li key={score._id} className="quiz-score-btn-wrap">
                             
                               <Link to={`/lesson/${score.lessonId}`}>{this.selectTitle(score.lessonId)}
                                 <span>Score - {score.score}</span>
