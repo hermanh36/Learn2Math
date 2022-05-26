@@ -29,7 +29,7 @@ class ProfileSidebar extends React.Component {
                         <p>{profileOwner ? this.trimEmail(profileOwner.email) : 'Loading...'}</p>
                     </div>
                     <div className="card-index-link">
-                        <Link>Go to Flashcards</Link>
+                        <Link to={`/profile/${profileOwner?._id}/flashcards`}>Go to Flashcards</Link>
                     </div>
                 </div>
             </>

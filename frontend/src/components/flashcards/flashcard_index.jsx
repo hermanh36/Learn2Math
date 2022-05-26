@@ -6,6 +6,7 @@ export default class FlashcardIndex extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
+        this.lessonAuthor = null;
     }
 
     componentDidMount() {
@@ -95,13 +96,13 @@ export default class FlashcardIndex extends React.Component {
         if(Object.values(this.props.authors).length === 0){
             return null
         } else {
-
+            this.lessonAuthor ||= this.props.authors[this.props.userId];
             return (
                 <>
                     <div className="flashcard-index-wrap">
                         <LeftSidebarContainer />
                         <div>
-                            <h1 className="flashcard-index-header"><Link to={`/profile/${Object.values(this.props.authors)[0]._id}`}>{this.trimEmail(Object.values(this.props.authors)[0].email)}</Link>'s Flashcards</h1>
+                            <h1 className="flashcard-index-header"><Link to={`/profile/${this.props.userId}`}>{this.trimEmail(this.lessonAuthor.email)}</Link>'s Flashcards</h1>
                             <div className="hide-all-answers-btn-wrap" >
                                 <button onClick={() => this.hideAllAnswers()}>
                                     Hide all answers
