@@ -23,7 +23,7 @@ class ProfileSidebar extends React.Component {
             <>
                 <div className="pro-sidebar-wrap">                                    
                     <div className="profile-pic-wrap">
-                        <div>Profile Pic</div>
+                        <div className='default-profile'></div>
                     </div>
                     <div className="pro-username">
                         <p>{profileOwner ? this.trimEmail(profileOwner.email) : 'Loading...'}</p>
