@@ -39,7 +39,7 @@
   letter-spacing: 2px;
 }
 .lesson-show-title > a {
-  text-decoration: none;
+  text-decoration: underline;
   color: inherit; 
   transition: 0.3s;
   box-sizing: border-box;
@@ -235,7 +235,7 @@
   font-weight: 300;
 }
 .comment-author > a{
-  text-decoration: none;
+  text-decoration: underline;
   color: var(--blue-1);
   transition: 0.3s;
 }
