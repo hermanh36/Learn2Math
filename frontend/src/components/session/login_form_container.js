@@ -7,7 +7,7 @@ import LoginForm from './login_form';
 const mapStateToProps = (state) => {
   return {
     errors: state.errors.session,
-    currentUserId: state.session.user._id
+    currentUserId: state.session.user ? state.session.user._id : undefined
   };
 };
 

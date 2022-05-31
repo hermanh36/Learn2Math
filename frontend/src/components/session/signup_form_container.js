@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
   return {
     signedIn: state.session.isSignedIn,
     errors: state.errors.session,
-    currentUserId: state.session.user._id
+    currentUserId: state.session.user ? state.session.user._id : undefined
   };
 };
 
