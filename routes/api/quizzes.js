@@ -3,8 +3,10 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
+const Question = require('../../models/Question');
 
 const Quiz = require('../../models/Quiz');
+const QuizScore = require('../../models/QuizScore');
 
 router.get('/', (req, res) => {
   Quiz.find()
