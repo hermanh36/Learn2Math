@@ -41,8 +41,10 @@ class SignupForm extends React.Component {
       password2: this.state.password2
     };
 
-    this.props.signup(user).then((res)=> {
-        this.props.history.push('/categories');
+    this.props.signup(user).then(()=> {
+        if (this.props.currentUserId){
+          this.props.history.push('/categories');
+        }
     }); 
   }
 
