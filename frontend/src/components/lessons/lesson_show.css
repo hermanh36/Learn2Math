@@ -132,10 +132,13 @@
   margin: 1rem 0;
 }
 .comment-section-wrap > div{
-  border: 2px solid var(--gray-6);
+  /* border: 2px solid var(--gray-6); */
+  border-bottom: 1px solid var(--gray-6);
   padding: 0.5rem;
   margin: 0 0 1rem 0; 
+  width: 70vw;
 }
+
 .comment-section-wrap > h1{
   font-size: 1.5rem; 
   padding: 2rem; 
