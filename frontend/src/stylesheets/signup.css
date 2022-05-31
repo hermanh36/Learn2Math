@@ -11,8 +11,10 @@
 
 .signup-form-container > form{
   transform: translateY(-70px);
-  padding: 2em; 
-  background-color: var(--gray-1);
+  padding: 2em;
+  background-color:blanchedalmond;
+  border: 1px solid black;
+  /* background-color: var(--gray-1); */
   border-radius: 5px;
   width: 100%; 
 }
@@ -81,6 +83,6 @@
 .signup-form-wrap {
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url('../images/splash.png');
+  background-image: url('../images/math-splash.png');
 }
 
