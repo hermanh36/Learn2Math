@@ -12,8 +12,8 @@
   box-sizing: border-box;
 }
 
-/* 
-.lesson-show-category {
+
+/* .lesson-show-category {
   margin-bottom: 3rem;
   border: 1px solid black;
   color: var(--yellow-1);
@@ -133,9 +133,9 @@
 }
 .comment-section-wrap > div{
   /* border: 2px solid var(--gray-6); */
-  border-bottom: 1px solid var(--gray-6);
+  border-bottom: 2px solid lightgray;
   padding: 0.5rem;
-  margin: 0 0 1rem 0; 
+  /* margin: 0 0 1rem 0;  */
   width: 70vw;
 }
 
@@ -160,10 +160,15 @@
       transition-duration: 0.3s;
 }
 .toggle-comment-btn, 
-.delete-comment-btn, 
-.update-comment-btn-wrap > button,
-.update-comment-textarea-wrap > textarea{
+.delete-comment-btn
+{
   width: 50%; 
+}
+.update-comment-textarea-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:flex-start;
 }
 .toggle-comment-btn:hover, 
 .delete-comment-btn:hover, 
@@ -205,7 +210,12 @@
     background-color: var(--blue-1);
     cursor: pointer;
     transition-duration: 0.3s;
+    width:100%;
+    height:100%;
+
+    
 }
+
 .make-a-comment{
   font-size: 1.3rem;
   font-weight: 600;
@@ -216,6 +226,8 @@
 }
 .update-comment-textarea{
   min-height: 5rem;
+  margin-bottom: 2vh;
+  resize: none;
 }
 .comment-author{
   font-size: 0.8rem;
@@ -259,9 +271,23 @@
 }
 @media only screen and (min-width: 1200px) {
     .toggle-comment-btn,
-    .delete-comment-btn,
-    .update-comment-btn-wrap>button,
-    .update-comment-textarea-wrap>textarea {
+    .delete-comment-btn
+     {
       width: 33%;
     }
+}
+
+@media only screen and (min-width: 1200px) {
+  .update-comment-btn-wrap>button
+  {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .update-comment-textarea-wrap>textarea
+  {
+    width: 40%;
+    height: 15vh;
+  }
 }
