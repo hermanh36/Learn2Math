@@ -12,7 +12,6 @@ class LessonShow extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     const { clearUsers, fetchUser, fetchCommentsByLesson, fetchLesson, fetchQuizByLessonId, fetchQuestions, lessonId, fetchUsers } = this.props;
     fetchLesson(lessonId)
     fetchQuizByLessonId(lessonId)
