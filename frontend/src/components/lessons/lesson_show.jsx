@@ -12,14 +12,20 @@ class LessonShow extends React.Component {
   }
 
   componentDidMount() {
+    debugger;
     const { clearUsers, fetchUser, fetchCommentsByLesson, fetchLesson, fetchQuizByLessonId, fetchQuestions, lessonId, fetchUsers } = this.props;
     fetchLesson(lessonId)
-      .then(lesson => {
-          fetchUsers()
-            .then(() => fetchCommentsByLesson(lessonId))
-            .then(() => fetchQuizByLessonId(lesson.lesson._id))
-      })
+    fetchQuizByLessonId(lessonId)
+    fetchUsers()
+    fetchCommentsByLesson(lessonId)
+
+      // .then(lesson => {
+      //     fetchUsers()
+      //       .then(() => fetchCommentsByLesson(lessonId))
+      //       .then(() => fetchQuizByLessonId(lesson.lesson._id))
+      // })
   }
+
 
 
   deleteComment(commentId){

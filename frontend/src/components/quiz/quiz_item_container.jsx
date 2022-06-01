@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     quizId: ownProps.match.params.quizId,
     questions: Object.values(state.entities.questions),
-    currentUser: state.session.user.id
+    currentUser: state.session.user.id,
+    quizzes: state.entities.quizzes
   }
 }
 

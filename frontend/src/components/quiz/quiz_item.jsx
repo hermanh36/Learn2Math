@@ -16,12 +16,16 @@ class QuizItem extends React.Component {
   //assume props have lessonId
 
   componentDidMount() {
+    debugger;
+    // this.props.fetchQuestions(this.props.quizId)
+    // .then(() => this.props.fetchQuiz(this.props.quizId))
+    // .then(quiz => this.lessonId = quiz.quiz.lessonId)
+    this.props.fetchQuiz(this.props.quizId).then(quiz => console.log(quiz))
     this.props.fetchQuestions(this.props.quizId)
-    .then(() => this.props.fetchQuiz(this.props.quizId))
-    .then(quiz => this.lessonId = quiz.quiz.lessonId)
   }
 
   submitHandler() {
+    debugger;
     let quizButton = document.getElementById('quiz-submit');
     quizButton.classList.toggle('hidden-button')
     let quizConfirm = document.getElementById('quiz-score-wrap');
@@ -54,18 +58,9 @@ class QuizItem extends React.Component {
         studentId: this.props.currentUser,
         score: score,
         quizId: this.props.quizId,
-        lessonId: this.lessonId
+        lessonId: this.props.quizzes[this.props.quizId].lessonId
       }
     )
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.questions !==  prevProps.questions) {
-      debugger;
-      this.props.fetchQuestions(this.props.quizId)
-    .then(() => this.props.fetchQuiz(this.props.quizId))
-    .then(quiz => this.lessonId = quiz.quiz.lessonId)
-    }
   }
 
   render() {
