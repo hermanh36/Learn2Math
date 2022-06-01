@@ -188,5 +188,12 @@ table {
 @import "./components/quiz/quiz_score.css";
 
 @import url('//fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700&display=swap');
-
-@import "./components/about_us/about_us.css"
+@import "../public/fonts/static/WorkSans-Black.ttf";
+@import "../public/fonts/static/WorkSans-BlackItalic.ttf";
+@import "./components/about_us/about_us.css";
+@import "../public/fonts/static/WorkSans-ExtraLight";
+@import "../public/fonts/static/WorkSans-Light.ttf";
+@import "../public/fonts/static/WorkSans-Regular.ttf";
+@import "../public/fonts/static/WorkSans-Medium.ttf";
+@import "../public/fonts/static/WorkSans-SemiBold.ttf";
+@import "../public/fonts/static/WorkSans-Bold.ttf";
