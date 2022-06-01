@@ -8,6 +8,7 @@ module.exports = function validateQuestionInput(data) {
     data.correctAnswer = validText(data.correctAnswer) ? data.correctAnswer : '';
     data.answerChoices = data.answerChoices.map(answerChoice => validText(answerChoice) ? answerChoice : '');
 
+
     if (!Validator.isLength(data.content, { min: 3, max: 140 })) {
         errors.content = 'The question must be between 3 and 140 characters';
     }

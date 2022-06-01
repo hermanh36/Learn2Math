@@ -59,6 +59,15 @@ class QuizItem extends React.Component {
     )
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.questions !==  prevProps.questions) {
+      debugger;
+      this.props.fetchQuestions(this.props.quizId)
+    .then(() => this.props.fetchQuiz(this.props.quizId))
+    .then(quiz => this.lessonId = quiz.quiz.lessonId)
+    }
+  }
+
   render() {
     if (!this.props.questions){
       return (

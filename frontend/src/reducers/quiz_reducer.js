@@ -6,15 +6,17 @@ import {
 
 const QuizReducer = (state={}, action) => {
     Object.freeze(state);
-    const nextState = Object.assign({}, state);
+    let nextState = Object.assign({}, state);
 
     switch(action.type){
         case RECEIVE_QUIZZES:
+            nextState = {};
             Object.values(action.quizzes).forEach(quiz => {
                 nextState[quiz._id] = quiz
             })
             return nextState;
         case RECEIVE_QUIZ:
+            nextState = {};
             nextState[action.quiz._id] = action.quiz;
             return nextState;
         case REMOVE_QUIZ:

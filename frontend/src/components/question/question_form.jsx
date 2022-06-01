@@ -26,7 +26,7 @@ export default class NewQuestionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const {choice1, choice2, choice3, choice4} = this.state;
-        const arr = [choice1, choice2, choice3, choice4];
+        const arr = [choice1, choice2, choice3, choice4].join();
         this.setState({answerChoices:arr}, () => {
             this.props.submitForm(this.state)
                 .then((res) => {

@@ -5,14 +5,11 @@ class QuestionItem extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchQuestion(this.props.question)
-  }
-
   render() {
     if (!this.props.question) {
       return null;
     } else {
+      debugger;
       return (
         <li className="quiz-question-wrap">
           <p className="question-sentence">
