@@ -3,7 +3,7 @@
 Welcome to Learn2Math, an original MERN stack website designed to allow users to view and create study tools
 to assist in learning algebra and geometry.
 
-[picture goes here]
+![image](https://user-images.githubusercontent.com/59910096/177423114-e842652c-d3a0-4ac8-bbbf-2a23137c5f59.png)
 
 [Live Link](https://learn2math.herokuapp.com/#/)
 
@@ -49,6 +49,7 @@ to assist in learning algebra and geometry.
 * Quizzes will initially be empty and the creator of the lesson can add questions to the quiz.
 * Others users can take a quiz and will be presented a score along with the correct answers to
   each question once they submit the quiz.
+  
 ![create_question](https://user-images.githubusercontent.com/97995278/170572928-75f7e4fb-f898-443d-bb1f-a54c152b2444.png)
 ![quiz_code_snippet](https://user-images.githubusercontent.com/97995278/170572939-bd4ba783-201c-44a4-8f49-c463e4e8d4a0.png)
 
@@ -58,6 +59,7 @@ to assist in learning algebra and geometry.
 * They can also access others profiles by clicking on another's lesson and click their username.
 * User's profile page will include their profile picture, their username, and a link to their flashcards.
 * It will also include all the lessons the user had created and a list of all quizzes they have taken along with their score.
+
 ![user_profile](https://user-images.githubusercontent.com/97995278/170573687-8c38f6bd-c764-4fb5-a218-568adef3e2cf.png)
 
 ### Flashcards
@@ -65,6 +67,7 @@ to assist in learning algebra and geometry.
 * Flashcards will have their definition side hidden until the flashcard is clicked.
 * Users can also edit and delete specific flashcards.
 * Other users can view an user's flashcard but will not have the option to edit or delete
+
 ![flashcards](https://user-images.githubusercontent.com/59910096/170572201-42fbf81a-005e-4b9d-a39e-e19e50b52cf8.gif)
 ![toggle_flashcard](https://user-images.githubusercontent.com/97995278/170573815-cdd9e915-0c64-496f-9bcc-c1f3d3694ed2.png)
 
@@ -73,6 +76,7 @@ to assist in learning algebra and geometry.
 ### Search
 * The search bar on the main page will allow users to filter lessons by its title.
 * The filter is not case sensitive.
+
 ![search-gif](https://user-images.githubusercontent.com/59910096/170565977-9f76f24b-2e4e-4f81-844f-5bf404b7d25e.gif)
 
 
