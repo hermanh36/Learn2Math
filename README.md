@@ -1,6 +1,6 @@
 # Learn2Math
 
-Welcome to <a href="https://learn2math.herokuapp.com/#/">Learn2Math</a>, an original MERN stack website designed to allow users to view and create study tools
+Welcome to <a href="https://learn2math.herokuapp.com/#/">Learn2Math</a>, an original MERN stack webapp designed to allow users to view and create study tools
 to assist in learning algebra and geometry.
 
 ![image](https://user-images.githubusercontent.com/59910096/177423114-e842652c-d3a0-4ac8-bbbf-2a23137c5f59.png)
